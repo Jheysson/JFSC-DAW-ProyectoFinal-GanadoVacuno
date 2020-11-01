@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaRecursos :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaRecursos :: header"></header>
+		<aside th:replace="layout/plantillaRecursos :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Natalidad</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a>
+							</li>
+							<li class="breadcrumb-item">natalidad</li>
+							<li class="breadcrumb-item active">listado natalidad</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+							<div class="d-flex">
+										<div class="mr-auto">
+											<div class="form-group">												
+												<a class="btn btn-primary" th:href="@{/natalidad/agregarNatalidad}">agregar
+													Registro de Natalidad</a>
+											</div>
+										</div>
+									</div>
+								<table id="myTable"
+									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>CUIA</th>
+											<th>Sexo</th>
+											<th>Genotipo</th>
+											<th>Fecha Nacimiento</th>
+											<th>Peso</th>
+											<th>Madre</th>
+											<th>Padre</th>
+											<th>Cod Inse</th>
+											<th>Observacion</th>
+											<th>Editar</th>
+											<th>Eliminar</th>
+										<tr th:each="model : ${listNatalidad}">
+											<td th:text="${model.cuiaNata}"></td>
+											<td th:text="${model.idSexo}"></td>
+											<td th:text="${model.idGeno}"></td>
+											<td th:text="${model.fechNaciNata}"></td>
+											<td th:text="${model.pesoNata}"></td>
+											<td th:text="${model.cuiaMadr}"></td>
+											<td th:text="${model.cuiaPadr}"></td>
+											<td th:text="${model.codiProp}"></td>
+											<td th:text="${model.obse}"></td>
+											<td><a class="btn btn-primary"
+														th:href="@{/natalidad/updateNatalidad/} + ${model.cuiaNata}" role="button">Editar</a></td>
+											<td><a class="btn btn-danger"
+														th:href="@{/natalidad/eliminarNatalidad/} + ${model.cuiaNata}" role="button">Eliminar</a></td>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section th:replace="layout/plantillaRecursos :: query"></section>
+</body>
+</html>
