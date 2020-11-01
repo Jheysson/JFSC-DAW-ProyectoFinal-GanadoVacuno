@@ -77,7 +77,7 @@ public class CCNatalidad {
     
     
     @RequestMapping(value="/natalidad/eliminarNatalidad/{cuia}", method=RequestMethod.GET)
-    public ModelAndView deleteEmployee(@PathVariable("cuia") int cuia) {
+    public ModelAndView deleteNatalidad(@PathVariable("cuia") int cuia) {
     	natalidadService.deletenatalidad(cuia);
     	return new ModelAndView("redirect:/natalidad/ListadoNatalidad"); 
     	

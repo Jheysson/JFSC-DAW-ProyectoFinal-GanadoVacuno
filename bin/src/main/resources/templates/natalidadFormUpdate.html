@@ -1,0 +1,103 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaUpdate :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaUpdate :: header"></header>
+		<aside th:replace="layout/plantillaUpdate :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Natalidad</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a></li>
+							<li class="breadcrumb-item">natalidad</li>
+							<li class="breadcrumb-item active">Update natalidad</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<form th:action="@{/natalidad/update}" method="post"
+									th:object="${natalidadFormUpdate}">
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="CUIA">CUIA</label> <input type="text"
+												class="form-control" th:field="*{cuiaNata}" />
+										</div>
+										<div class="form-group col-md-6">
+											<label for="sexo">Sexo</label> <select
+												class="form-control col-12" th:field="*{idSexo}">
+												<option value="1">Macho</option>
+												<option value="2">Hembra</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="genotipo">Genotipo</label> <select
+												class="form-control col-12" th:field="*{idGeno}">
+												<option value="1">Hereford</option>
+												<option value="2">Charolais</option>
+												<option value="3">Limousin</option>
+												<option value="4">Brahman</option>
+												<option value="5">Gyrolando</option>
+												<option value="6">Brown Swiss</option>
+												<option value="7">Criollo</option>
+											</select>
+										</div>
+										<div class="form-group col-md-6">
+											<label for="fechNacimiento">Fecha de Nacimiento</label> <input
+												type="text" class="form-control" th:field="*{fechNaciNata}" />
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="peso">Peso</label> <input type="text"
+												class="form-control" th:field="*{pesoNata}" />
+										</div>
+										<div class="form-group col-md-6">
+											<label for="CUIAmadre">CUIA Madre</label> <input type="text"
+												class="form-control" th:field="*{cuiaMadr}" />
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="CUIApadre">CUIA Padre</label> <input type="text"
+												class="form-control" th:field="*{cuiaPadr}" />
+										</div>
+										<div class="form-group col-md-6">
+											<label for="observacion">Codigo Inseminacion</label> <input
+												type="text" class="form-control" th:field="*{codiProp}" />
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="observacion">Observacion</label> <input
+												type="text" class="form-control" th:field="*{obse}" />
+										</div>
+									</div>
+
+									<button type="submit" class="btn btn-danger"
+										style="align-content: center; width: 300px; height: 45px">Guardar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section th:replace="layout/plantillaUpdate :: query"></section>
+</body>
+</html>

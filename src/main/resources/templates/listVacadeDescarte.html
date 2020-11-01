@@ -1,0 +1,86 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaRecursos :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaRecursos :: header"></header>
+		<aside th:replace="layout/plantillaRecursos :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Vaca de descarte</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a></li>
+							<li class="breadcrumb-item">Vaca de descarte</li>
+							<li class="breadcrumb-item active">listado Vaca de descarte</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#addModal">Agregar
+									registro vaca de descarte</button>
+								<table id="myTable"
+									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>CUIA GANADO</th>
+											<th>Eliminar</th>
+										<tr th:each="model : ${listVacadedescarte}">
+											<td th:text="${model.idVacaDesc}"></td>
+											<td th:text="${model.cuiaGana}"></td>
+											<td><a class="btn btn-danger"
+												th:href="@{/vacadedescarte/eliminarvacadedescarte/} + ${model.idVacaDesc}"
+												role="button">Eliminar</a></td>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="addModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<form th:action="@{/vacadedescarte/addVacadeDescarte}" method="post">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">New Registro</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">CUIA GANADO:</label>
+							<input type="text" class="form-control" id="recipient-name" name="cuiaGana">
+						</div>
+						
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-danger">Save</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<section th:replace="layout/plantillaRecursos :: query"></section>
+</body>
+</html>
