@@ -9,8 +9,7 @@ public class natalidadRowMapper implements RowMapper<natalidad>{
 
 	@Override
 	public natalidad mapRow(ResultSet rs, int rowNum) throws SQLException {
-		natalidad onatalidad = new natalidad();
-		onatalidad.setIdNata(rs.getInt("idNata"));
+		natalidad onatalidad = new natalidad();		
 		onatalidad.setCuiaNata(rs.getInt("cuiaNata"));
 		onatalidad.setIdSexo(rs.getInt("idSexo"));
 		onatalidad.setIdGeno(rs.getInt("idGeno"));

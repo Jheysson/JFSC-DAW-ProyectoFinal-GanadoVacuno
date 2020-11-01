@@ -2,7 +2,6 @@ package pe.unjfsc.daw.spring5.model;
 
 public class natalidad {
 	
-	private int idNata;
 	private int cuiaNata;
 	private int idSexo;
 	private int idGeno;
@@ -13,13 +12,7 @@ public class natalidad {
 	private int codiProp;
 	private String obse;
 	private int esta;
-	
-	public int getIdNata() {
-		return idNata;
-	}
-	public void setIdNata(int idNata) {
-		this.idNata = idNata;
-	}
+
 	public int getCuiaNata() {
 		return cuiaNata;
 	}
