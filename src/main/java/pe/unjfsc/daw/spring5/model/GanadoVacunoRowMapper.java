@@ -29,6 +29,7 @@ public class GanadoVacunoRowMapper implements RowMapper<GanadoVacuno>{
 		oGanadoVacuno.setCodiPropInse(rs.getInt("codiPropInse"));
 		oGanadoVacuno.setObse(rs.getString("obse"));
 		oGanadoVacuno.setEsta(rs.getInt("esta"));
+
 		return oGanadoVacuno;
 	}
 
