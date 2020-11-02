@@ -1,0 +1,90 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaRecursos :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaRecursos :: header"></header>
+		<aside th:replace="layout/plantillaRecursos :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Ganado Hembra</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a>
+							</li>
+							<li class="breadcrumb-item">Ganado Hembra</li>
+							<li class="breadcrumb-item active">Listado Ganado Hembra</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex">
+										<div class="mr-auto">
+											<div class="form-group">												
+												<!-- <a class="btn btn-primary" th:href="@{/natalidad/agregarNatalidad}">agregar
+													Registro de Natalidad</a> -->
+											</div>
+										</div>
+									</div>
+								<table id="myTable"
+									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>CUIA</th>											
+											<th>Edad</th>
+											<th>Etapa</th>
+											<th>Alias</th>
+											<th>Fecha Nacimiento</th>
+											<th>Peso</th>
+											<th>Talla</th>
+											<th>Estado Activo</th>
+											<th>Estado Animal</th>
+											<th>Partos</th>
+											<th>Genotipo</th>
+											<th>Tipo</th>
+											<th>Origen</th>
+											<th>Cuia Madre</th>
+											<th>Cuia Padre</th>
+											<th>Codigo Prop Inse</th>
+											<th>Observacion</th>
+									</thead>
+									<tbody>
+									<tr th:each="model : ${listGanadoHembra}">
+											<td th:text="${model.cuiaGana}"></td>											
+											<td th:text="${model.edadGana}"></td>
+											<td th:text="${model.etapaGana}"></td>
+											<td th:text="${model.aliaGana}"></td>
+											<td th:text="${model.fechNaciGana}"></td>
+											<td th:text="${model.pesoGana}"></td>
+											<td th:text="${model.tallGana}"></td>
+											<td th:text="${model.idEstaActi}"></td>
+											<td th:text="${model.idEstaAnim}"></td>
+											<td th:text="${model.cantPartGana}"></td>
+											<td th:text="${model.idGeno}"></td>
+											<td th:text="${model.idTipoGana}"></td>
+											<td th:text="${model.idOrig}"></td>
+											<td th:text="${model.cuiaMadr}"></td>
+											<td th:text="${model.cuiaPadr}"></td>
+											<td th:text="${model.codiPropInse}"></td>
+											<td th:text="${model.obse}"></td>											
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section th:replace="layout/plantillaRecursos :: query"></section>
+</body>
+</html>
