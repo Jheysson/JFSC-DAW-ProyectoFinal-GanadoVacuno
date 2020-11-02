@@ -53,7 +53,6 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 	@Override
 	public void addGanadoVacuno(GanadoVacuno pGanadoVacuno) {
 		
-		
 	}
 	@Override
 	public void addGanadoVacunoHembra(GanadoVacuno pGanadoVacuno) {
@@ -62,7 +61,7 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 				calcularEtapa(calcularEdad(pGanadoVacuno.getFechNaciGana())),
 				pGanadoVacuno.getAliaGana(), pGanadoVacuno.getFechNaciGana(), 
 				pGanadoVacuno.getPesoGana(), pGanadoVacuno.getTallGana(), 
-				pGanadoVacuno.getIdEstaActi(), pGanadoVacuno.getIdEstaAnim(), pGanadoVacuno.getCantPartGana(), 
+				pGanadoVacuno.getIdEstaActi(), 1, pGanadoVacuno.getCantPartGana(), 
 				pGanadoVacuno.getIdGeno(), pGanadoVacuno.getIdTipoGana(), pGanadoVacuno.getIdOrig(),
 				pGanadoVacuno.getCuiaMadr(), pGanadoVacuno.getCuiaPadr(), pGanadoVacuno.getCodiPropInse(), 
 				pGanadoVacuno.getObse(), 1);
@@ -71,25 +70,65 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 	@Override
 	public void addGanadoVacunoMacho(GanadoVacuno pGanadoVacuno) {
 		jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_INSERT,
-				pGanadoVacuno.getCuiaGana(), 1, calcularEdad(pGanadoVacuno.getFechNaciGana()),
+				pGanadoVacuno.getCuiaGana(), 2, calcularEdad(pGanadoVacuno.getFechNaciGana()),
 				calcularEtapa(calcularEdad(pGanadoVacuno.getFechNaciGana())),
 				pGanadoVacuno.getAliaGana(), pGanadoVacuno.getFechNaciGana(), 
 				pGanadoVacuno.getPesoGana(), pGanadoVacuno.getTallGana(), 
-				null, pGanadoVacuno.getIdEstaAnim(), null, 
-				pGanadoVacuno.getIdGeno(), pGanadoVacuno.getIdTipoGana(), pGanadoVacuno.getIdOrig(),
+				4, 1, null, 
+				pGanadoVacuno.getIdGeno(), 2, pGanadoVacuno.getIdOrig(),
 				pGanadoVacuno.getCuiaMadr(), pGanadoVacuno.getCuiaPadr(), pGanadoVacuno.getCodiPropInse(), 
-				pGanadoVacuno.getObse(), pGanadoVacuno.getEsta());		
+				pGanadoVacuno.getObse(), 1);		
 	}
 
 	@Override
 	public void updateGanadoVacuno(GanadoVacuno pGanadoVacuno) {
-		// TODO Auto-generated method stub
+		if (pGanadoVacuno.getIdSexo()==1) {
+			jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_UPDATE,
+					1,
+					pGanadoVacuno.getIdGeno(),
+					calcularEdad(pGanadoVacuno.getFechNaciGana()),
+					calcularEtapa(calcularEdad(pGanadoVacuno.getFechNaciGana())),
+					pGanadoVacuno.getAliaGana(),
+					pGanadoVacuno.getFechNaciGana(),
+					pGanadoVacuno.getPesoGana(),
+					pGanadoVacuno.getTallGana(),
+					pGanadoVacuno.getIdEstaActi(),
+					pGanadoVacuno.getCantPartGana(),
+					pGanadoVacuno.getIdGeno(),
+					pGanadoVacuno.getIdTipoGana(),
+					pGanadoVacuno.getIdOrig(),
+					pGanadoVacuno.getCuiaMadr(),
+					pGanadoVacuno.getCuiaPadr(),
+					pGanadoVacuno.getCodiPropInse(),
+					pGanadoVacuno.getObse(),
+					pGanadoVacuno.getCuiaGana());
+		}else {
+			jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_UPDATE,
+					2,
+					pGanadoVacuno.getIdGeno(),
+					calcularEdad(pGanadoVacuno.getFechNaciGana()),
+					calcularEtapa(calcularEdad(pGanadoVacuno.getFechNaciGana())),
+					pGanadoVacuno.getAliaGana(),
+					pGanadoVacuno.getFechNaciGana(),
+					pGanadoVacuno.getPesoGana(),
+					pGanadoVacuno.getTallGana(),
+					4,
+					null,
+					pGanadoVacuno.getIdGeno(),
+					2,
+					pGanadoVacuno.getIdOrig(),
+					pGanadoVacuno.getCuiaMadr(),
+					pGanadoVacuno.getCuiaPadr(),
+					pGanadoVacuno.getCodiPropInse(),
+					pGanadoVacuno.getObse(),
+					pGanadoVacuno.getCuiaGana());
+		}
 		
 	}
 
 	@Override
 	public void deleteGanadoVacuno(int cuia) {
-		// TODO Auto-generated method stub
+		jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_DELETE,cuia);
 		
 	}
 	protected int calcularEdad(String fechNaci) {

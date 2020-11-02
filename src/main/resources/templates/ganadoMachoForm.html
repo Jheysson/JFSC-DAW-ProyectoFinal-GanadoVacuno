@@ -10,13 +10,13 @@
 			<div class="container-fluid">
 				<div class="row page-titles">
 					<div class="col-md-5 align-self-center">
-						<h3 class="text-themecolor">Ganado Hembra</h3>
+						<h3 class="text-themecolor">Ganado Macho</h3>
 					</div>
 					<div class="col-md-7 align-self-center">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="/">Home</a></li>
-							<li class="breadcrumb-item">Ganado Hembra</li>
-							<li class="breadcrumb-item active">Registro Ganado Hembra</li>
+							<li class="breadcrumb-item">Ganado Macho</li>
+							<li class="breadcrumb-item active">Registro Ganado Macho</li>
 						</ol>
 					</div>
 				</div>
@@ -24,8 +24,8 @@
 					<div class="col-12">
 						<div class="card container">
 							<div class="card-body">
-								<form th:action="@{/ganadoHembra/save}" method="post"
-									th:object="${ganadoHembraForm}">
+								<form th:action="@{/ganadoMacho/save}" method="post"
+									th:object="${ganadoMachoForm}">
 									<div class="form-row">
 										<div class="col-md-6">
 											<div class="form-group row">												
@@ -63,23 +63,6 @@
 													class="form-control" th:field="*{tallGana}" />
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Estado Activo</label>
-												<div class="col-7">
-													<select class="form-control" th:field="*{idEstaActi}">
-														<option value="1">Seca</option>
-														<option value="2">Preñada</option>
-														<option value="3">Produccion</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Partos</label>
-												<div class="col-7">
-													<input type="number"
-													class="form-control" th:field="*{cantPartGana}" />
-												</div>
-											</div>
 										</div>
 										<div class="col-md-6">
 											
@@ -94,15 +77,6 @@
 														<option value="5">Gyrolando</option>
 														<option value="6">Brown Swiss</option>
 														<option value="7">Criollo</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Tipo</label>
-												<div class="col-7">
-													<select class="form-control" th:field="*{idTipoGana}">
-														<option value="1">Leche</option>
-														<option value="2">Carne</option>
 													</select>
 												</div>
 											</div>

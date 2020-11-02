@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,7 +44,38 @@ public class CCGanadoHembra {
 	@RequestMapping(value="ganadoHembra/save", method = RequestMethod.POST)
 	public ModelAndView saveGanadoHembra(@ModelAttribute("ganadoHembraForm") GanadoVacuno pGanadoVacuno) {
 		ganadoVacunoService.addGanadoVacunoHembra(pGanadoVacuno);
-		return new ModelAndView("redirect:ganadoVacuno/ListadoGanadoHembra.lhs");		
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");		
 	}
+	
+	
+	
+	@RequestMapping(value = "ganadoVacuno/updateGanadoHembra/{cuia}")
+	public ModelAndView updateGanadoHembra(@PathVariable int cuia) {
+		ModelAndView model = new ModelAndView();
+		GanadoVacuno pGanadoVacuno = ganadoVacunoService.findGanadoVacunoByCuia(cuia);
+		model.addObject("ganadoHembraFormUpdate",pGanadoVacuno);
+		model.setViewName("ganadoHembraFormUpdate");
+		return model;
+	}
+	
+	@RequestMapping(value = "ganadoVacuno/updateGHembra", method = RequestMethod.POST)
+	public ModelAndView editarGanadoHembra(@ModelAttribute("ganadoHembraFormUpdate") GanadoVacuno pGanadoVacuno) {
+		ganadoVacunoService.updateGanadoVacuno(pGanadoVacuno);
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");
+	}
+	
+	@RequestMapping(value = "/ganadoVacuno/eliminarGanadoHembra/{cuia}", method = RequestMethod.GET)
+	public ModelAndView deleteGanadoHembra(@PathVariable("cuia") int cuia) {
+		ganadoVacunoService.deleteGanadoVacuno(cuia);
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");
+	}
+	/*
+	@RequestMapping(value="/natalidad/eliminarNatalidad/{cuia}", method=RequestMethod.GET)
+    public ModelAndView deleteNatalidad(@PathVariable("cuia") int cuia) {
+    	natalidadService.deletenatalidad(cuia);
+    	return new ModelAndView("redirect:/natalidad/ListadoNatalidad"); 
+    	
+    }
+	 * */
 
 }
