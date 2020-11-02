@@ -65,7 +65,7 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 				pGanadoVacuno.getIdEstaActi(), pGanadoVacuno.getIdEstaAnim(), pGanadoVacuno.getCantPartGana(), 
 				pGanadoVacuno.getIdGeno(), pGanadoVacuno.getIdTipoGana(), pGanadoVacuno.getIdOrig(),
 				pGanadoVacuno.getCuiaMadr(), pGanadoVacuno.getCuiaPadr(), pGanadoVacuno.getCodiPropInse(), 
-				pGanadoVacuno.getObse(), pGanadoVacuno.getEsta());
+				pGanadoVacuno.getObse(), 1);
 	}
 
 	@Override
