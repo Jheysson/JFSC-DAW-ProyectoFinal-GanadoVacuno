@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaRecursos :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaRecursos :: header"></header>
+		<aside th:replace="layout/plantillaRecursos :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Inseminacion de Ganado</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a>
+							</li>
+							<li class="breadcrumb-item">Inseminacion</li>
+							<li class="breadcrumb-item active">listado inseminacion</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+							<div class="d-flex">
+										<div class="mr-auto">
+											<div class="form-group">												
+												<a class="btn btn-primary" th:href="@{/inseminacion/agregarInseminacion}">agregar
+													Registro de Inseminacion</a>
+											</div>
+										</div>
+									</div>
+								<table id="myTable"
+									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>Codigo</th>
+											<th>Genotipo</th>
+											<th>Peso</th>
+											<th>Talla</th>
+											<th>Lugar de Procedencia</th>
+											<th>Precio de semen</th>
+											<th>Fecha de Compra</th>
+											<th>Observacion</th>
+											<th>Editar</th>
+											<th>Eliminar</th>
+											</thead>
+											<tbody>
+										<tr th:each="model : ${listInseminacion}">
+											<td th:text="${model.codiPropInse}"></td>
+											<td th:text="${model.idGeno}"></td>
+											<td th:text="${model.pesoPropInse}"></td>
+											<td th:text="${model.tallPropInse}"></td>
+											<td th:text="${model.lugaPropInse}"></td>
+											<td th:text="${model.precPropInse}"></td>
+											<td th:text="${model.fechCompPropInse}"></td>
+											<td th:text="${model.obse}"></td>
+											<td><a class="btn btn-primary"
+														th:href="@{/inseminacion/updateInseminacion/} + ${model.codiPropInse}" role="button">Editar</a></td>
+											<td><a class="btn btn-danger"
+														th:href="@{/inseminacion/eliminarInseminacion/} + ${model.codiPropInse}" role="button">Eliminar</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section th:replace="layout/plantillaRecursos :: query"></section>
+</body>
+</html>

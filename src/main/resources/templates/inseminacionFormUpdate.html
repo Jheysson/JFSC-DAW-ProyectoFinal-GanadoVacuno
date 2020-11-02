@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaUpdate :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaUpdate :: header"></header>
+		<aside th:replace="layout/plantillaUpdate :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Inseminacion</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a></li>
+							<li class="breadcrumb-item">inseminacion</li>
+							<li class="breadcrumb-item active">Update inseminacion</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<form th:action="@{/inseminacion/update}" method="post"
+									th:object="${inseminacionFormUpdate}">
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="Cogido">Codigo</label> <input type="text"
+												class="form-control" th:field="*{codiPropInse}" />
+										</div>
+										<div class="form-group col-md-6">
+											<label for="genotipo">Genotipo</label> <select
+												class="form-control col-12" th:field="*{idGeno}">
+												<option value="1">Hereford</option>
+												<option value="2">Charolais</option>
+												<option value="3">Limousin</option>
+												<option value="4">Brahman</option>
+												<option value="5">Gyrolando</option>
+												<option value="6">Brown Swiss</option>
+												<option value="7">Criollo</option>
+											</select>
+										</div>
+										</div>
+										
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="pesoPropInse">Peso</label> <input type="text"
+											 class="form-control" th:field="*{pesoPropInse}" />
+										</div>
+										<div class="form-group col-md-6">
+											<label for="tallPropInse">Talla</label> <input type="text"
+												class="form-control" th:field="*{tallPropInse}" />
+										</div>
+										</div>
+										<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="lugaPropInse">Lugar de Procedencia</label> <input type="text"
+												class="form-control" th:field="*{lugaPropInse}" />
+										</div>
+
+										<div class="form-group col-md-6">
+											<label for="precPropInse">Precio</label> <input type="text"
+												class="form-control" th:field="*{precPropInse}" />
+										</div>
+										</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="fechCompPropInse">Fecha de compra</label> <input
+												type="date" class="form-control" th:field="*{fechCompPropInse}" />
+										</div>
+										<div class="form-group col-md-6">
+											<label for="observacion">Observacion</label> <input
+												type="text" class="form-control" th:field="*{obse}" />
+										</div>
+									</div>
+
+									<button type="submit" class="btn btn-danger"
+										style="align-content: center; width: 300px; height: 45px">Guardar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section th:replace="layout/plantillaUpdate :: query"></section>
+</body>
+</html>
