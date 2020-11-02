@@ -15,6 +15,10 @@ public interface GanadoVacunoDao {
 	
 	public void addGanadoVacuno(GanadoVacuno pGanadoVacuno);
 	
+	public void addGanadoVacunoHembra(GanadoVacuno pGanadoVacuno);
+	
+	public void addGanadoVacunoMacho(GanadoVacuno pGanadoVacuno);
+	
 	public void updateGanadoVacuno(GanadoVacuno pGanadoVacuno);
 	
 	public void deleteGanadoVacuno(int cuia);

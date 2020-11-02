@@ -1,5 +1,7 @@
 package pe.unjfsc.daw.spring5.dao;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,31 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 		
 		
 	}
+	@Override
+	public void addGanadoVacunoHembra(GanadoVacuno pGanadoVacuno) {
+		jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_INSERT,
+				pGanadoVacuno.getCuiaGana(), 1, calcularEdad(pGanadoVacuno.getFechNaciGana()),
+				calcularEtapa(calcularEdad(pGanadoVacuno.getFechNaciGana())),
+				pGanadoVacuno.getAliaGana(), pGanadoVacuno.getFechNaciGana(), 
+				pGanadoVacuno.getPesoGana(), pGanadoVacuno.getTallGana(), 
+				pGanadoVacuno.getIdEstaActi(), pGanadoVacuno.getIdEstaAnim(), pGanadoVacuno.getCantPartGana(), 
+				pGanadoVacuno.getIdGeno(), pGanadoVacuno.getIdTipoGana(), pGanadoVacuno.getIdOrig(),
+				pGanadoVacuno.getCuiaMadr(), pGanadoVacuno.getCuiaPadr(), pGanadoVacuno.getCodiPropInse(), 
+				pGanadoVacuno.getObse(), pGanadoVacuno.getEsta());
+	}
+
+	@Override
+	public void addGanadoVacunoMacho(GanadoVacuno pGanadoVacuno) {
+		jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_INSERT,
+				pGanadoVacuno.getCuiaGana(), 1, calcularEdad(pGanadoVacuno.getFechNaciGana()),
+				calcularEtapa(calcularEdad(pGanadoVacuno.getFechNaciGana())),
+				pGanadoVacuno.getAliaGana(), pGanadoVacuno.getFechNaciGana(), 
+				pGanadoVacuno.getPesoGana(), pGanadoVacuno.getTallGana(), 
+				null, pGanadoVacuno.getIdEstaAnim(), null, 
+				pGanadoVacuno.getIdGeno(), pGanadoVacuno.getIdTipoGana(), pGanadoVacuno.getIdOrig(),
+				pGanadoVacuno.getCuiaMadr(), pGanadoVacuno.getCuiaPadr(), pGanadoVacuno.getCodiPropInse(), 
+				pGanadoVacuno.getObse(), pGanadoVacuno.getEsta());		
+	}
 
 	@Override
 	public void updateGanadoVacuno(GanadoVacuno pGanadoVacuno) {
@@ -65,6 +92,26 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 		// TODO Auto-generated method stub
 		
 	}
+	protected int calcularEdad(String fechNaci) {
+		int edad = (int) ChronoUnit.MONTHS.between(LocalDate.parse(fechNaci), LocalDate.now());
+		return edad;
+	}
+	
+	protected String calcularEtapa(int edad) {
+		String etapa="";
+		if(edad <= 4) {
+			etapa = "Ternero(a)";
+		}else if(edad > 4 && edad <=12) {
+			etapa = "Destete";
+		}else if(edad > 12 && edad <=24) {
+			etapa = "Becerro(a)";
+		}else if(edad >= 24) {
+			etapa = "Adulto";
+		}		
+		return etapa;
+	}
+
+	
 	
 	
 

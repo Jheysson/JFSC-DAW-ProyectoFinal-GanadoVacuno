@@ -39,6 +39,17 @@ public class GanadoVacunoServiceImpl implements GanadoVacunoService{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void addGanadoVacunoHembra(GanadoVacuno pGanadoVacuno) {
+		oGanadoVacunoDaoImpl.addGanadoVacunoHembra(pGanadoVacuno);
+		
+	}
+
+	@Override
+	public void addGanadoVacunoMacho(GanadoVacuno pGanadoVacuno) {
+		oGanadoVacunoDaoImpl.addGanadoVacunoMacho(pGanadoVacuno);
+		
+	}
 
 	@Override
 	public void updateGanadoVacuno(GanadoVacuno pGanadoVacuno) {
@@ -51,5 +62,7 @@ public class GanadoVacunoServiceImpl implements GanadoVacunoService{
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
