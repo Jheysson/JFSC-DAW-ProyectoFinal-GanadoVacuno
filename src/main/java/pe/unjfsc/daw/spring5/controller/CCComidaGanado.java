@@ -19,7 +19,7 @@ import pe.unjfsc.daw.spring5.service.inseminacionService;
 
 @Controller
 
-public class CCComigaGanado {
+public class CCComidaGanado {
 	private static final Logger log = LoggerFactory.getLogger("CCComidaGanado");
 	
     @Autowired
