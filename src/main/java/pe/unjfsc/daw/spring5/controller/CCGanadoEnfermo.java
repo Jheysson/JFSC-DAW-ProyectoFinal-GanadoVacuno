@@ -39,7 +39,7 @@ public class CCGanadoEnfermo {
     	GanadoEnfermo pGanadoEnfermo = new GanadoEnfermo();
     	model.addObject("ganadoEnfermoForm",pGanadoEnfermo);
     	model.setViewName("ganadoEnfermoForm");
-    	return model;
+    	return model; 
     }
     
     @RequestMapping(value="ganadoEnfermo/save", method=RequestMethod.POST)
