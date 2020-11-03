@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaRecursos :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaRecursos :: header"></header>
+		<aside th:replace="layout/plantillaRecursos :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Comida de Ganado</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a>
+							</li>
+							<li class="breadcrumb-item">Comida</li>
+							<li class="breadcrumb-item active">listado de comidas</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+							<div class="d-flex">
+										<div class="mr-auto">
+											<!-- 
+											<div class="form-group">												
+												<a class="btn btn-primary" th:href="@{/comidaganado/agregarComidaGanado}">agregar
+													Registro de Comidas</a>
+											</div>
+											-->
+										</div>
+									</div>
+								<table id="myTable"
+									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Dirigido a</th>
+											<th>Racion</th>
+											<th>Tipo de comida</th>
+											</thead>
+											<tbody>
+										<tr th:each="model : ${listComidaGanado}">
+											<td th:text="${model.idComiGana}"></td>
+											<td th:text="${model.comiGanaDiri}"></td>
+											<td th:text="${model.comiRaci}"></td>
+											<td th:text="${model.idTipoComi}"></td>
+											<!--  <td><a class="btn btn-primary"
+														th:href="@{/comidaganado/updateComidaGanado/} + ${model.idComiGana}" role="button">Editar</a></td>
+											<td><a class="btn btn-danger"
+														th:href="@{/comidaganado/eliminarComidaGanado/} + ${model.idComiGana}" role="button">Eliminar</a></td>
+										-->
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section th:replace="layout/plantillaRecursos :: query"></section>
+</body>
+</html>

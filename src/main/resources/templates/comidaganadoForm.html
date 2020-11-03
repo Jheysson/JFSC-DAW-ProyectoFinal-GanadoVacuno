@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaRecursos :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaRecursos :: header"></header>
+		<aside th:replace="layout/plantillaRecursos :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Comida Ganado</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a></li>
+							<li class="breadcrumb-item">Comida Ganado</li>
+							<li class="breadcrumb-item active">Registro de Comida de Ganado</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<form th:action="@{/comidaganado/save}" method="post"
+									th:object="${comidaganadoForm}">
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="idComiGana">ID</label> <input type="text"
+												class="form-control" th:field="*{idComiGana}" />
+										</div>
+										
+										<div class="form-group col-md-6">
+											<label for="comiGanaDiri">Comida Dirigida</label> <input type="text"
+												class="form-control" th:field="*{comiGanaDiri}" />
+										</div>
+										</div>
+										<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="comiRaci">Racion</label> <input type="text"
+												class="form-control" th:field="*{comiRaci}" />
+										</div>
+
+										<div class="form-group col-md-6">
+											<label for="idTipoComi">Tipo de Comida</label> <select
+												class="form-control col-12" th:field="*{idTipoComi}">
+												<option value="1">Pasto</option>
+												<option value="2">Alfalfa</option>
+												<option value="3">Maiz</option>
+										</select>
+										</div>
+										</div>
+
+									<button type="submit" class="btn btn-danger"
+										style="align-content: center; width: 300px; height: 45px">Guardar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section th:replace="layout/plantillaRecursos :: query"></section>
+</body>
+</html>
