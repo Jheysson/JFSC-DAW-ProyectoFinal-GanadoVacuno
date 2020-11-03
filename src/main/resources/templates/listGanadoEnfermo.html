@@ -10,14 +10,14 @@
 			<div class="container-fluid">
 				<div class="row page-titles">
 					<div class="col-md-5 align-self-center">
-						<h3 class="text-themecolor">Blank Page</h3>
+						<h3 class="text-themecolor">Ganado enfermo</h3>
 					</div>
 					<div class="col-md-7 align-self-center">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a>
 							</li>
-							<li class="breadcrumb-item">pages</li>
-							<li class="breadcrumb-item active">Blank Page</li>
+							<li class="breadcrumb-item">Ganado enfermo</li>
+							<li class="breadcrumb-item active">Listado ganado enfermo</li>
 						</ol>
 					</div>
 				</div>
@@ -25,7 +25,37 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body">
-								<h2>HOLA KENT</h2>
+							<div class="d-flex">
+										<div class="mr-auto">
+											<div class="form-group">												
+												<a class="btn btn-primary" th:href="@{/ganadoEnfermo/agregarGanadoEnfermo}">Agregar
+													registro de ganado enfermo</a>
+											</div>
+										</div>
+									</div>
+								<table id="myTable"
+									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>CUIA</th>
+											<th>Enfermedad</th>
+											<th>Fecha de ingreso</th>
+											<th>Observaciones</th>
+											<th>Editar</th>
+											<th>Eliminar</th>
+										<tr th:each="model : ${listGanadoEnfermo}">
+											<td th:text="${model.cuiaGana}"></td>
+											<td th:text="${model.idEnfe}"></td>
+											<td th:text="${model.fechIngr}"></td>
+											<td th:text="${model.obse}"></td>
+											<td><a class="btn btn-primary"
+														th:href="@{/ganadoEnfermo/updateGanadoEnfermo/} + ${model.cuiaGana}" role="button">Editar</a></td>
+											<td><a class="btn btn-danger"
+														th:href="@{/ganadoEnfermo/eliminarGanadoEnfermo/} + ${model.cuiaGana}" role="button">Eliminar</a></td>
+										</tr>
+									</thead>
+								</table>
 							</div>
 						</div>
 					</div>
