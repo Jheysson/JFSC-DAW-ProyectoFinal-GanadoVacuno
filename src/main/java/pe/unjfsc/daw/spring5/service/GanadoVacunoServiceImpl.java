@@ -53,13 +53,13 @@ public class GanadoVacunoServiceImpl implements GanadoVacunoService{
 
 	@Override
 	public void updateGanadoVacuno(GanadoVacuno pGanadoVacuno) {
-		// TODO Auto-generated method stub
+		oGanadoVacunoDaoImpl.updateGanadoVacuno(pGanadoVacuno);
 		
 	}
 
 	@Override
 	public void deleteGanadoVacuno(int cuia) {
-		// TODO Auto-generated method stub
+		oGanadoVacunoDaoImpl.deleteGanadoVacuno(cuia);
 		
 	}
 

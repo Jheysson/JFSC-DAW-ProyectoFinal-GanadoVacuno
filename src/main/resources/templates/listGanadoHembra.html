@@ -54,6 +54,8 @@
 											<th>Cuia Padre</th>
 											<th>Codigo Prop Inse</th>
 											<th>Observacion</th>
+											<th>Editar</th>
+											<th>Eliminar</th>
 									</thead>
 									<tbody>
 									<tr th:each="model : ${listGanadoHembra}">
@@ -73,7 +75,17 @@
 											<td th:text="${model.cuiaMadr}"></td>
 											<td th:text="${model.cuiaPadr}"></td>
 											<td th:text="${model.codiPropInse}"></td>
-											<td th:text="${model.obse}"></td>											
+											<td th:text="${model.obse}"></td>	
+											<td>
+												<a class="btn btn-primary"
+														th:href="@{/ganadoVacuno/updateGanadoHembra/} + ${model.cuiaGana}" role="button">Editar
+												</a>
+											</td>
+											<td>
+												<a class="btn btn-danger"
+														th:href="@{/ganadoVacuno/eliminarGanadoHembra/} + ${model.cuiaGana}" role="button">Eliminar
+												</a>
+											</td>											
 										</tr>
 									</tbody>
 								</table>
