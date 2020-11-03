@@ -1,6 +1,5 @@
 package pe.unjfsc.daw.spring5.controller;
 
-
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -20,7 +19,7 @@ import pe.unjfsc.daw.spring5.service.inseminacionService;
 
 @Controller
 
-public class CCComidaGanado {
+public class CCComigaGanado {
 	private static final Logger log = LoggerFactory.getLogger("CCComidaGanado");
 	
     @Autowired
@@ -38,8 +37,45 @@ public class CCComidaGanado {
     
     
     
+    @RequestMapping(value = "comidaganado/agregarComidaGanado", method=RequestMethod.GET)
+    public ModelAndView addcomidaganado() {
+    	ModelAndView model = new ModelAndView();
+    	comidaganado pcomi = new comidaganado();
+    	model.addObject("comidaganadoForm",pcomi);
+    	model.setViewName("comidaganadoForm");
+    	return model;
+    }
+    
+    @RequestMapping(value="comidaganado/save", method=RequestMethod.POST)
+	public ModelAndView saveComidaGanado(@ModelAttribute("comidaganadoForm") comidaganado pcomi) {
+    	//comidaganadoService.addcomidaganado(pcomi);
+    	log.info("save" + pcomi);
+		return new ModelAndView("redirect:/comidaganado/ListadoComidaGanado");    
+    }
+    
+    @RequestMapping(value="comidaganado/updateComidaGanado/{idComiGana}", method=RequestMethod.GET)
+    public ModelAndView updatecomidaganado(@PathVariable int idComiGana) {
+    	ModelAndView model = new ModelAndView();
+    	comidaganado pcomi = comidaganadoService.findcomidaganadoById(idComiGana);
+    	  model.addObject("comidaganadoFormUpdate", pcomi);
+    	  model.setViewName("comidaganadoFormUpdate");
+    	  return model;
+    	
+    }
+    
+    @RequestMapping(value="comidaganado/update", method=RequestMethod.POST)
+	public ModelAndView editarComidaGanado(@ModelAttribute("comidaganadoFormUpdate") comidaganado pcomi) {
+    //	comidaganadoService.updatecomidaganado(pcomi);
+    	log.info("save" + pcomi);
+		return new ModelAndView("redirect:/comidaganado/ListadoComidaGanado");    
+    }
     
     
-    
+    @RequestMapping(value="/comidaganado/eliminarComidaGanado/{idComiGana}", method=RequestMethod.GET)
+    public ModelAndView deleteComidaGanado(@PathVariable("idComiGana") int idComiGana) {
+    	//comidaganadoService.deletecomidaganado(idComiGana);
+    	return new ModelAndView("redirect:/comidaganado/ListadoComidaGanado"); 
+    	
+    }
 }
 
