@@ -36,31 +36,4 @@ public class comidaganadoDaoImpl implements comidaganadoDao{
 	
 	}
 
-	@Override
-	public void addcomidaganado(comidaganado pcomi) {
-		jdbcTemplate.update(CDConstanteSQLComidaGanado.SQL_INSERT, 
-				pcomi.getIdComiGana(),
-				pcomi.getComiGanaDiri(),
-				pcomi.getComiRaci(),
-				pcomi.getIdTipoComi()
-				);
-		
-	}
-
-	@Override
-	public void updatecomidaganado(comidaganado pcomi) {
-		jdbcTemplate.update(CDConstanteSQLComidaGanado.SQL_UPDATE,
-				pcomi.getComiGanaDiri(),
-				pcomi.getComiRaci(),
-				pcomi.getIdTipoComi()
-				);
-		
-	}
-
-	@Override
-	public void deletecomidaganado(int idComiGana) {
-		jdbcTemplate.update(CDConstanteSQLComidaGanado.SQL_DELETE, idComiGana);
-		
-	}
-
 }

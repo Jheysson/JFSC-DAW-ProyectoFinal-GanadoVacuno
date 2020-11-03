@@ -26,22 +26,5 @@ public class comidaganadoServiceImpl implements comidaganadoService{
 		return ocomidaganadoDaoImpl.findcomidaganadoById(idComiGana);
 	}
 
-	@Override
-	public void addcomidaganado(comidaganado pcomi) {
-		ocomidaganadoDaoImpl.addcomidaganado(pcomi);
-		
-	}
-
-	@Override
-	public void updatecomidaganado(comidaganado pcomi) {
-		ocomidaganadoDaoImpl.updatecomidaganado(pcomi);
-		
-	}
-
-	@Override
-	public void deletecomidaganado(int idComiGana) {
-		ocomidaganadoDaoImpl.deletecomidaganado(idComiGana);
-		
-	}
 
 }

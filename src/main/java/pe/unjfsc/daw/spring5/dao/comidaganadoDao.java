@@ -8,9 +8,4 @@ public interface comidaganadoDao {
 	 
 	 public comidaganado findcomidaganadoById(int idComiGana);
 	 
-	 public void addcomidaganado(comidaganado pcomi);
-	 
-	 public void updatecomidaganado(comidaganado pcomi);
-	 
-	 public void deletecomidaganado(int idComiGana);
 }
