@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<head th:replace="layout/plantillaRecursos :: head"></head>
+</head>
+<body class="fix-header card-no-border fix-sidebar">
+	<div id="main-wrapper">
+		<header th:replace="layout/plantillaRecursos :: header"></header>
+		<aside th:replace="layout/plantillaRecursos :: sidebar"></aside>
+		<div class="page-wrapper">
+			<div class="container-fluid">
+				<div class="row page-titles">
+					<div class="col-md-5 align-self-center">
+						<h3 class="text-themecolor">Ganado Muerto</h3>
+					</div>
+					<div class="col-md-7 align-self-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/">Home</a></li>
+							<li class="breadcrumb-item">Ganado Muerto</li>
+							<li class="breadcrumb-item active">listado Ganado Muerto</li>
+						</ol>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<button type="button" class="btn btn-primary"
+									data-toggle="modal" data-target="#addModal">Agregar Ganado Muerto</button>
+								<table id="myTable"
+									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+									style="width: 100%">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>CUIA GANADO</th>
+											<th>CAUSA MUERTE</th>
+											<th>Eliminar</th>
+										<tr th:each="model : ${listGanadoMuerto}">
+											<td th:text="${model.idGanaMuer}"></td>
+											<td th:text="${model.cuiaGana}"></td>
+											<td th:text="${model.causMuer}"></td>
+											<td><a class="btn btn-danger"
+												th:href="@{/ganadoMuerto/eliminarganadoMuerto/} + ${model.idGanaMuer}"
+												role="button">Eliminar</a></td>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="addModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<form th:action="@{/ganadoMuerto/addGanadoMuerto}" method="post">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">New Registro</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">CUIA GANADO:</label>
+							<input type="text" class="form-control" id="recipient-name" name="cuiaGana">
+						</div>
+						
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">CAUSA MUERTE:</label>
+							<input type="text" class="form-control" id="recipient-name" name="causMuer">
+						</div>
+						
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-danger">Save</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<section th:replace="layout/plantillaRecursos :: query"></section>
+</body>
+</html>
