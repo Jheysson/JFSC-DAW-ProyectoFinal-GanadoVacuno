@@ -33,6 +33,17 @@ public class CCGanadoHembra {
 		model.setViewName("listGanadoHembra");
 		return model;
 	}	
+	
+	@RequestMapping(value = "listarHembras")
+	public ModelAndView listarGanadoMadres() {
+		ModelAndView model = new ModelAndView();
+		List<GanadoVacuno> list = ganadoVacunoService.getGanadoVacunoHembra();
+		model.addObject("listGanadoHembra",list);
+		model.setViewName("listGanadoHembra");
+		return model;
+	}
+	
+	
 	@RequestMapping(value="ganadoVacuno/agregarGanadoHembra", method = RequestMethod.GET)
 	public ModelAndView addGanadoHembra() {
 		ModelAndView model = new ModelAndView();

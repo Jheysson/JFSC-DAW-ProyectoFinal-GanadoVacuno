@@ -122,7 +122,59 @@
 													class="form-control" th:field="*{cuiaMadr}" />
 												</div>
 												<div class="col-3">
-													<button>Buscar</button>
+													<a href="listarHembras" class="btn btn-info" data-toggle="modal"
+													 data-target="#buscarMadre" role="button">Buscar</a>
+													
+													<!-- MODAL BUSCAR MADRE -->													
+													<div class="modal fade" id="buscarMadre" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<div class="modal-dialog modal-lg" role="document">
+													    	<div class="modal-content ">
+													      		<div class="modal-header">
+													        		<h5 class="modal-title" id="exampleModalLabel">BOVINAS</h5>
+													        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													          	<span aria-hidden="true">&times;</span>
+													        	</button>
+													      		</div>
+															    <div class="modal-body">
+															        <table id="myTable"
+																		class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+																		style="width: 100%">
+																		<thead>
+																			<tr>
+																				<th>CUIA</th>											
+																				<th>Etapa</th>
+																				<th>Alias</th>
+																				<th>Fecha Nacimiento</th>
+																				<th>Peso</th>
+																				<th>Talla</th>
+																				
+																				<th>Genotipo</th>
+																				<th>Tipo</th>
+																		</thead>
+																		<tbody>
+																		<tr th:each="model : ${listGanadoHembra}">
+																				<td th:text="${model.cuiaGana}"></td>											
+																				<td th:text="${model.etapaGana}"></td>
+																				<td th:text="${model.aliaGana}"></td>
+																				<td th:text="${model.fechNaciGana}"></td>
+																				<td th:text="${model.pesoGana}"></td>
+																				<td th:text="${model.tallGana}"></td>
+																				
+																				<td th:text="${model.idGeno}"></td>
+																				<td th:text="${model.idTipoGana}"></td>
+									
+																			</tr>
+																		</tbody>
+																	</table>
+															    </div>
+														      	<div class="modal-footer">
+														        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+														        	<button type="button" class="btn btn-primary">Save changes</button>
+														      	</div>
+													    	</div>
+													  	</div>
+													</div>
+													<!-- END MODAL BUSCAR MADRE -->
 												</div>
 											</div>
 											<div class="form-group row">
@@ -132,7 +184,29 @@
 													class="form-control" th:field="*{cuiaPadr}" />
 												</div>
 												<div class="col-3">
-													<button>Buscar</button>
+													<button type="button" class="btn btn-info" data-toggle="modal" data-target="#buscarPadre">Buscar</button>
+													<!-- MODAL BUSCAR PADRE -->
+													<!-- Modal -->
+													<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<div class="modal-dialog" role="document">
+													    	<div class="modal-content">
+													      		<div class="modal-header">
+													        		<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+													        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													          	<span aria-hidden="true">&times;</span>
+													        	</button>
+													      		</div>
+															    <div class="modal-body">
+															        
+															    </div>
+														      	<div class="modal-footer">
+														        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+														        	<button type="button" class="btn btn-primary">Save changes</button>
+														      	</div>
+													    	</div>
+													  	</div>
+													</div>
+													<!-- END MODAL BUSCAR PADRE -->
 												</div>
 											</div>
 											<div class="form-group row">
