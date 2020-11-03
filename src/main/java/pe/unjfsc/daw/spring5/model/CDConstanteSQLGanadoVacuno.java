@@ -10,8 +10,8 @@ public class CDConstanteSQLGanadoVacuno {
 			+ "idGeno, idTipoGana, idOrig, cuiaMadr, cuiaPadr, codiPropInse, obse, esta) "
 			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM registroganado WHERE cuiaGana = ?";
-	public static final String SQL_UPDATE = "UPDATE " + SQL_TABLE + "idSexo = ?, idGeno = ?, edadGana = ?, etapaGana = ?, aliaGana = ?, fechNaciGana = ?, pesoGana= ?, tallGana= ?"
+	public static final String SQL_UPDATE = "UPDATE " + SQL_TABLE + " SET idSexo = ?, idGeno = ?, edadGana = ?, etapaGana = ?, aliaGana = ?, fechNaciGana = ?, pesoGana= ?, tallGana= ?"
 			+ ",idEstaActi = ?,cantPartGana = ?, idGeno = ?, idTipoGana = ?, idOrig = ?"
-			+ ", cuiaMard = ?, cuiaPadr = ?, codiPropInse = ?, obse = ?, WHERE cuiaNata = ?";
+			+ ", cuiaMadr = ?, cuiaPadr = ?, codiPropInse = ?, obse = ? WHERE cuiaGana = ?";
 	public static final String SQL_DELETE = "UPDATE " + SQL_TABLE + " SET esta = 0 WHERE cuiaGana = ?";
 }

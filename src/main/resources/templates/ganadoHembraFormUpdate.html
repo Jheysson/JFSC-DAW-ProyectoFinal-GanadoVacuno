@@ -27,8 +27,8 @@
 								<form th:action="@{/ganadoVacuno/updateGHembra}" method="post"
 									th:object="${ganadoHembraFormUpdate}">
 									<div class="form-row">
-									<div class="col-md-6">
-										<div class="form-group row">												
+										<div class="col-md-6">
+											<div class="form-group row">												
 												<label class="col-form-label col-md-5">CUIA</label>												
 												<div class="col-7">
 													<input type="number"
@@ -70,6 +70,7 @@
 														<option value="1">Seca</option>
 														<option value="2">Preñada</option>
 														<option value="3">Produccion</option>
+														<option value="4">NA</option>
 													</select>
 												</div>
 											</div>
@@ -80,71 +81,83 @@
 													class="form-control" th:field="*{cantPartGana}" />
 												</div>
 											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5"></label>
+												<div class="col-7">
+													<input type="hidden" value="1"
+													class="form-control" th:field="*{idSexo}" />
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group row">
+												<label class="col-form-label col-md-5">Genotipo</label>
+												<div class="col-7">
+													<select class="form-control" th:field="*{idGeno}">
+														<option value="1">Hereford</option>
+														<option value="2">Charolais</option>
+														<option value="3">Limousin</option>
+														<option value="4">Brahman</option>
+														<option value="5">Gyrolando</option>
+														<option value="6">Brown Swiss</option>
+														<option value="7">Criollo</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5">Tipo</label>
+												<div class="col-7">
+													<select class="form-control" th:field="*{idTipoGana}">
+														<option value="1">Leche</option>
+														<option value="2">Carne</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5">Origen</label>
+												<div class="col-7">
+													<select class="form-control" th:field="*{idOrig}">
+														<option value="1">Autoctono</option>
+														<option value="2">Comprado</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5">CUIA Madre</label>
+												<div class="col-4">
+													<input type="number"
+													class="form-control" th:field="*{cuiaMadr}" />
+												</div>
+												<div class="col-3">
+													<button>Buscar</button>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5">CUIA Padre</label>
+												<div class="col-4">
+													<input type="number"
+													class="form-control" th:field="*{cuiaPadr}" />
+												</div>
+												<div class="col-3">
+													<button>Buscar</button>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5">Codigo Insemin.</label>
+												<div class="col-7">
+													<input type="number"
+													class="form-control" th:field="*{codiPropInse}" />
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5">Observación</label>
+												<div class="col-7">
+													<input type="text"
+													class="form-control" th:field="*{obse}" />
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="col-md-6">
-									
-									</div>
-										<div class="form-group col-md-6">
-											<label for="CUIA">CUIA</label> <input type="text"
-												class="form-control" th:field="*{cuiaNata}" />
-										</div>
-										<div class="form-group col-md-6">
-											<label for="sexo">Sexo</label> <select
-												class="form-control col-12" th:field="*{idSexo}">
-												<option value="1">Macho</option>
-												<option value="2">Hembra</option>
-											</select>
-										</div>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="genotipo">Genotipo</label> <select
-												class="form-control col-12" th:field="*{idGeno}">
-												<option value="1">Hereford</option>
-												<option value="2">Charolais</option>
-												<option value="3">Limousin</option>
-												<option value="4">Brahman</option>
-												<option value="5">Gyrolando</option>
-												<option value="6">Brown Swiss</option>
-												<option value="7">Criollo</option>
-											</select>
-										</div>
-										<div class="form-group col-md-6">
-											<label for="fechNacimiento">Fecha de Nacimiento</label> <input
-												type="date" class="form-control" th:field="*{fechNaciNata}" />
-										</div>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="peso">Peso</label> <input type="text"
-												class="form-control" th:field="*{pesoNata}" />
-										</div>
-										<div class="form-group col-md-6">
-											<label for="CUIAmadre">CUIA Madre</label> <input type="text"
-												class="form-control" th:field="*{cuiaMadr}" />
-										</div>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="CUIApadre">CUIA Padre</label> <input type="text"
-												class="form-control" th:field="*{cuiaPadr}" />
-										</div>
-										<div class="form-group col-md-6">
-											<label for="observacion">Codigo Inseminacion</label> <input
-												type="text" class="form-control" th:field="*{codiProp}" />
-										</div>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="observacion">Observacion</label> <input
-												type="text" class="form-control" th:field="*{obse}" />
-										</div>
-									</div>
-
 									<button type="submit" class="btn btn-danger"
 										style="align-content: center; width: 300px; height: 45px">Guardar</button>
 								</form>

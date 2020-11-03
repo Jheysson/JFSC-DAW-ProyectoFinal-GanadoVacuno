@@ -49,7 +49,7 @@ public class CCGanadoHembra {
 	
 	
 	
-	@RequestMapping(value = "ganadoVacuno/updateGanadoHembra/{cuia}")
+	@RequestMapping(value = "ganadoVacuno/updateGanadoHembra/{cuia}", method = RequestMethod.GET)
 	public ModelAndView updateGanadoHembra(@PathVariable int cuia) {
 		ModelAndView model = new ModelAndView();
 		GanadoVacuno pGanadoVacuno = ganadoVacunoService.findGanadoVacunoByCuia(cuia);

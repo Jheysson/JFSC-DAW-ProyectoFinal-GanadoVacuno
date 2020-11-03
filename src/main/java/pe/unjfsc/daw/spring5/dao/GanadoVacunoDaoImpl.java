@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,7 +20,7 @@ import pe.unjfsc.daw.spring5.model.CDConstanteSQLGanadoVacuno;
 @Transactional
 @Repository
 public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
-
+	private static final Logger log = LoggerFactory.getLogger("DAOIMPL");
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
@@ -56,6 +58,7 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 	}
 	@Override
 	public void addGanadoVacunoHembra(GanadoVacuno pGanadoVacuno) {
+		
 		jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_INSERT,
 				pGanadoVacuno.getCuiaGana(), 1, calcularEdad(pGanadoVacuno.getFechNaciGana()),
 				calcularEtapa(calcularEdad(pGanadoVacuno.getFechNaciGana())),
@@ -82,6 +85,7 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 
 	@Override
 	public void updateGanadoVacuno(GanadoVacuno pGanadoVacuno) {
+		log.info("LLEGANDO PARA ACTUALIZAR: {}",pGanadoVacuno);
 		if (pGanadoVacuno.getIdSexo()==1) {
 			jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_UPDATE,
 					1,
@@ -102,6 +106,7 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 					pGanadoVacuno.getCodiPropInse(),
 					pGanadoVacuno.getObse(),
 					pGanadoVacuno.getCuiaGana());
+			log.info("CONVIRTIENDO ACTUALIZAR: {}",pGanadoVacuno);
 		}else {
 			jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_UPDATE,
 					2,

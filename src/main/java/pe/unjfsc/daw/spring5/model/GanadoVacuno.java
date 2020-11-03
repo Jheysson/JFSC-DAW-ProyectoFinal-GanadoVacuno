@@ -134,6 +134,15 @@ public class GanadoVacuno {
 	public void setEsta(int esta) {
 		this.esta = esta;
 	}
+	@Override
+	public String toString() {
+		return "GanadoVacuno [cuiaGana=" + cuiaGana + ", idSexo=" + idSexo + ", edadGana=" + edadGana + ", etapaGana="
+				+ etapaGana + ", aliaGana=" + aliaGana + ", fechNaciGana=" + fechNaciGana + ", pesoGana=" + pesoGana
+				+ ", tallGana=" + tallGana + ", idEstaActi=" + idEstaActi + ", idEstaAnim=" + idEstaAnim
+				+ ", cantPartGana=" + cantPartGana + ", idGeno=" + idGeno + ", idTipoGana=" + idTipoGana + ", idOrig="
+				+ idOrig + ", cuiaMadr=" + cuiaMadr + ", cuiaPadr=" + cuiaPadr + ", codiPropInse=" + codiPropInse
+				+ ", obse=" + obse + ", esta=" + esta + "]";
+	}
 	
 	
 }
