@@ -16,29 +16,40 @@
 <link rel="stylesheet" type="text/css" href="css/styleGeneral/style.css" />
 <script src="https://kit.fontawesome.com/5c548b849b.js"
 	crossorigin="anonymous"></script>
+
+<!-- CHART JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+	integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css"
+	integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
+	crossorigin="anonymous" />
 <!-- You can change the theme colors from here -->
 <link rel="stylesheet" type="text/css" href="css/colors/blue.css" />
-<link rel="stylesheet" type="text/css" href="css/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css" />
 <title>Ganado Vacuno</title>
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-<div id="main-wrapper">
-<header th:fragment="header" class="topbar">
-		<nav class="navbar top-navbar navbar-expand-md navbar-light">
+	<div id="main-wrapper">
+		<header th:fragment="header" class="topbar">
+			<nav class="navbar top-navbar navbar-expand-md navbar-light">
 				<!-- ============================================================== -->
 				<!-- Logo -->
 				<!-- ============================================================== -->
 				<div class="navbar-header">
-					<a class="navbar-brand" href="index.html"> <!-- Logo icon -->
-						<b> <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+					<a class="navbar-brand" href="index.html"> <!-- Logo icon --> <b>
+							<!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
 							<!-- Dark Logo icon --> <img src="img/logo-icon.png"
 							alt="homepage" class="dark-logo" /> <!-- Light Logo icon --> <img
 							src="img/logo-light-icon.png" alt="homepage" class="light-logo" />
-					</b> <!--End Logo icon --> <!-- Logo text -->
-						<span> <!-- dark Logo text --> <img src="img/logo-text.png"
-							alt="homepage" class="dark-logo" /> <!-- Light Logo text --> <img
-							src="img/logo-light-text.png" class="light-logo" alt="homepage" /></span>
+					</b> <!--End Logo icon --> <!-- Logo text --> <span> <!-- dark Logo text -->
+							<img src="img/logo-text.png" alt="homepage" class="dark-logo" />
+							<!-- Light Logo text --> <img src="img/logo-light-text.png"
+							class="light-logo" alt="homepage" /></span>
 					</a>
 				</div>
 				<!-- ============================================================== -->
@@ -98,7 +109,7 @@
 				</div>
 			</nav>
 		</header>
-</div>
+	</div>
 
 </body>
 
@@ -128,14 +139,14 @@
 					aria-expanded="false"><i class="fas fa-tachometer-alt fa-2x"></i><span
 						class="hide-menu">Dashboard</span></a>
 					<ul aria-expanded="false" class="collapse">
-						<li><a href="index.html">Ganado Vacuno </a></li>
+						<li><a href="/">Ganado Vacuno </a></li>
 					</ul></li>
 				<li><a class="has-arrow waves-effect waves-dark" href="#"
 					aria-expanded="false"><i class="fas fa-folder"></i><span
 						class="hide-menu">Mantenimiento<span
 							class="label label-rouded label-themecolor pull-right">10</span></span></a>
 					<ul aria-expanded="false" class="collapse">
-							<li><a href="natalidad/ListadoNatalidad">Natalidad</a></li>
+						<li><a href="natalidad/ListadoNatalidad">Natalidad</a></li>
 						<li><a href="ganadoVacuno/ListadoGanadoVacuno.lhs">Ganado
 								Vacuno</a></li>
 						<li><a href="ganadoVacuno/ListadoGanadoHembra.lhs">Ganado
@@ -144,12 +155,17 @@
 								Macho</a></li>
 						<li><a href="ganadoEnfermo/ListadoGanadoEnfermo">Ganado
 								Enfermo</a></li>
-						<li><a href="comidaganado/ListadoComidaGanado">Comida Ganado</a></li>
+						<li><a href="comidaganado/ListadoComidaGanado">Comida
+								Ganado</a></li>
 						<li><a href="inseminacion/ListadoInseminacion">Inseminacion</a></li>
 						<li><a href="enfermedad/ListadoEnfermedad">Enfermedad</a></li>
-						<li><a href="vacasenproduccionleche/ListProducionLeche">Producción de leche</a></li>
-						<li><a href="vacadedescarte/ListadoVacadeDescarte">Vaca de descarte</a></li>
-						<li><a href="vacasenproduccionleche/ListadoVacadeProducciondeLeche">Vaca en Produccion de Leche</a></li>	
+						<li><a href="lecheProducida/ListProducionLeche">Producción
+								de leche</a></li>
+						<li><a href="vacadedescarte/ListadoVacadeDescarte">Vaca
+								de descarte</a></li>
+						<li><a
+							href="vacasenproduccionleche/ListadoVacadeProducciondeLeche">Vaca
+								en Produccion de Leche</a></li>
 					</ul></li>
 			</ul>
 		</nav>
@@ -161,28 +177,28 @@
 <section th:fragment="page-wrapper">
 	<div class="page-wrapper">
 
+		<!-- ============================================================== -->
+		<!-- Container fluid  -->
+		<!-- ============================================================== -->
+		<div class="container-fluid">
 			<!-- ============================================================== -->
-			<!-- Container fluid  -->
+			<!-- Bread crumb and right sidebar toggle -->
 			<!-- ============================================================== -->
-			<div class="container-fluid">
-				<!-- ============================================================== -->
-				<!-- Bread crumb and right sidebar toggle -->
-				<!-- ============================================================== -->
-				<div class="row page-titles">
-					<div class="col-md-5 align-self-center">
-						<h3 class="text-themecolor">Blank Page</h3>
-					</div>
-					<div class="col-md-7 align-self-center">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a>
-							</li>
-							<li class="breadcrumb-item">pages</li>
-							<li class="breadcrumb-item active">Blank Page</li>
-						</ol>
-					</div>
+			<div class="row page-titles">
+				<div class="col-md-5 align-self-center">
+					<h3 class="text-themecolor">Blank Page</h3>
 				</div>
+				<div class="col-md-7 align-self-center">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a>
+						</li>
+						<li class="breadcrumb-item">pages</li>
+						<li class="breadcrumb-item active">Blank Page</li>
+					</ol>
 				</div>
-				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <!-- ============================================================== -->
 <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -203,9 +219,8 @@
 <!-- ============================================================== -->
 <!-- End PAge Content -->
 <!-- ============================================================== -->
-<footer th:fragment="footer" class="footer">
-© 2020 Ganado Vacuno derechos reservados Grupo 2
-</footer>
+<footer th:fragment="footer" class="footer"> © 2020 Ganado
+	Vacuno derechos reservados Grupo 2 </footer>
 <section th:fragment="query">
 	<!-- ============================================================== -->
 	<!-- All Jquery -->

@@ -10,14 +10,14 @@
 			<div class="container-fluid">
 				<div class="row page-titles">
 					<div class="col-md-5 align-self-center">
-						<h3 class="text-themecolor">Blank Page</h3>
+						<h3 class="text-themecolor">Dashboard General</h3>
 					</div>
 					<div class="col-md-7 align-self-center">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a>
 							</li>
-							<li class="breadcrumb-item">pages</li>
-							<li class="breadcrumb-item active">Blank Page</li>
+							<li class="breadcrumb-item">Dashboard General</li>
+							<li class="breadcrumb-item active">Dashboard General</li>
 						</ol>
 					</div>
 				</div>
@@ -25,8 +25,14 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body">
-								<!-- Aqui va el codigo de la pagina  -->
-								This is some text within a card block.
+								<div class="form-row">
+									<div class="col-md-6">
+											<canvas id="myChart"></canvas>
+									</div>
+									<div class="col-md-6">
+											<canvas id="myChart1"></canvas>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -35,5 +41,6 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantilla :: query"></section>
+	<script src="js/plugins/dashboard/dashboard.js"></script>
 </body>
 </html>
