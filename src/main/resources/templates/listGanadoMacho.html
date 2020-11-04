@@ -32,9 +32,7 @@
 											</div>
 										</div>
 									</div>
-								<table id="myTable"
-									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
-									style="width: 100%">
+								<table id="example" class="display nowrap">
 									<thead>
 										<tr>
 											<th>CUIA</th>
@@ -93,5 +91,15 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<script>
+	$(document).ready(function() {
+	    $('#example').DataTable( {
+	        "scrollX": true,
+	        "language": {
+                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            }
+	    });
+	} );
+	</script>
 </body>
 </html>
