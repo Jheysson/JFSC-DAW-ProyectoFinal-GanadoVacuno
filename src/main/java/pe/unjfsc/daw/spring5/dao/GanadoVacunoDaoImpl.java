@@ -51,6 +51,13 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 		GanadoVacuno pGanadoVacuo = jdbcTemplate.queryForObject(CDConstanteSQLGanadoVacuno.SQL_SELECT_BY_ID, rowMapper, cuia )	;	
 		return pGanadoVacuo;
 	}
+	
+	@Override
+	public GanadoVacuno findHembrasAptas(int cuia) {
+		RowMapper<GanadoVacuno> rowMapper = new BeanPropertyRowMapper<GanadoVacuno>(GanadoVacuno.class);
+		GanadoVacuno pGanadoVacuno = jdbcTemplate.queryForObject(CDConstanteSQLGanadoVacuno.SQL_FIND_HEMBRA_APTA,rowMapper, cuia);
+		return pGanadoVacuno;
+	}
 
 	@Override
 	public void addGanadoVacuno(GanadoVacuno pGanadoVacuno) {
@@ -154,6 +161,8 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 		}		
 		return etapa;
 	}
+
+	
 
 	
 	

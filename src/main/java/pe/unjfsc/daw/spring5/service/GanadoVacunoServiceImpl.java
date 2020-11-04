@@ -33,6 +33,10 @@ public class GanadoVacunoServiceImpl implements GanadoVacunoService{
 	public GanadoVacuno findGanadoVacunoByCuia(int cuia) {
 		return oGanadoVacunoDaoImpl.findGanadoVacunoByCuia(cuia);
 	}
+	@Override
+	public GanadoVacuno findHembrasAptas(int cuia) {
+		return oGanadoVacunoDaoImpl.findHembrasAptas(cuia);
+	}
 
 	@Override
 	public void addGanadoVacuno(GanadoVacuno pGanadoVacuno) {
@@ -62,6 +66,8 @@ public class GanadoVacunoServiceImpl implements GanadoVacunoService{
 		oGanadoVacunoDaoImpl.deleteGanadoVacuno(cuia);
 		
 	}
+
+	
 
 	
 

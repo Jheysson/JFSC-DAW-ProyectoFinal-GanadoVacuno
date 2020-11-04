@@ -13,6 +13,8 @@ public interface GanadoVacunoService {
 	
 	public GanadoVacuno findGanadoVacunoByCuia(int cuia);
 	
+	public GanadoVacuno findHembrasAptas(int cuia);
+	
 	public void addGanadoVacuno(GanadoVacuno pGanadoVacuno);
 	
 	public void addGanadoVacunoHembra(GanadoVacuno pGanadoVacuno);

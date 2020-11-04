@@ -118,12 +118,17 @@
 											<div class="form-group row">
 												<label class="col-form-label col-md-5">CUIA Madre</label>
 												<div class="col-4">
-													<input type="number"
+													<input id="cuiaMadreInput" type="number"
 													class="form-control" th:field="*{cuiaMadr}" />
 												</div>
 												<div class="col-3">
-													<a href="listarHembras" class="btn btn-info" data-toggle="modal"
-													 data-target="#buscarMadre" role="button">Buscar</a>
+													<!-- <a href="listarHembras" id="botonVerificarMadre" class="btn btn-info" data-toggle="modal" onClick="test()"
+													 data-target="#buscarMadre" role="button">Buscar</a> -->
+													 <button id="botonVerificarMadre" class="btn btn-info" onClick="test()" type="button">Buscar</button>
+													 
+													 <span id="esValido" style="visibility: hidden">VALIDO</span>
+													 <span id="noValido" style="visibility: hidden">NO VALIDO</span>
+													 
 													
 													<!-- MODAL BUSCAR MADRE -->													
 													<div class="modal fade" id="buscarMadre" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -236,5 +241,33 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<script type="text/javascript">
+		$("#botonVerificarMadre");
+		
+		function test(){
+			var id = $("#cuiaMadreInput").val();
+
+ 			$.ajax({
+			  type: "POST",
+			  //url: "/consultar/"+id,
+			  url: "/consultar",
+			  data:{id: }
+			  success: function(resp){
+			  	console.log("recibiendo respo", resp);
+			  	
+			  	if(resp==true)
+			  		$("#esValido").show()
+			  	else
+			  		$("#noValido").show()
+			  },
+			  dataType: "JSON"
+			});
+ 
+// 			$.get( "/consultar/"+id, function( data ) {
+// 				console.log("DATO:",data)
+// 				});
+		}
+		
+	</script>
 </body>
 </html>

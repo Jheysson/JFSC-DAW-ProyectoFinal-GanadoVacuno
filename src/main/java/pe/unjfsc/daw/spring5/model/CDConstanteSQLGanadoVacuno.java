@@ -14,4 +14,6 @@ public class CDConstanteSQLGanadoVacuno {
 			+ ",idEstaActi = ?,cantPartGana = ?, idGeno = ?, idTipoGana = ?, idOrig = ?"
 			+ ", cuiaMadr = ?, cuiaPadr = ?, codiPropInse = ?, obse = ? WHERE cuiaGana = ?";
 	public static final String SQL_DELETE = "UPDATE " + SQL_TABLE + " SET esta = 0 WHERE cuiaGana = ?";
+	
+	public static final String SQL_FIND_HEMBRA_APTA = "SELECT * FROM registroganado WHERE edadGana>20 and idSexo=1 and cuiaGana = ?";
 }
