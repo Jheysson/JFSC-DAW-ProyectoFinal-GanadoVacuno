@@ -31,7 +31,7 @@
 										Madre</button>
 								</div>
 								<form th:action="@{/natalidad/save}" method="post"
-									th:object="${natalidadForm}">
+									th:object="${natalidadForm}" enctype="multipart/form-data">
 									<div class="form-row">
 										<div class="form-group col-md-6">
 											<label for="CUIA">CUIA</label> <input type="text"
@@ -91,6 +91,9 @@
 										<div class="form-group col-md-6">
 											<label for="observacion">Observacion</label> <input
 												type="text" class="form-control" th:field="*{obse}" />
+										</div>
+										<div class="row form-group">
+										<input type="file" name="file" class="m-2">
 										</div>
 									</div>
 

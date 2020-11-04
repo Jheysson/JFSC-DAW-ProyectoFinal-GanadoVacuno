@@ -47,7 +47,8 @@ public class natalidadDaoImpl implements natalidadDao{
 				pnatalidad.getCuiaMadr(),
 				pnatalidad.getCuiaPadr(),
 				pnatalidad.getCodiProp(),
-				pnatalidad.getObse()
+				pnatalidad.getObse(),
+				pnatalidad.getFoto()
 				);
 		
 	}

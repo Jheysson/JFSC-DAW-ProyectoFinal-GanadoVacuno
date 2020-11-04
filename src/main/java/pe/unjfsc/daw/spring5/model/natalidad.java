@@ -11,6 +11,7 @@ public class natalidad {
 	private int cuiaPadr;
 	private int codiProp;
 	private String obse;
+	private String foto;
 	private int esta;
 
 	public int getCuiaNata() {
@@ -66,6 +67,12 @@ public class natalidad {
 	}
 	public void setObse(String obse) {
 		this.obse = obse;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 	public int getEsta() {
 		return esta;

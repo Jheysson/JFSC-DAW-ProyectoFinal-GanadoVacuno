@@ -19,6 +19,7 @@ public class natalidadRowMapper implements RowMapper<natalidad>{
 		onatalidad.setCuiaPadr(rs.getInt("cuiaPadr"));
 		onatalidad.setCodiProp(rs.getInt("codiProp"));
 		onatalidad.setObse(rs.getString("obse"));
+		onatalidad.setFoto(rs.getString("imagen"));
 		onatalidad.setEsta(rs.getInt("esta"));	
 		return onatalidad;
 	}

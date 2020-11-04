@@ -47,6 +47,7 @@
 											<th>Padre</th>
 											<th>Cod Inse</th>
 											<th>Observacion</th>
+											<th>Imagen</th>
 											<th>Editar</th>
 											<th>Eliminar</th>
 										<tr th:each="model : ${listNatalidad}">
@@ -59,6 +60,10 @@
 											<td th:text="${model.cuiaPadr}"></td>
 											<td th:text="${model.codiProp}"></td>
 											<td th:text="${model.obse}"></td>
+											<td>
+											<img th:src="@{'/uploads/'+${model.foto}}" width="40" class="img-circle"
+											th:alt="${model.foto}">
+											</td>
 											<td><a class="btn btn-primary"
 														th:href="@{/natalidad/updateNatalidad/} + ${model.cuiaNata}" role="button">Editar</a></td>
 											<td><a class="btn btn-danger"
