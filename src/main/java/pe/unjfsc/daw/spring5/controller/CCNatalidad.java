@@ -28,6 +28,7 @@ public class CCNatalidad {
     @Autowired
     private natalidadService natalidadService;
     
+    
     @RequestMapping("/")
     public String inicio() {
         return "index";
@@ -40,11 +41,6 @@ public class CCNatalidad {
     	model.addObject("listNatalidad",list);
     	model.setViewName("listNatalidad");
 		return model;
-	}
-    
-    @RequestMapping(value = "/ganadoEnfermo")
-	public String ListadoGanadoEnfermo() {
-		return "listGanadoEnfermo";
 	}
     
     @RequestMapping(value = "natalidad/agregarNatalidad", method=RequestMethod.GET)
