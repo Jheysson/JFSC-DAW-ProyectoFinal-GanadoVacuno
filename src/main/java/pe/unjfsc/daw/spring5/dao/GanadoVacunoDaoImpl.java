@@ -77,7 +77,7 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 				calcularEtapa(calcularEdad(pGanadoVacuno.getFechNaciGana())),
 				pGanadoVacuno.getAliaGana(), pGanadoVacuno.getFechNaciGana(), 
 				pGanadoVacuno.getPesoGana(), pGanadoVacuno.getTallGana(), 
-				4, 1, null, 
+				4, 1, 0, 
 				pGanadoVacuno.getIdGeno(), 2, pGanadoVacuno.getIdOrig(),
 				pGanadoVacuno.getCuiaMadr(), pGanadoVacuno.getCuiaPadr(), pGanadoVacuno.getCodiPropInse(), 
 				pGanadoVacuno.getObse(), 1);		

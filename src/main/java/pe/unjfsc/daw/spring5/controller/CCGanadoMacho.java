@@ -45,24 +45,24 @@ private static final Logger log = LoggerFactory.getLogger("CCNatalidad");
 		ganadoVacunoService.addGanadoVacunoMacho(pGanadoVacuno);
 		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");		
 	}
+	@RequestMapping(value = "ganadoVacuno/updateGanadoMacho/{cuia}", method = RequestMethod.GET)
+	public ModelAndView updateGanadoMacho(@PathVariable int cuia) {
+		ModelAndView model = new ModelAndView();
+		GanadoVacuno pGanadoVacuno = ganadoVacunoService.findGanadoVacunoByCuia(cuia);
+		model.addObject("ganadoMachoFormUpdate",pGanadoVacuno);
+		model.setViewName("ganadoMachoFormUpdate");
+		return model;
+	}
+	@RequestMapping(value = "ganadoVacuno/updateGMacho", method = RequestMethod.POST)
+	public ModelAndView editarGanadoMacho(@ModelAttribute("ganadoMachoFormUpdate") GanadoVacuno pGanadoVacuno) {
+		ganadoVacunoService.updateGanadoVacuno(pGanadoVacuno);
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");
+	}
 	
-	
-	/*
-	@RequestMapping(value="natalidad/updateNatalidad/{cuia}", method=RequestMethod.GET)
-    public ModelAndView updateNatalidad(@PathVariable int cuia) {
-    	ModelAndView model = new ModelAndView();
-    	natalidad pnatalidad = natalidadService.findnatalidadByCuia(cuia);
-    	  model.addObject("natalidadFormUpdate", pnatalidad);
-    	  model.setViewName("natalidadFormUpdate");
-    	  return model;
-    	
-    }
-    
-    @RequestMapping(value="natalidad/update", method=RequestMethod.POST)
-	public ModelAndView editarNatalidad(@ModelAttribute("natalidadFormUpdate") natalidad pnatalidad) {
-    	natalidadService.updatenatalidad(pnatalidad);
-    	log.info("save" + pnatalidad);
-		return new ModelAndView("redirect:/natalidad/ListadoNatalidad");    
-    }
-	 * */
+	@RequestMapping(value = "/ganadoVacuno/eliminarGanadoMacho/{cuia}", method = RequestMethod.GET)
+	public ModelAndView deleteGanadoMacho(@PathVariable("cuia") int cuia) {
+		ganadoVacunoService.deleteGanadoVacuno(cuia);
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");
+	}
+
 }
