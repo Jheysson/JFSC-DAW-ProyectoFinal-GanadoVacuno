@@ -4,8 +4,8 @@ package pe.unjfsc.daw.spring5.model;
 public class natalidad {
 	
 	private int cuiaNata;
-	private int idSexo;
-	private int idGeno;
+	private String idSexo;
+	private String idGeno;
 	private String fechNaciNata;
 	private double pesoNata;
 	private int cuiaMadr;
@@ -21,16 +21,16 @@ public class natalidad {
 	public void setCuiaNata(int cuiaNata) {
 		this.cuiaNata = cuiaNata;
 	}
-	public int getIdSexo() {
+	public String getIdSexo() {
 		return idSexo;
 	}
-	public void setIdSexo(int idSexo) {
+	public void setIdSexo(String idSexo) {
 		this.idSexo = idSexo;
 	}
-	public int getIdGeno() {
+	public String getIdGeno() {
 		return idGeno;
 	}
-	public void setIdGeno(int idGeno) {
+	public void setIdGeno(String idGeno) {
 		this.idGeno = idGeno;
 	}
 	public String getFechNaciNata() {
