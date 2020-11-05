@@ -11,8 +11,8 @@ public class natalidadRowMapper implements RowMapper<natalidad>{
 	public natalidad mapRow(ResultSet rs, int rowNum) throws SQLException {
 		natalidad onatalidad = new natalidad();		
 		onatalidad.setCuiaNata(rs.getInt("cuiaNata"));
-		onatalidad.setIdSexo(rs.getInt("idSexo"));
-		onatalidad.setIdGeno(rs.getInt("idGeno"));
+		onatalidad.setIdSexo(rs.getString("idSexo"));
+		onatalidad.setIdGeno(rs.getString("idGeno"));
 		onatalidad.setFechNaciNata(rs.getString("fechNaciNata"));
 		onatalidad.setPesoNata(rs.getDouble("pesoNata"));
 		onatalidad.setCuiaMadr(rs.getInt("cuiaMadr"));
