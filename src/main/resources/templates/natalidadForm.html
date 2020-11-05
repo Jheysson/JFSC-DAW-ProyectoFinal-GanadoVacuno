@@ -22,7 +22,7 @@
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<div class="card">
+						<div class="card container">
 							<div class="card-body">
 								<form th:action="@{/natalidad/save}" method="post"
 									th:object="${natalidadForm}" enctype="multipart/form-data">
@@ -34,6 +34,7 @@
 										<div class="form-group col-md-6">
 											<label for="sexo">Sexo</label> <select
 												class="form-control col-12" th:field="*{idSexo}">
+												<option value="0">Seleccione</option>
 												<option value="1">Macho</option>
 												<option value="2">Hembra</option>
 											</select>
@@ -44,6 +45,7 @@
 										<div class="form-group col-md-6">
 											<label for="genotipo">Genotipo</label> <select
 												class="form-control col-12" th:field="*{idGeno}">
+												<option value="0">Seleccione</option>
 												<option value="1">Hereford</option>
 												<option value="2">Charolais</option>
 												<option value="3">Limousin</option>
@@ -61,7 +63,7 @@
 
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="peso">Peso</label> <input type="text"
+											<label for="peso">Peso(Kg)</label> <input type="text"
 												class="form-control" th:field="*{pesoNata}" />
 										</div>
 										<div class="form-group col-md-6">
@@ -69,25 +71,44 @@
 												class="form-control" th:field="*{cuiaMadr}" />
 										</div>
 									</div>
+									<div class="form-group row">
+										<div class="col-6">
+											<div class="form-check">
+												<input class="form-check-input" type="radio"
+													name="exampleRadios" id="idInseminacion" checked> <label
+													class="form-check-label" for="idInseminacion">
+													Inseminacion </label>
+											</div>
+										</div>
+										<div class="col-6">
+											<div class="form-check" id="groupOrigen">
+												<input class="form-check-input" type="radio"
+													name="exampleRadios" id="idMonte"> <label
+													class="form-check-label" for="idMonte"> Monte </label>
+											</div>
+										</div>
 
+
+									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="CUIApadre">CUIA Padre</label> <input type="text"
+											<label for="cuiaPadreInput">CUIA Padre</label> <input id="cuiaPadreInput" type="number" disabled
 												class="form-control" th:field="*{cuiaPadr}" />
 										</div>
 										<div class="form-group col-md-6">
-											<label for="observacion">Codigo Inseminacion</label> <input
-												type="text" class="form-control" th:field="*{codiProp}" />
+											<label for="codiInseminInput">Codigo Inseminacion</label> <input
+												id="codiInseminInput" type="number" class="form-control" th:field="*{codiProp}" />
 										</div>
 									</div>
 
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="observacion">Observacion</label> <input
-												type="text" class="form-control" th:field="*{obse}" />
+											<label for="observacion">Observacion</label>
+											<textarea class="form-control" rows="5" th:field="*{obse}"></textarea>
 										</div>
-										<div class="row form-group">
-											<input type="file" name="file" class="m-2">
+										<div class="form-group col-md-6">
+											<label>Subir imagen del ganado</label> <input type="file"
+												name="file" class="form-control">
 										</div>
 									</div>
 
@@ -102,5 +123,28 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<script type="text/javascript">
+		var insemi = document.getElementById('idInseminacion');
+		var monte = document.getElementById('idMonte');
+	
+		var cuiaPadre = document.getElementById('cuiaPadreInput');
+		var codiInse = document.getElementById('codiInseminInput');
+	
+		function habilitarInputs(){
+			if (insemi.checked) {
+				codiInse.disabled=false;
+				cuiaPadre.disabled=true;
+				cuiaPadre.value=0;
+				
+			}else{
+				codiInse.disabled = true;
+				cuiaPadre.disabled=false;
+				codiInse.value=0;
+			}
+		}
+			insemi.addEventListener('change', habilitarInputs)
+			monte.addEventListener('change', habilitarInputs)
+		
+	</script>
 </body>
 </html>

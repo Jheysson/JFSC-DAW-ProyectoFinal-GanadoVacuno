@@ -1,5 +1,6 @@
 package pe.unjfsc.daw.spring5.model;
 
+
 public class natalidad {
 	
 	private int cuiaNata;
