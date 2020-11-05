@@ -43,6 +43,7 @@
 											<th>Cantidad Lts.</th>
 											<th>fecha Produccion</th>
 											<th>CUIA Vaca Productora</th>
+											<th>ALIAS</th>
 											<th>Editar</th>
 											<th>Eliminar</th>
 										</tr>
@@ -52,7 +53,8 @@
 											<td th:text="${model.idLechProd}"></td>
 											<td th:text="${model.cantiLitrLechProd}"></td>
 											<td th:text="${model.fechLechProd}"></td>
-											<td th:text="${model.idVacaProd}"></td>
+											<td th:text="${model.cuiaGana}"></td>
+											<td th:text="${model.aliaGana}"></td>
 										<td><a class="btn btn-primary"
 														th:href="@{/lecheProducida/updateLecheProducida/} + ${model.idLechProd}" role="button">Editar</a></td>
 											<td><a class="btn btn-danger"
