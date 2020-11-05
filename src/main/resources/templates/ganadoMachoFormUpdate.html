@@ -90,16 +90,43 @@
 											<div class="form-group row">
 												<label class="col-form-label col-md-5">Origen</label>
 												<div class="col-7">
-													<select class="form-control" th:field="*{idOrig}">
-														<option value="1">Autoctono</option>
-														<option value="2">Comprado</option>
-													</select>
+													<div class="form-check">
+													  	<input  class="form-check-input" type="radio" name="exampleRadios" id="idAutoctono" th:field="*{idOrig}" value="1" checked>
+													  	<label class="form-check-label" for="idAutoctono">
+													    	Autoctono
+													  	</label>
+													</div>
+													<div class="form-check">
+													  	<input class="form-check-input" type="radio" name="exampleRadios" th:field="*{idOrig}" id="idComprado" value="2">
+													  	<label class="form-check-label" for="idComprado">
+													    	Comprado
+													  	</label>
+													</div>
 												</div>
 											</div>
 											<div class="form-group row">
-												<label class="col-form-label col-md-5">CUIA Madre</label>
+												<div class="col-6">
+													<div class="form-check">
+													  	<input  class="form-check-input" type="radio" name="exampleRadios" id="idInseminacion" checked>
+													  	<label class="form-check-label" for="idInseminacion">
+													    	Inseminacion
+													  	</label>
+													</div>
+												</div>
+												<div class="col-6">
+													<div class="form-check" id="groupOrigen">
+													  	<input class="form-check-input" type="radio" name="exampleRadios" id="idMonte">
+													  	<label class="form-check-label" for="idMonte">
+													    	Monte
+													  	</label>
+													</div>
+												</div>												
+													
+											</div>
+											<div class="form-group row">
+												<label for="cuiaMadreInput" class="col-form-label col-md-5">CUIA Madre</label>
 												<div class="col-4">
-													<input type="number"
+													<input id="cuiaMadreInput" type="number"
 													class="form-control" th:field="*{cuiaMadr}" />
 												</div>
 												<div class="col-3">
@@ -107,9 +134,9 @@
 												</div>
 											</div>
 											<div class="form-group row">
-												<label class="col-form-label col-md-5">CUIA Padre</label>
+												<label for="cuiaPadreInput" class="col-form-label col-md-5">CUIA Padre</label>
 												<div class="col-4">
-													<input type="number"
+													<input id="cuiaPadreInput" type="number" disabled
 													class="form-control" th:field="*{cuiaPadr}" />
 												</div>
 												<div class="col-3">
@@ -117,9 +144,9 @@
 												</div>
 											</div>
 											<div class="form-group row">
-												<label class="col-form-label col-md-5">Codigo Insemin.</label>
+												<label for="codiInseminInput" class="col-form-label col-md-5">Codigo Insemin.</label>
 												<div class="col-7">
-													<input type="number"
+													<input id="codiInseminInput" type="number"
 													class="form-control" th:field="*{codiPropInse}" />
 												</div>
 											</div>
@@ -143,5 +170,68 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaUpdate :: query"></section>
+	<script type="text/javascript">
+		var autoctono = document.getElementById('idAutoctono');
+		var comprado = document.getElementById('idComprado');
+	
+		var cuiaMadre = document.getElementById('cuiaMadreInput');
+		var cuiaPadre = document.getElementById('cuiaPadreInput');
+		var codiInse = document.getElementById('codiInseminInput');
+		
+		var insemi = document.getElementById('idInseminacion');
+		var monte = document.getElementById('idMonte');
+		
+		var groupOrigen = document.getElementById('groupOrigen');
+	
+		function habilitarInputs(){
+			if (autoctono.checked) {
+				cuiaMadre.disabled=false;
+				cuiaPadre.disabled=true;
+				codiInse.disabled=false;
+				insemi.disabled = false;
+				monte.disabled = false;
+				cuiaPadre.value=0;
+			}else{
+				cuiaMadre.disabled=true;
+				codiInse.disabled = true;
+				cuiaPadre.disabled=true;
+				insemi.disabled = true;
+				monte.disabled = true;
+				
+				cuiaPadre.value=0;
+				codiInse.value=0;
+				cuiaMadre.value= 0;
+			}
+		}
+			autoctono.addEventListener('change', habilitarInputs)
+			comprado.addEventListener('change', habilitarInputs)
+		
+	</script>
+	<script type="text/javascript">
+		var insemi = document.getElementById('idInseminacion');
+		var monte = document.getElementById('idMonte');
+	
+		var cuiaMadre = document.getElementById('cuiaMadreInput');
+		var cuiaPadre = document.getElementById('cuiaPadreInput');
+		var codiInse = document.getElementById('codiInseminInput');
+	
+		function habilitarInputs(){
+			if (insemi.checked) {
+				cuiaMadre.disabled=false;
+				codiInse.disabled=false;
+				cuiaPadre.disabled=true;
+				cuiaPadre.value=0;
+				
+			}else{
+				cuiaMadre.disabled=false;
+				codiInse.disabled = true;
+				cuiaPadre.disabled=false;
+				codiInse.value=0;
+			}
+		}
+			insemi.addEventListener('change', habilitarInputs)
+			monte.addEventListener('change', habilitarInputs)
+		
+	</script>
 </body>
 </html>
