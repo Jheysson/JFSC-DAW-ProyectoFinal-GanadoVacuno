@@ -1,7 +1,7 @@
 package pe.unjfsc.daw.spring5.model;
 
 public class lecheProducidaDia {
-	
+	//mod
 	private int idLechProd;
 	private double cantiLitrLechProd;
 	private String fechLechProd;
