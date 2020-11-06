@@ -37,10 +37,10 @@
 									<thead>
 										<tr>
 											<th>CUIA</th>
+											<th>Alias</th>
 											<th>Sexo</th>
 											<th>Edad</th>
-											<th>Etapa</th>
-											<th>Alias</th>
+											<th>Etapa</th>											
 											<th>Fecha Nacimiento</th>
 											<th>Peso</th>
 											<th>Talla</th>
@@ -58,10 +58,10 @@
 									<tbody>
 									<tr th:each="model : ${listGanadoVacuno}">
 											<td th:text="${model.cuiaGana}"></td>
+											<td th:text="${model.aliaGana}"></td>
 											<td th:text="${model.idSexo}"></td>
 											<td th:text="${model.edadGana}"></td>
-											<td th:text="${model.etapaGana}"></td>
-											<td th:text="${model.aliaGana}"></td>
+											<td th:text="${model.etapaGana}"></td>											
 											<td th:text="${model.fechNaciGana}"></td>
 											<td th:text="${model.pesoGana}"></td>
 											<td th:text="${model.tallGana}"></td>
@@ -74,8 +74,7 @@
 											<td th:text="${model.cuiaMadr}"></td>
 											<td th:text="${model.cuiaPadr}"></td>
 											<td th:text="${model.codiPropInse}"></td>
-											<td th:text="${model.obse}"></td>
-											
+											<td th:text="${model.obse}"></td>											
 										</tr>
 									</tbody>
 								</table>
@@ -86,14 +85,19 @@
 			</div>
 		</div>
 	</div>
-	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<section th:replace="layout/plantillaRecursos :: query"></section>	  
 	<script>
 	$(document).ready(function() {
 	    $('#example').DataTable( {
 	        "scrollX": true,
+	        responsive: true,
+	        "scrollY": 580,
 	        "language": {
                 "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-            }
+            },
+            fixedColumns:   {
+                leftColumns: 2
+            },
 	    });
 	} );
 	</script>
