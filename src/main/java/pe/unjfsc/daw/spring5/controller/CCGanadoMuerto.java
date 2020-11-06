@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.unjfsc.daw.spring5.model.ganadoMuerto;
-import pe.unjfsc.daw.spring5.model.vacadedescarte;
 import pe.unjfsc.daw.spring5.service.ganadoMuertoService;
 
 @Controller

@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.unjfsc.daw.spring5.model.comidaganado;
-import pe.unjfsc.daw.spring5.model.inseminacion;
 import pe.unjfsc.daw.spring5.service.comidaganadoService;
-import pe.unjfsc.daw.spring5.service.inseminacionService;
 
 @Controller
 
