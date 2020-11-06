@@ -1,4 +1,4 @@
-package pe.unjfsc.daw.spring5.dao;
+package pe.unjfsc.daw.spring5.dao.impl;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -13,9 +13,10 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import pe.unjfsc.daw.spring5.dao.GanadoVacunoDao;
 import pe.unjfsc.daw.spring5.model.GanadoVacuno;
 import pe.unjfsc.daw.spring5.model.GanadoVacunoRowMapper;
-import pe.unjfsc.daw.spring5.model.CDConstanteSQLGanadoVacuno;
+import pe.unjfsc.daw.spring5.model.consta.CDConstanteSQLGanadoVacuno;
 
 @Transactional
 @Repository
@@ -93,7 +94,7 @@ public class GanadoVacunoDaoImpl implements GanadoVacunoDao{
 	@Override
 	public void updateGanadoVacuno(GanadoVacuno pGanadoVacuno) {
 		log.info("LLEGANDO PARA ACTUALIZAR: {}",pGanadoVacuno);
-		if (pGanadoVacuno.getIdSexo()==1) {
+		if (pGanadoVacuno.getIdSexo().equals("1")) {
 			jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_UPDATE,
 					1,
 					pGanadoVacuno.getIdGeno(),
