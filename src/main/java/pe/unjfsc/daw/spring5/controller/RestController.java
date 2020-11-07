@@ -27,6 +27,7 @@ public class RestController {
     	
 	@RequestMapping(value="/buscar/verificarMadreGanadoVacuno/{cuia}", method=RequestMethod.GET)
     public GanadoVacuno getGanadoVacuno(@PathVariable("cuia") int cuia) {
+		//hola
 		return ganadoVacunoService.findGanadoVacunoByCuia(cuia);
     }
 }
