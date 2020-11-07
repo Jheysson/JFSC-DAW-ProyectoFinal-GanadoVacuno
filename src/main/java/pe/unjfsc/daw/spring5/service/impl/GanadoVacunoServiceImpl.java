@@ -1,12 +1,13 @@
-package pe.unjfsc.daw.spring5.service;
+package pe.unjfsc.daw.spring5.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pe.unjfsc.daw.spring5.dao.GanadoVacunoDaoImpl;
+import pe.unjfsc.daw.spring5.dao.impl.GanadoVacunoDaoImpl;
 import pe.unjfsc.daw.spring5.model.GanadoVacuno;
+import pe.unjfsc.daw.spring5.service.GanadoVacunoService;
 
 @Service
 public class GanadoVacunoServiceImpl implements GanadoVacunoService{

@@ -1,12 +1,12 @@
 package pe.unjfsc.daw.spring5.model;
 
 public class lecheProducidaDia {
-	
+	//mod
 	private int idLechProd;
 	private double cantiLitrLechProd;
 	private String fechLechProd;
-	private int idVacaProd;
-	
+	private int cuiaGana;
+	private String aliaGana;
 	public int getIdLechProd() {
 		return idLechProd;
 	}
@@ -25,12 +25,21 @@ public class lecheProducidaDia {
 	public void setFechLechProd(String fechLechProd) {
 		this.fechLechProd = fechLechProd;
 	}
-	public int getIdVacaProd() {
-		return idVacaProd;
+	public int getCuiaGana() {
+		return cuiaGana;
 	}
-	public void setIdVacaProd(int idVacaProd) {
-		this.idVacaProd = idVacaProd;
+	public void setCuiaGana(int cuiaGana) {
+		this.cuiaGana = cuiaGana;
 	}
+	public String getAliaGana() {
+		return aliaGana;
+	}
+	public void setAliaGana(String aliaGana) {
+		this.aliaGana = aliaGana;
+	}
+	
+	
+	
 	
 	
 }

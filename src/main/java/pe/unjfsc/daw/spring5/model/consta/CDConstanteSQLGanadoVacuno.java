@@ -1,10 +1,10 @@
-package pe.unjfsc.daw.spring5.model;
+package pe.unjfsc.daw.spring5.model.consta;
 
 public class CDConstanteSQLGanadoVacuno {
 	public static final String SQL_TABLE = "registroganado";
-	public static final String SQL_SELECT_ALL = "SELECT * FROM registroganado WHERE esta = 1";
-	public static final String SQL_SELECT_ALL_HEMBRAS = "SELECT * FROM registroganado  WHERE esta = 1 and idSexo = 1";
-	public static final String SQL_SELECT_ALL_MACHOS = "SELECT * FROM registroganado  WHERE esta = 1 and idSexo = 2";
+	public static final String SQL_SELECT_ALL = "SELECT * FROM vallganadovacuno";
+	public static final String SQL_SELECT_ALL_HEMBRAS = "SELECT * FROM vGanadoHembra";
+	public static final String SQL_SELECT_ALL_MACHOS = "SELECT * FROM vGanadoMacho";
 	public static final String SQL_INSERT = "INSERT INTO registroGanado (cuiaGana, idSexo, edadGana, etapaGana, aliaGana,"
 			+ " fechNaciGana, pesoGana, tallGana, idEstaActi, idEstaAnim, cantPartGana, "
 			+ "idGeno, idTipoGana, idOrig, cuiaMadr, cuiaPadr, codiPropInse, obse, esta) "

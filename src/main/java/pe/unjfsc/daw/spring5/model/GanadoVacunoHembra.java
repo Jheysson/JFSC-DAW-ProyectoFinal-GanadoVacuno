@@ -1,8 +1,7 @@
 package pe.unjfsc.daw.spring5.model;
 
-public class GanadoVacuno {
+public class GanadoVacunoHembra {
 	private int cuiaGana;
-	private String idSexo;
 	private int edadGana;
 	private String etapaGana;
 	private String aliaGana;
@@ -19,18 +18,11 @@ public class GanadoVacuno {
 	private int cuiaPadr;
 	private int codiPropInse;
 	private String obse;
-	private int esta;
 	public int getCuiaGana() {
 		return cuiaGana;
 	}
 	public void setCuiaGana(int cuiaGana) {
 		this.cuiaGana = cuiaGana;
-	}
-	public String getIdSexo() {
-		return idSexo;
-	}
-	public void setIdSexo(String idSexo) {
-		this.idSexo = idSexo;
 	}
 	public int getEdadGana() {
 		return edadGana;
@@ -128,20 +120,14 @@ public class GanadoVacuno {
 	public void setObse(String obse) {
 		this.obse = obse;
 	}
-	public int getEsta() {
-		return esta;
-	}
-	public void setEsta(int esta) {
-		this.esta = esta;
-	}
 	@Override
 	public String toString() {
-		return "GanadoVacuno [cuiaGana=" + cuiaGana + ", idSexo=" + idSexo + ", edadGana=" + edadGana + ", etapaGana="
-				+ etapaGana + ", aliaGana=" + aliaGana + ", fechNaciGana=" + fechNaciGana + ", pesoGana=" + pesoGana
-				+ ", tallGana=" + tallGana + ", idEstaActi=" + idEstaActi + ", idEstaAnim=" + idEstaAnim
-				+ ", cantPartGana=" + cantPartGana + ", idGeno=" + idGeno + ", idTipoGana=" + idTipoGana + ", idOrig="
-				+ idOrig + ", cuiaMadr=" + cuiaMadr + ", cuiaPadr=" + cuiaPadr + ", codiPropInse=" + codiPropInse
-				+ ", obse=" + obse + ", esta=" + esta + "]";
+		return "GanadoVacunoHembra [cuiaGana=" + cuiaGana + ", edadGana=" + edadGana + ", etapaGana=" + etapaGana
+				+ ", aliaGana=" + aliaGana + ", fechNaciGana=" + fechNaciGana + ", pesoGana=" + pesoGana + ", tallGana="
+				+ tallGana + ", idEstaActi=" + idEstaActi + ", idEstaAnim=" + idEstaAnim + ", cantPartGana="
+				+ cantPartGana + ", idGeno=" + idGeno + ", idTipoGana=" + idTipoGana + ", idOrig=" + idOrig
+				+ ", cuiaMadr=" + cuiaMadr + ", cuiaPadr=" + cuiaPadr + ", codiPropInse=" + codiPropInse + ", obse="
+				+ obse + "]";
 	}
 	
 	

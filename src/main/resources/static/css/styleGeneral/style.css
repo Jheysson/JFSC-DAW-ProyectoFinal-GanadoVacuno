@@ -4021,11 +4021,17 @@ Table Cell
 
 .table td,
 .table th {
-  border-color: #f3f1f1; }
+  border-color: #f3f1f1;
+  }
 
 .table thead th,
 .table th {
-  font-weight: 500; }
+  font-weight: 500; 
+  }
+td, th, tr{
+	text-align: center; 
+    vertical-align: middle;
+}
 
 .table-hover tbody tr:hover {
   background: #e9edf2; }

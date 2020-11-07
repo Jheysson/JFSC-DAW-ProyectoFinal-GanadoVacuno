@@ -27,7 +27,7 @@
 							<div class="card-body">
 								<div class="d-flex">
 										<div class="mr-auto">
-											<div class="form-group">												
+											<div>												
 												<a class="btn btn-primary" th:href="@{/ganadoVacuno/agregarGanadoMacho}">Agregar</a>
 											</div>
 										</div>
@@ -36,9 +36,9 @@
 									<thead>
 										<tr>
 											<th>CUIA</th>
-											<th>Edad</th>
-											<th>Etapa</th>
 											<th>Alias</th>
+											<th>Edad</th>
+											<th>Etapa</th>										
 											<th>Fecha Nacimiento</th>
 											<th>Peso</th>
 											<th>Talla</th>
@@ -55,10 +55,10 @@
 									</thead>
 									<tbody>
 									<tr th:each="model : ${listGanadoMacho}">
-											<td th:text="${model.cuiaGana}"></td>											
+											<td th:text="${model.cuiaGana}"></td>	
+											<td th:text="${model.aliaGana}"></td>										
 											<td th:text="${model.edadGana}"></td>
-											<td th:text="${model.etapaGana}"></td>
-											<td th:text="${model.aliaGana}"></td>
+											<td th:text="${model.etapaGana}"></td>								
 											<td th:text="${model.fechNaciGana}"></td>
 											<td th:text="${model.pesoGana}"></td>
 											<td th:text="${model.tallGana}"></td>
@@ -95,9 +95,13 @@
 	$(document).ready(function() {
 	    $('#example').DataTable( {
 	        "scrollX": true,
+	        "scrollY": 580,
 	        "language": {
                 "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-            }
+            },
+            fixedColumns:   {
+                leftColumns: 2
+            },
 	    });
 	} );
 	</script>

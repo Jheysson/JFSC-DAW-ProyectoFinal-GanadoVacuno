@@ -1,17 +1,14 @@
 package pe.unjfsc.daw.spring5.model;
 
-public class GanadoVacuno {
+public class GanadoVacunoMacho {
 	private int cuiaGana;
-	private String idSexo;
 	private int edadGana;
 	private String etapaGana;
 	private String aliaGana;
 	private String fechNaciGana;
 	private double pesoGana;
-	private double tallGana;
-	private String idEstaActi;
-	private String idEstaAnim;
-	private int cantPartGana;
+	private double tallGana;	
+	private String idEstaAnim;	
 	private String idGeno;
 	private String idTipoGana;
 	private String idOrig;
@@ -19,18 +16,11 @@ public class GanadoVacuno {
 	private int cuiaPadr;
 	private int codiPropInse;
 	private String obse;
-	private int esta;
 	public int getCuiaGana() {
 		return cuiaGana;
 	}
 	public void setCuiaGana(int cuiaGana) {
 		this.cuiaGana = cuiaGana;
-	}
-	public String getIdSexo() {
-		return idSexo;
-	}
-	public void setIdSexo(String idSexo) {
-		this.idSexo = idSexo;
 	}
 	public int getEdadGana() {
 		return edadGana;
@@ -68,23 +58,11 @@ public class GanadoVacuno {
 	public void setTallGana(double tallGana) {
 		this.tallGana = tallGana;
 	}
-	public String getIdEstaActi() {
-		return idEstaActi;
-	}
-	public void setIdEstaActi(String idEstaActi) {
-		this.idEstaActi = idEstaActi;
-	}
 	public String getIdEstaAnim() {
 		return idEstaAnim;
 	}
 	public void setIdEstaAnim(String idEstaAnim) {
 		this.idEstaAnim = idEstaAnim;
-	}
-	public int getCantPartGana() {
-		return cantPartGana;
-	}
-	public void setCantPartGana(int cantPartGana) {
-		this.cantPartGana = cantPartGana;
 	}
 	public String getIdGeno() {
 		return idGeno;
@@ -128,20 +106,13 @@ public class GanadoVacuno {
 	public void setObse(String obse) {
 		this.obse = obse;
 	}
-	public int getEsta() {
-		return esta;
-	}
-	public void setEsta(int esta) {
-		this.esta = esta;
-	}
 	@Override
 	public String toString() {
-		return "GanadoVacuno [cuiaGana=" + cuiaGana + ", idSexo=" + idSexo + ", edadGana=" + edadGana + ", etapaGana="
-				+ etapaGana + ", aliaGana=" + aliaGana + ", fechNaciGana=" + fechNaciGana + ", pesoGana=" + pesoGana
-				+ ", tallGana=" + tallGana + ", idEstaActi=" + idEstaActi + ", idEstaAnim=" + idEstaAnim
-				+ ", cantPartGana=" + cantPartGana + ", idGeno=" + idGeno + ", idTipoGana=" + idTipoGana + ", idOrig="
-				+ idOrig + ", cuiaMadr=" + cuiaMadr + ", cuiaPadr=" + cuiaPadr + ", codiPropInse=" + codiPropInse
-				+ ", obse=" + obse + ", esta=" + esta + "]";
+		return "GanadoVacunoMacho [cuiaGana=" + cuiaGana + ", edadGana=" + edadGana + ", etapaGana=" + etapaGana
+				+ ", aliaGana=" + aliaGana + ", fechNaciGana=" + fechNaciGana + ", pesoGana=" + pesoGana + ", tallGana="
+				+ tallGana + ", idEstaAnim=" + idEstaAnim + ", idGeno=" + idGeno + ", idTipoGana=" + idTipoGana
+				+ ", idOrig=" + idOrig + ", cuiaMadr=" + cuiaMadr + ", cuiaPadr=" + cuiaPadr + ", codiPropInse="
+				+ codiPropInse + ", obse=" + obse + "]";
 	}
 	
 	

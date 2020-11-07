@@ -38,19 +38,19 @@ public class lecheProducidaDaoImpl implements lecheProducidaDao {
 
 		return objLecheProducidaDia;
 	}
-
+//mod
 	@Override
 	public void addLecheProducida(lecheProducidaDia pLecheProducida) {
 		jdbcTemplate.update(CDConstanteSQLecheProducida.SQL_INSERT, 
 				pLecheProducida.getCantiLitrLechProd(),
-				pLecheProducida.getIdVacaProd());
+				pLecheProducida.getCuiaGana());
 	}
-
+//mod
 	@Override
 	public void updateLecheProducida(lecheProducidaDia pLecheProducida) {
 		jdbcTemplate.update(CDConstanteSQLecheProducida.SQL_UPDATE,
 				pLecheProducida.getCantiLitrLechProd(), 
-				pLecheProducida.getIdVacaProd(),
+				pLecheProducida.getCuiaGana(),
 	         	pLecheProducida.getIdLechProd());
 		
 
