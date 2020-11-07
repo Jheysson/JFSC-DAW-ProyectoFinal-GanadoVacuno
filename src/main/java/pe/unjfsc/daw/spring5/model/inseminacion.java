@@ -3,7 +3,7 @@ package pe.unjfsc.daw.spring5.model;
 public class inseminacion {
 	
 	private int codiPropInse;
-	private int idGeno;
+	private String idGeno;
 	private double pesoPropInse;
 	private double tallPropInse;
 	private String lugaPropInse;
@@ -18,10 +18,10 @@ public class inseminacion {
 	public void setCodiPropInse(int codiPropInse) {
 		this.codiPropInse = codiPropInse;
 	}
-	public int getIdGeno() {
+	public String getIdGeno() {
 		return idGeno;
 	}
-	public void setIdGeno(int idGeno) {
+	public void setIdGeno(String idGeno) {
 		this.idGeno = idGeno;
 	}
 	public double getPesoPropInse() {

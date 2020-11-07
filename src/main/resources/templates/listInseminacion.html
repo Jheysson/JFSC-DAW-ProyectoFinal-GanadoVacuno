@@ -33,18 +33,16 @@
 											</div>
 										</div>
 									</div>
-								<table id="myTable"
-									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
-									style="width: 100%">
+								<table id="example" class="display nowrap">
 									<thead>
 										<tr>
-											<th>Codigo</th>
-											<th>Genotipo</th>
-											<th>Peso</th>
-											<th>Talla</th>
-											<th>Lugar de Procedencia</th>
-											<th>Precio de semen</th>
-											<th>Fecha de Compra</th>
+											<th>Codigo de pajilla</th>
+											<th>Genotipo de Toro procedencia</th>
+											<th>Peso de Toro de procedencia</th>
+											<th>Talla de Toro de procedencia</th>
+											<th>Lugar de Procedencia de pajilla</th>
+											<th>Precio de pajilla</th>
+											<th>Fecha de Compra de pajilla</th>
 											<th>Observacion</th>
 											<th>Editar</th>
 											<th>Eliminar</th>
@@ -62,7 +60,7 @@
 											<td><a class="btn btn-primary"
 														th:href="@{/inseminacion/updateInseminacion/} + ${model.codiPropInse}" role="button">Editar</a></td>
 											<td><a class="btn btn-danger"
-														th:href="@{/inseminacion/eliminarInseminacion/} + ${model.codiPropInse}" role="button">Eliminar</a></td>
+														th:onclick="eliminar([[${model.codiPropInse}]])"  role="button">Eliminar</a></td>
 										</tr>
 									</tbody>
 								</table>
@@ -74,5 +72,46 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<script>
+	$(document).ready(function() {
+	    $('#example').DataTable( {
+	        "scrollX": true,
+	        "language": {
+                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            }
+	    });
+	} );
+	</script>
+	
+	<!-- ALERTA DE ELIMINICACION -->
+	<script>
+	function eliminar(codiPropInse) {
+		console.log(codiPropInse);
+		swal({
+			  title: "Esta seguro de Eliminar",
+			  text: "Desea eliminar el registro con código " + codiPropInse,
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((OK) => {
+			  if (OK) {
+				  $.ajax({
+					 url:"/inseminacion/eliminarInseminacion/"+codiPropInse,
+					 success: function(res) {
+						console.log(res);
+					},			
+				  });
+			    swal("Registro eliminado!", {
+			      icon: "success",
+			    }).then((ok)=>{
+			    	if(ok){
+			    		location.href="/inseminacion/ListadoInseminacion";
+			    	}
+			    });
+			  } 
+			});
+	}
+	</script>
 </body>
 </html>

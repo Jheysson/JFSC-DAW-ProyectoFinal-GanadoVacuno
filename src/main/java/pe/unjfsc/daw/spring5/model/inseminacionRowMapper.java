@@ -11,14 +11,14 @@ public class inseminacionRowMapper implements RowMapper<inseminacion>{
 	public inseminacion mapRow(ResultSet rs, int rowNum) throws SQLException {
 		inseminacion oinse= new inseminacion();		
 		oinse.setCodiPropInse(rs.getInt("codiPropInse"));
-		oinse.setIdGeno(rs.getInt("idGeno"));
+		oinse.setIdGeno(rs.getString("idGeno"));
 		oinse.setPesoPropInse(rs.getDouble("pesoPropInse"));
 		oinse.setTallPropInse(rs.getDouble("tallPropInse"));
 		oinse.setLugaPropInse(rs.getString("lugaPropInse"));
 		oinse.setPrecPropInse(rs.getDouble("precPropInse"));
 		oinse.setFechCompPropInse(rs.getString("fechCompPropInse"));
 		oinse.setObse(rs.getString("obse"));
-		oinse.setEsta(rs.getInt("esta"));	
+		oinse.setEsta(rs.getInt("esta"));
 		return oinse;
 	}
 
