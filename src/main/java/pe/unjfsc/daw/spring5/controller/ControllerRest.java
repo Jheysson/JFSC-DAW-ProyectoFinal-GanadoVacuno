@@ -10,10 +10,8 @@ import pe.unjfsc.daw.spring5.model.natalidad;
 import pe.unjfsc.daw.spring5.service.GanadoVacunoService;
 import pe.unjfsc.daw.spring5.service.natalidadService;
 
-
 @org.springframework.web.bind.annotation.RestController
-public class RestController {
-	
+public class ControllerRest {
 	@Autowired
     private natalidadService natalidadService;
 	
@@ -27,7 +25,6 @@ public class RestController {
     	
 	@RequestMapping(value="/buscar/verificarMadreGanadoVacuno/{cuia}", method=RequestMethod.GET)
     public GanadoVacuno getGanadoVacuno(@PathVariable("cuia") int cuia) {
-		//hola
 		return ganadoVacunoService.findGanadoVacunoByCuia(cuia);
     }
 }
