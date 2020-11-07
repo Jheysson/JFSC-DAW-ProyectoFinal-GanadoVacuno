@@ -25,7 +25,8 @@
 						<div class="card container">
 							<div class="card-body">
 								<form th:action="@{/natalidad/save}" method="post"
-									th:object="${natalidadForm}" enctype="multipart/form-data">
+									th:object="${natalidadForm}" enctype="multipart/form-data"
+									name="myForm">
 									<div class="form-row">
 										<div class="form-group col-md-6">
 											<label for="CUIA">CUIA</label> <input type="text"
@@ -68,7 +69,9 @@
 										</div>
 										<div class="form-group col-md-6">
 											<label for="CUIAmadre">CUIA Madre</label> <input type="text"
-												class="form-control" th:field="*{cuiaMadr}" />
+												class="form-control" th:field="*{cuiaMadr}" name="cuiaMadr" />
+											<input type="button" id="Buscar" onclick="fun()"
+												value="Buscar"/>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -92,12 +95,14 @@
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="cuiaPadreInput">CUIA Padre</label> <input id="cuiaPadreInput" type="number" disabled
+											<label for="cuiaPadreInput">CUIA Padre</label> <input
+												id="cuiaPadreInput" type="number" disabled
 												class="form-control" th:field="*{cuiaPadr}" />
 										</div>
 										<div class="form-group col-md-6">
 											<label for="codiInseminInput">Codigo Inseminacion</label> <input
-												id="codiInseminInput" type="number" class="form-control" th:field="*{codiProp}" />
+												id="codiInseminInput" type="number" class="form-control"
+												th:field="*{codiProp}" />
 										</div>
 									</div>
 
@@ -126,25 +131,58 @@
 	<script type="text/javascript">
 		var insemi = document.getElementById('idInseminacion');
 		var monte = document.getElementById('idMonte');
-	
+
 		var cuiaPadre = document.getElementById('cuiaPadreInput');
 		var codiInse = document.getElementById('codiInseminInput');
-	
-		function habilitarInputs(){
+
+		function habilitarInputs() {
 			if (insemi.checked) {
-				codiInse.disabled=false;
-				cuiaPadre.disabled=true;
-				cuiaPadre.value=0;
-				
-			}else{
+				codiInse.disabled = false;
+				cuiaPadre.disabled = true;
+				cuiaPadre.value = 0;
+
+			} else {
 				codiInse.disabled = true;
-				cuiaPadre.disabled=false;
-				codiInse.value=0;
+				cuiaPadre.disabled = false;
+				codiInse.value = 0;
 			}
 		}
-			insemi.addEventListener('change', habilitarInputs)
-			monte.addEventListener('change', habilitarInputs)
-		
+		insemi.addEventListener('change', habilitarInputs)
+		monte.addEventListener('change', habilitarInputs)
+	</script>
+	<script type="text/javascript">
+		window.onload = function() {
+			document.getElementById("Buscar").onclick = function fun() {
+				var x = document.forms["myForm"]["cuiaMadr"].value;
+				var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/" + x;
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', Url, true);
+				xhr.send();
+				xhr.onreadystatechange = processRequest;
+				function processRequest(e) {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var response1 = JSON.parse(xhr.responseText);
+						var result = "Cuia Ganado: ";
+						result += response1.cuiaGana + "\n";
+						result += "Sexo: ";
+						result += response1.idSexo + "\n";
+						result += "Edad: ";
+						result += response1.edadGana + "\n";
+						result += "Etapa: ";
+						result += response1.etapaGana + "\n";
+						result += "Alias: ";
+						result += response1.aliaGana + "\n";
+						result += "Fecha de nacimiento: ";
+						result += response1.fechNaciGana + "\n";
+						result += "Peso: ";
+						result += response1.pesoGana + "\n";
+						result += "Talla: ";
+						result += response1.tallGana + "\n";
+						alert(result);
+					}
+				}
+			}
+		}
 	</script>
 </body>
 </html>

@@ -93,6 +93,7 @@ public class CCNatalidad {
     	natalidadService.deletenatalidad(cuia);
     	return new ModelAndView("redirect:/natalidad/ListadoNatalidad"); 
     	
-    }
+    }    
+    
 }
 
