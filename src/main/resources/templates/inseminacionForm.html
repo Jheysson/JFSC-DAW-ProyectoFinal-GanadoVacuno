@@ -25,9 +25,7 @@
 						<div class="card container">
 							<div class="card-body">
 								<form th:action="@{/inseminacion/save}" method="post"
-									th:object="${inseminacionForm}" enctype="multipart/form-data"
-									name="myForm">
-									 
+									th:object="${inseminacionForm}">
 									<h4 class="card-title">Informacion del Ganado Vacuno</h4>
 									<hr>
 									<div class="form-row">
@@ -38,7 +36,6 @@
 										<div class="form-group col-md-6">
 											<label for="genotipo">Genotipo</label> <select
 												class="form-control col-12" th:field="*{idGeno}">
-												<option value="0">Seleccione</option>
 												<option value="1">Hereford</option>
 												<option value="2">Charolais</option>
 												<option value="3">Limousin</option>

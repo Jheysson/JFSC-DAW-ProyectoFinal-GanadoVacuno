@@ -41,16 +41,20 @@
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Dirigido a</th>
-											<th>Racion</th>
+											<th>Etapa del ganado</th>
 											<th>Tipo de comida</th>
+											<th>Suplemento</th>
+											<th>Ración(kg)</th>
+											<th>Frecuencia</th>
 											</thead>
 											<tbody>
 										<tr th:each="model : ${listComidaGanado}">
 											<td th:text="${model.idComiGana}"></td>
-											<td th:text="${model.comiGanaDiri}"></td>
-											<td th:text="${model.comiRaci}"></td>
+											<td th:text="${model.idEtapa}"></td>
 											<td th:text="${model.idTipoComi}"></td>
+											<td th:text="${model.idSuple}"></td>
+											<td th:text="${model.raciComi}"></td>
+											<td th:text="${model.freComi}"></td>
 											<!--  <td><a class="btn btn-primary"
 														th:href="@{/comidaganado/updateComidaGanado/} + ${model.idComiGana}" role="button">Editar</a></td>
 											<td><a class="btn btn-danger"

@@ -9,11 +9,14 @@ public class comidaganadoRowMapper implements RowMapper<comidaganado>{
 
 	@Override
 	public comidaganado mapRow(ResultSet rs, int rowNum) throws SQLException {
-		comidaganado ocomi= new comidaganado();		
+		comidaganado ocomi= new comidaganado();	
 		ocomi.setIdComiGana(rs.getInt("idComiGana"));
-		ocomi.setComiGanaDiri(rs.getString("comiGanaDiri"));
-		ocomi.setComiRaci(rs.getDouble("comiRaci"));
-		ocomi.setIdTipoComi(rs.getInt("idTipoComi"));
+		ocomi.setIdEtapa(rs.getString("idEtapa"));
+		ocomi.setIdTipoComi(rs.getString("idTipoComi"));
+		ocomi.setIdSuple(rs.getString("idSuple"));
+		ocomi.setRaciComi(rs.getDouble("raciComi"));
+		ocomi.setFreComi(rs.getString("freComi"));
+		ocomi.setEsta(rs.getInt("esta"));
 		return ocomi;
 	}
 
