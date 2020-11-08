@@ -28,12 +28,13 @@
 									th:object="${inseminacionFormUpdate}">
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="Cogido">Codigo</label> <input type="text"
+											<label for="Cogido">Codigo de pajilla</label> <input type="text"
 												class="form-control" th:field="*{codiPropInse}" />
 										</div>
 										<div class="form-group col-md-6">
 											<label for="genotipo">Genotipo</label> <select
 												class="form-control col-12" th:field="*{idGeno}">
+												<option value="0">Seleccione</option>
 												<option value="1">Hereford</option>
 												<option value="2">Charolais</option>
 												<option value="3">Limousin</option>
