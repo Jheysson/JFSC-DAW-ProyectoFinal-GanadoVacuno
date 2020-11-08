@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 public class lecheProducidaRowMapper implements RowMapper<lecheProducidaDia> {
-     //mod
+     //modi
 	@Override
 	public lecheProducidaDia mapRow(ResultSet rs, int rowNum) throws SQLException {
 		lecheProducidaDia objLecheProducida = new lecheProducidaDia();
