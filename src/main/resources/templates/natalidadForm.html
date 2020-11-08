@@ -27,95 +27,196 @@
 								<form th:action="@{/natalidad/save}" method="post"
 									th:object="${natalidadForm}" enctype="multipart/form-data"
 									name="myForm">
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="CUIA">CUIA</label> <input type="text"
-												class="form-control" th:field="*{cuiaNata}" />
-										</div>
-										<div class="form-group col-md-6">
-											<label for="sexo">Sexo</label> <select
-												class="form-control col-12" th:field="*{idSexo}">
-												<option value="0">Seleccione</option>
-												<option value="1">Hembra</option>
-												<option value="2">Macho</option>
-											</select>
-										</div>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="genotipo">Genotipo</label> <select
-												class="form-control col-12" th:field="*{idGeno}">
-												<option value="0">Seleccione</option>
-												<option value="1">Hereford</option>
-												<option value="2">Charolais</option>
-												<option value="3">Limousin</option>
-												<option value="4">Brahman</option>
-												<option value="5">Gyrolando</option>
-												<option value="6">Brown Swiss</option>
-												<option value="7">Criollo</option>
-											</select>
-										</div>
-										<div class="form-group col-md-6">
-											<label for="fechNacimiento">Fecha de Nacimiento</label> <input
-												type="date" class="form-control" th:field="*{fechNaciNata}" />
-										</div>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="peso">Peso(Kg)</label> <input type="text"
-												class="form-control" th:field="*{pesoNata}" />
-										</div>
-										<div class="form-group col-md-6">
-											<label for="CUIAmadre">CUIA Madre</label> <input type="text"
-												class="form-control" th:field="*{cuiaMadr}" name="cuiaMadr" />
-											<input type="button" id="Buscar" onclick="fun()"
-												value="Buscar"/>
-										</div>
-									</div>
-									<div class="form-group row">
-										<div class="col-6">
-											<div class="form-check">
-												<input class="form-check-input" type="radio"
-													name="exampleRadios" id="idInseminacion" checked> <label
-													class="form-check-label" for="idInseminacion">
-													Inseminacion </label>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="CUIA">CUIA</label>
+												<div class="col-md-7">
+													<input type="text" class="form-control" th:field="*{cuiaNata}" />
+												</div>												
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="sexo">Sexo</label>
+												<div class="col-md-7">
+													<select class="form-control col-12" th:field="*{idSexo}">
+														<option value="0">Seleccione</option>
+														<option value="1">Hembra</option>
+														<option value="2">Macho</option>
+													</select>
+												</div>												
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="genotipo">Genotipo</label>
+												<div class="col-md-7">
+													<select class="form-control col-12" th:field="*{idGeno}">
+														<option value="0">Seleccione</option>
+														<option value="1">Hereford</option>
+														<option value="2">Charolais</option>
+														<option value="3">Limousin</option>
+														<option value="4">Brahman</option>
+														<option value="5">Gyrolando</option>
+														<option value="6">Brown Swiss</option>
+														<option value="7">Criollo</option>
+													</select>
+												</div>												
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="fechNacimiento">Fecha de Nacimiento</label>
+												<div class="col-md-7">
+													<input type="date" class="form-control" th:field="*{fechNaciNata}" />
+												</div>												
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="peso">Peso(Kg)</label>
+												<div class="col-md-7">
+													<input type="text" class="form-control" th:field="*{pesoNata}" />
+												</div>
 											</div>
 										</div>
-										<div class="col-6">
-											<div class="form-check" id="groupOrigen">
-												<input class="form-check-input" type="radio"
-													name="exampleRadios" id="idMonte"> <label
-													class="form-check-label" for="idMonte"> Monte </label>
+										<div class="col-md-6">
+											
+											<div class="form-group row">
+												<div class="col-6">
+													<div class="form-check">
+														<input class="form-check-input" type="radio" name="exampleRadios" id="idInseminacion" checked>
+														<label class="form-check-label" for="idInseminacion">
+															Inseminacion
+														</label>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<div class="form-check" id="groupOrigen">
+														<input class="form-check-input" type="radio" name="exampleRadios" id="idMonte">
+															<label class="form-check-label" for="idMonte">
+																Monte
+															</label>
+													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="CUIAmadre">CUIA Madre</label>
+												<div class="col-md-4">
+													<input type="text" class="form-control" th:field="*{cuiaMadr}" name="cuiaMadr" />
+												</div>
+												<div class="col-md-3">
+													<input type="button" id="Buscar" onclick="fun()" value="Buscar"/>
+												</div>																								
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="cuiaPadreInput">CUIA Padre</label>
+												<div class="col-md-7">
+													<input id="cuiaPadreInput" type="number" disabled class="form-control" th:field="*{cuiaPadr}" />
+												</div>												
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="codiInseminInput">Codigo Inseminacion</label>
+												<div class="col-md-7">
+													<input id="codiInseminInput" type="number" class="form-control" th:field="*{codiProp}" />
+												</div>												
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-5" for="observacion">Observacion</label>
+												<div class="col-md-7">
+													<textarea class="form-control" rows="5" th:field="*{obse}"></textarea>
+												</div>												
+											</div>
+											<div class="form-group row">
+												<label class="col-form-label col-md-7">Subir imagen del ganado</label>
+												<div class="col-md-5">
+													<input type="file" name="file" class="form-control">
+												</div>												
 											</div>
 										</div>
+									</div>
+<!-- 									<div class="form-row"> -->
+<!--										<div class="form-group col-md-6"> -->
+<!-- 											<label for="CUIA">CUIA</label> <input type="text" --> 
+<!-- <!-- 												class="form-control" th:field="*{cuiaNata}" /> --> 
+<!-- <!-- 										</div> --> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label for="sexo">Sexo</label> <select --> 
+<!-- <!-- 												class="form-control col-12" th:field="*{idSexo}"> --> 
+<!-- <!-- 												<option value="0">Seleccione</option> 
+<!-- <!-- 												<option value="1">Hembra</option> --> 
+<!-- <!-- 												<option value="2">Macho</option> -->
+<!-- <!-- 											</select> --> 
+<!-- 										</div> -->
+<!-- 									</div> -->
+
+<!-- 									<div class="form-row"> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label for="genotipo">Genotipo</label> <select --> 
+<!-- <!-- 												class="form-control col-12" th:field="*{idGeno}"> --> 
+<!-- <!-- 												<option value="0">Seleccione</option> --> 
+<!-- <!-- 												<option value="1">Hereford</option> --> 
+<!-- <!-- 												<option value="2">Charolais</option> --> 
+<!-- <!-- 												<option value="3">Limousin</option> --> 
+<!-- <!-- 												<option value="4">Brahman</option> --> 
+<!-- <!-- 												<option value="5">Gyrolando</option> --> 
+<!-- <!-- 												<option value="6">Brown Swiss</option> --> 
+<!-- <!-- 												<option value="7">Criollo</option> --> 
+<!-- <!-- 											</select> --> 
+<!-- 										</div> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label for="fechNacimiento">Fecha de Nacimiento</label> <input --> 
+<!-- <!-- 												type="date" class="form-control" th:field="*{fechNaciNata}" /> --> 
+<!-- 										</div> -->
+<!-- 									</div> -->
+
+<!-- 									<div class="form-row"> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label for="peso">Peso(Kg)</label> <input type="text" --> 
+<!-- <!-- 												class="form-control" th:field="*{pesoNata}" /> --> 
+<!-- 										</div> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label for="CUIAmadre">CUIA Madre</label> <input type="text" --> 
+<!-- <!-- 												class="form-control" th:field="*{cuiaMadr}" name="cuiaMadr" /> --> 
+<!-- <!-- 											<input type="button" id="Buscar" onclick="fun()" --> 
+<!-- <!-- 												value="Buscar"/> --> 
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 									<div class="form-group row"> -->
+<!-- 										<div class="col-6"> -->
+<!-- <!-- 											<div class="form-check"> --> 
+<!-- <!-- 												<input class="form-check-input" type="radio" --> 
+<!-- <!-- 													name="exampleRadios" id="idInseminacion" checked> <label --> 
+<!-- <!-- 													class="form-check-label" for="idInseminacion"> --> 
+<!-- <!-- 													Inseminacion </label> --> 
+<!-- <!-- 											</div> --> 
+<!-- 										</div> -->
+<!-- 										<div class="col-6"> -->
+<!-- <!-- 											<div class="form-check" id="groupOrigen"> --> -
+<!-- <!-- 												<input class="form-check-input" type="radio" --> 
+<!-- <!-- 													name="exampleRadios" id="idMonte"> <label --> 
+<!-- <!-- 													class="form-check-label" for="idMonte"> Monte </label> --> 
+<!-- <!-- 											</div> --> 
+<!-- 										</div> -->
 
 
-									</div>
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="cuiaPadreInput">CUIA Padre</label> <input
-												id="cuiaPadreInput" type="number" disabled
-												class="form-control" th:field="*{cuiaPadr}" />
-										</div>
-										<div class="form-group col-md-6">
-											<label for="codiInseminInput">Codigo Inseminacion</label> <input
-												id="codiInseminInput" type="number" class="form-control"
-												th:field="*{codiProp}" />
-										</div>
-									</div>
+<!-- 									</div> -->
+<!-- 									<div class="form-row"> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label for="cuiaPadreInput">CUIA Padre</label> <input --> 
+<!-- <!-- 												id="cuiaPadreInput" type="number" disabled --> 
+<!-- <!-- 												class="form-control" th:field="*{cuiaPadr}" /> --> 
+<!-- 										</div> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label for="codiInseminInput">Codigo Inseminacion</label> <input --> 
+<!-- <!-- 												id="codiInseminInput" type="number" class="form-control" --> 
+<!-- <!-- 												th:field="*{codiProp}" /> --> 
+<!-- 										</div> -->
+<!-- 									</div> -->
 
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="observacion">Observacion</label>
-											<textarea class="form-control" rows="5" th:field="*{obse}"></textarea>
-										</div>
-										<div class="form-group col-md-6">
-											<label>Subir imagen del ganado</label> <input type="file"
-												name="file" class="form-control">
-										</div>
-									</div>
+<!-- 									<div class="form-row"> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label for="observacion">Observacion</label> --> 
+<!-- <!-- 											<textarea class="form-control" rows="5" th:field="*{obse}"></textarea> --> 
+<!-- 										</div> -->
+<!-- 										<div class="form-group col-md-6"> -->
+<!-- <!-- 											<label>Subir imagen del ganado</label> <input type="file" --> 
+<!-- <!-- 												name="file" class="form-control"> --> 
+<!-- 										</div> -->
+<!-- 									</div> -->
 
 									<button type="submit" class="btn btn-danger"
 										style="align-content: center; width: 300px; height: 45px">Guardar</button>
