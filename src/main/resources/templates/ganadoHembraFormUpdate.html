@@ -10,7 +10,7 @@
 			<div class="container-fluid">
 				<div class="row page-titles">
 					<div class="col-md-5 align-self-center">
-						<h3 class="text-themecolor">Ganado Vacuno</h3>
+						<h3 class="text-themecolor">Actualizar Ganado Hembra</h3>
 					</div>
 					<div class="col-md-7 align-self-center">
 						<ol class="breadcrumb">
@@ -28,161 +28,186 @@
 									th:object="${ganadoHembraFormUpdate}">
 									<div class="form-row">
 										<div class="col-md-6">
-											<div class="form-group row">												
-												<label class="col-form-label col-md-5">CUIA</label>												
-												<div class="col-7">
-													<input type="number"
-													class="form-control" th:field="*{cuiaGana}" />
+											<div class="card border-dark mb-3" >
+												<div class="card-header">
+													Información principal
+												</div>
+												<div class="card-body text-secondary">
+													<div class="form-group row">												
+														<label class="col-form-label col-md-5">CUIA</label>												
+														<div class="col-7">
+															<input type="number"
+															class="form-control" th:field="*{cuiaGana}" />
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Alias</label>
+														<div class="col-7">
+															<input type="text"
+															class="form-control" th:field="*{aliaGana}" />
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Fech. Nacimiento</label>
+														<div class="col-7">
+															<input type="date"
+															class="form-control" th:field="*{fechNaciGana}" />
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Tipo</label>
+														<div class="col-7">
+															<select class="form-control" th:field="*{idTipoGana}">
+																<option value="1">Leche</option>
+																<option value="2">Carne</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Genotipo</label>
+														<div class="col-7">
+															<select class="form-control" th:field="*{idGeno}">
+																<option value="1">Hereford</option>
+																<option value="2">Charolais</option>
+																<option value="3">Limousin</option>
+																<option value="4">Brahman</option>
+																<option value="5">Gyrolando</option>
+																<option value="6">Brown Swiss</option>
+																<option value="7">Criollo</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Estado Activo</label>
+														<div class="col-7">
+															<select class="form-control" th:field="*{idEstaActi}">
+																<option value="1">Seca</option>
+																<option value="2">Preñada</option>
+																<option value="3">Produccion</option>
+																<option value="4">NA</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Partos</label>
+														<div class="col-7">
+															<input type="number"
+															class="form-control" th:field="*{cantPartGana}" />
+														</div>
+													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Alias</label>
-												<div class="col-7">
-													<input type="text"
-													class="form-control" th:field="*{aliaGana}" />
+											<div class="card border-dark mb-3" >
+												<div class="card-header">
+													Pesaje
+												</div>
+												<div class="card-body text-secondary">
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Peso(Kg)</label>
+														<div class="col-7">
+															<input type="text"
+															class="form-control" th:field="*{pesoGana}" />
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Talla(m)</label>
+														<div class="col-7">
+															<input type="text"
+															class="form-control" th:field="*{tallGana}" />
+														</div>
+													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Fech. Nacimiento</label>
-												<div class="col-7">
-													<input type="date"
-													class="form-control" th:field="*{fechNaciGana}" />
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Peso(Kg)</label>
-												<div class="col-7">
-													<input type="text"
-													class="form-control" th:field="*{pesoGana}" />
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Talla(m)</label>
-												<div class="col-7">
-													<input type="text"
-													class="form-control" th:field="*{tallGana}" />
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Estado Activo</label>
-												<div class="col-7">
-													<select class="form-control" th:field="*{idEstaActi}">
-														<option value="1">Seca</option>
-														<option value="2">Preñada</option>
-														<option value="3">Produccion</option>
-														<option value="4">NA</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Partos</label>
-												<div class="col-7">
-													<input type="number"
-													class="form-control" th:field="*{cantPartGana}" />
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5"></label>
-												<div class="col-7">
-													<input type="hidden" value="1"
-													class="form-control" th:field="*{idSexo}" />
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Genotipo</label>
-												<div class="col-7">
-													<select class="form-control" th:field="*{idGeno}">
-														<option value="1">Hereford</option>
-														<option value="2">Charolais</option>
-														<option value="3">Limousin</option>
-														<option value="4">Brahman</option>
-														<option value="5">Gyrolando</option>
-														<option value="6">Brown Swiss</option>
-														<option value="7">Criollo</option>
-													</select>
-												</div>
-											</div>
+											
+											
+											
 										</div>
 										<div class="col-md-6">
-											
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Tipo</label>
-												<div class="col-7">
-													<select class="form-control" th:field="*{idTipoGana}">
-														<option value="1">Leche</option>
-														<option value="2">Carne</option>
-													</select>
+										<div class="card border-dark mb-3" >
+												<div class="card-header">
+													Origen
 												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Origen</label>
-												<div class="col-7">
-													<div class="form-check">
-													  	<input  class="form-check-input" type="radio" name="exampleRadios" id="idAutoctono" th:field="*{idOrig}" value="1" checked>
-													  	<label class="form-check-label" for="idAutoctono">
-													    	Autoctono
-													  	</label>
+												<div class="card-body text-secondary">
+													
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Origen</label>
+														<div class="col-7">
+															<div class="form-check">
+															  	<input  class="form-check-input" type="radio" name="exampleRadios" id="idAutoctono" th:field="*{idOrig}" value="1" checked>
+															  	<label class="form-check-label" for="idAutoctono">
+															    	Autoctono
+															  	</label>
+															</div>
+															<div class="form-check">
+															  	<input class="form-check-input" type="radio" name="exampleRadios" th:field="*{idOrig}" id="idComprado" value="2">
+															  	<label class="form-check-label" for="idComprado">
+															    	Comprado
+															  	</label>
+															</div>
+														</div>
 													</div>
-													<div class="form-check">
-													  	<input class="form-check-input" type="radio" name="exampleRadios" th:field="*{idOrig}" id="idComprado" value="2">
-													  	<label class="form-check-label" for="idComprado">
-													    	Comprado
-													  	</label>
+													<div class="form-group row">
+														<div class="col-6">
+															<div class="form-check">
+															  	<input  class="form-check-input" type="radio" name="exampleRadios" id="idInseminacion" checked>
+															  	<label class="form-check-label" for="idInseminacion">
+															    	Inseminacion
+															  	</label>
+															</div>
+														</div>
+														<div class="col-6">
+															<div class="form-check" id="groupOrigen">
+															  	<input class="form-check-input" type="radio" name="exampleRadios" id="idMonte">
+															  	<label class="form-check-label" for="idMonte">
+															    	Monte
+															  	</label>
+															</div>
+														</div>																							
+													</div>
+													<div class="form-group row">
+														<label for="cuiaMadreInput" class="col-form-label col-md-5">CUIA Madre</label>
+														<div class="col-4">
+															<input id="cuiaMadreInput" type="number"
+															class="form-control" th:field="*{cuiaMadr}" />
+														</div>
+														<div class="col-3">
+															<button>Buscar</button>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label for="cuiaPadreInput" class="col-form-label col-md-5">CUIA Padre</label>
+														<div class="col-4">
+															<input id="cuiaPadreInput" type="number"
+															class="form-control" th:field="*{cuiaPadr}" />
+														</div>
+														<div class="col-3">
+															<button>Buscar</button>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label for="codiInseminInput" class="col-form-label col-md-5">Codigo Insemin.</label>
+														<div class="col-7">
+															<input id="codiInseminInput" type="number"
+															class="form-control" th:field="*{codiPropInse}" />
+														</div>
 													</div>
 												</div>
+												<br><br><br><br>												
 											</div>
-											<div class="form-group row">
-												<div class="col-6">
-													<div class="form-check">
-													  	<input  class="form-check-input" type="radio" name="exampleRadios" id="idInseminacion" checked>
-													  	<label class="form-check-label" for="idInseminacion">
-													    	Inseminacion
-													  	</label>
+											<div class="card border-dark mb-3" >
+												<div class="card-header">
+													Información adicional
+												</div>
+												<div class="card-body text-secondary">
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Observación</label>
+														<div class="col-7">
+															<input type="text"
+															class="form-control" th:field="*{obse}" />
+														</div>
 													</div>
 												</div>
-												<div class="col-6">
-													<div class="form-check" id="groupOrigen">
-													  	<input class="form-check-input" type="radio" name="exampleRadios" id="idMonte">
-													  	<label class="form-check-label" for="idMonte">
-													    	Monte
-													  	</label>
-													</div>
-												</div>																							
-											</div>
-											<div class="form-group row">
-												<label for="cuiaMadreInput" class="col-form-label col-md-5">CUIA Madre</label>
-												<div class="col-4">
-													<input id="cuiaMadreInput" type="number"
-													class="form-control" th:field="*{cuiaMadr}" />
-												</div>
-												<div class="col-3">
-													<button>Buscar</button>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="cuiaPadreInput" class="col-form-label col-md-5">CUIA Padre</label>
-												<div class="col-4">
-													<input id="cuiaPadreInput" type="number"
-													class="form-control" th:field="*{cuiaPadr}" />
-												</div>
-												<div class="col-3">
-													<button>Buscar</button>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="codiInseminInput" class="col-form-label col-md-5">Codigo Insemin.</label>
-												<div class="col-7">
-													<input id="codiInseminInput" type="number"
-													class="form-control" th:field="*{codiPropInse}" />
-												</div>
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5">Observación</label>
-												<div class="col-7">
-													<input type="text"
-													class="form-control" th:field="*{obse}" />
-												</div>
-											</div>
+											</div>																						
 										</div>
 									</div>
 									<button type="submit" class="btn btn-danger"
@@ -196,6 +221,7 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaUpdate :: query"></section>
+	<!-- SCRIPT DE RADIO BUTTON AUTOCTONO - COMPRADO -->
 	<script type="text/javascript">
 		var autoctono = document.getElementById('idAutoctono');
 		var comprado = document.getElementById('idComprado');
@@ -234,6 +260,9 @@
 			comprado.addEventListener('change', habilitarInputs)
 		
 	</script>
+	<!-- END SCRIPT DE RADIO BUTTON AUTOCTONO - COMPRADO -->
+	
+	<!-- SCRIPT DE RADIO BUTTON INSEINACION-MONTE-->
 	<script type="text/javascript">
 		var insemi = document.getElementById('idInseminacion');
 		var monte = document.getElementById('idMonte');
@@ -260,5 +289,6 @@
 			monte.addEventListener('change', habilitarInputs)
 		
 	</script>
+	<!-- END SCRIPT DE RADIO BUTTON INSEINACION-MONTE-->
 </body>
 </html>

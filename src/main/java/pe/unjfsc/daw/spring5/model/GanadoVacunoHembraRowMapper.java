@@ -17,7 +17,7 @@ public class GanadoVacunoHembraRowMapper implements RowMapper<GanadoVacunoHembra
 		oGanadoHembra.setFechNaciGana(rs.getString("fechNaciGana"));
 		oGanadoHembra.setPesoGana(rs.getDouble("pesoGana"));
 		oGanadoHembra.setTallGana(rs.getDouble("tallGana"));
-		oGanadoHembra.setIdEstaActi("idEstaActi");
+		oGanadoHembra.setIdEstaActi(rs.getString("idEstaActi"));
 		oGanadoHembra.setIdEstaAnim(rs.getString("idEstaAnim"));
 		oGanadoHembra.setCantPartGana(rs.getInt("cantPartGana"));
 		oGanadoHembra.setIdGeno(rs.getString("idGeno"));
