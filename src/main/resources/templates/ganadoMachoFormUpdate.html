@@ -194,6 +194,7 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaUpdate :: query"></section>
+	<!-- SCRIPT DE RADIO BUTTON AUTOCTONO - COMPRADO -->
 	<script type="text/javascript">
 		var autoctono = document.getElementById('idAutoctono');
 		var comprado = document.getElementById('idComprado');
@@ -232,6 +233,9 @@
 			comprado.addEventListener('change', habilitarInputs)
 		
 	</script>
+	<!-- END SCRIPT DE RADIO BUTTON AUTOCTONO - COMPRADO -->
+	
+	<!-- SCRIPT DE RADIO BUTTON INSEINACION-MONTE-->
 	<script type="text/javascript">
 		var insemi = document.getElementById('idInseminacion');
 		var monte = document.getElementById('idMonte');
@@ -258,5 +262,6 @@
 			monte.addEventListener('change', habilitarInputs)
 		
 	</script>
+	<!-- END SCRIPT DE RADIO BUTTON INSEINACION-MONTE-->
 </body>
 </html>

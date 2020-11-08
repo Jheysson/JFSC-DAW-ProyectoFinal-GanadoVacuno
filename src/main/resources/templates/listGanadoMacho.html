@@ -77,7 +77,8 @@
 											</td>
 											<td>
 												<a class="btn btn-danger"
-														th:href="@{/ganadoVacuno/eliminarGanadoMacho/} + ${model.cuiaGana}" role="button">Eliminar
+														th:onclick="eliminar([[${model.cuiaGana}]])"  role="button">Eliminar
+														<!-- th:href="@{/ganadoVacuno/eliminarGanadoMacho/} + ${model.cuiaGana}" role="button">Eliminar-->
 												</a>
 											</td>											
 										</tr>
@@ -104,6 +105,37 @@
             },
 	    });
 	} );
+	</script>
+	
+	<!-- ALERTA DE ELIMINICACION -->
+	<script>
+	function eliminar(cuiaGana) {
+		console.log(cuiaGana);
+		swal({
+			  title: "Esta seguro de Eliminar",
+			  text: "Desea eliminar el registro con CUIA " + cuiaGana+"?",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((OK) => {
+			  if (OK) {
+				  $.ajax({
+					 url:"/ganadoVacuno/eliminarGanadoMacho/"+cuiaGana,					 					
+					 success: function(res) {
+						console.log(res);
+					},			
+				  });
+			    swal("Registro eliminado!", {
+			      icon: "success",
+			    }).then((ok)=>{
+			    	if(ok){
+			    		location.href="/ganadoVacuno/ListadoGanadoMacho.lhs";
+			    	}
+			    });
+			  } 
+			});
+	}
 	</script>
 </body>
 </html>

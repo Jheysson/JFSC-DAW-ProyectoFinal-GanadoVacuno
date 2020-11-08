@@ -218,34 +218,8 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
-	<script type="text/javascript">
-		$("#botonVerificarMadre");
-		
-		function test(){
-			var id = $("#cuiaMadreInput").val();
 
- 			$.ajax({
-			  type: "POST",
-			  //url: "/consultar/"+id,
-			  url: "/consultar",
-			  data:{id: }
-			  success: function(resp){
-			  	console.log("recibiendo respo", resp);
-			  	
-			  	if(resp==true)
-			  		$("#esValido").show()
-			  	else
-			  		$("#noValido").show()
-			  },
-			  dataType: "JSON"
-			});
- 
-// 			$.get( "/consultar/"+id, function( data ) {
-// 				console.log("DATO:",data)
-// 				});
-		}
-		
-	</script>
+	<!-- SCRIPT DE RADIO BUTTON AUTOCTONO - COMPRADO -->
 	<script type="text/javascript">
 		var autoctono = document.getElementById('idAutoctono');
 		var comprado = document.getElementById('idComprado');
@@ -284,6 +258,9 @@
 			comprado.addEventListener('change', habilitarInputs)
 		
 	</script>
+	<!-- END SCRIPT DE RADIO BUTTON AUTOCTONO - COMPRADO -->
+	
+	<!-- SCRIPT DE RADIO BUTTON INSEINACION-MONTE-->
 	<script type="text/javascript">
 		var insemi = document.getElementById('idInseminacion');
 		var monte = document.getElementById('idMonte');
@@ -310,5 +287,6 @@
 			monte.addEventListener('change', habilitarInputs)
 		
 	</script>
+	<!-- END SCRIPT DE RADIO BUTTON INSEINACION-MONTE-->
 </body>
 </html>
