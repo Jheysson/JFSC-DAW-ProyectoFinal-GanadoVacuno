@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import pe.unjfsc.daw.spring5.dao.lecheProducidaDaoImpl;
 import pe.unjfsc.daw.spring5.model.lecheProducidaDia;
+import pe.unjfsc.daw.spring5.model.vacasenproduccionleche;
 
 @Service
 public class lecheProducidaServiceImpl implements lecheProducidaService {
@@ -39,6 +40,12 @@ public class lecheProducidaServiceImpl implements lecheProducidaService {
 	@Override
 	public void deleteLecheProducida(int id) {
 		objLecheProducidaDaoImpl.deleteLecheProducida(id);
+		
+	}
+
+	@Override
+	public vacasenproduccionleche findLecheProducidaByCUIA(int cuia) {
+          return objLecheProducidaDaoImpl.finCUIAProductoraByCUIA(cuia);
 		
 	}
 

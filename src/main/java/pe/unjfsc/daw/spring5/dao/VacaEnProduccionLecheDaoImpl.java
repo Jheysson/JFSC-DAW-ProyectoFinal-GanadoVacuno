@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.unjfsc.daw.spring5.model.CDConstanteSQLVacaEnProduccionLeche;
+import pe.unjfsc.daw.spring5.model.CDConstanteSQLecheProducida;
 import pe.unjfsc.daw.spring5.model.vacasenproduccionleche;
 import pe.unjfsc.daw.spring5.model.vacasenproduccionlecheRowMapper;
 
@@ -33,7 +34,14 @@ public class VacaEnProduccionLecheDaoImpl implements VacaEnProduccionLecheDao{
 		vacasenproduccionleche pvacasenproduccionleche = jdbcTemplate.queryForObject(CDConstanteSQLVacaEnProduccionLeche.SQL_SELECT_BY_ID, rowMapper, id);
 		return pvacasenproduccionleche;
 	}
-
+	/*
+	@Override
+	public vacasenproduccionleche findvacaDeProduccionLecheByCUIA(int cuia) {
+		RowMapper<vacasenproduccionleche> rowMapper = new BeanPropertyRowMapper<vacasenproduccionleche>(vacasenproduccionleche.class);
+		vacasenproduccionleche pvacasenproduccionleche = jdbcTemplate.queryForObject(CDConstanteSQLecheProducida.SQL_SELECT_BY_CUIA_LECHERA, rowMapper, cuia);
+		return pvacasenproduccionleche;
+	}
+*/
 	@Override
 	public void addvacasenproduccionleche(vacasenproduccionleche pvacasenproduccionleche) {
 		jdbcTemplate.update(CDConstanteSQLVacaEnProduccionLeche.SQL_INSERT,
@@ -58,5 +66,7 @@ public class VacaEnProduccionLecheDaoImpl implements VacaEnProduccionLecheDao{
 				);
 		
 	}
+
+	
 
 }

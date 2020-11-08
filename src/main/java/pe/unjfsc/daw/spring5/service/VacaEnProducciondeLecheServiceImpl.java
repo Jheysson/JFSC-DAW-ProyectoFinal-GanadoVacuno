@@ -39,5 +39,10 @@ public class VacaEnProducciondeLecheServiceImpl implements VacaEnProducciondeLec
 		oVacaEnProduccionLecheDaoImpl.updatevacasenproduccionleche(pvacasenproduccionleche);
 		
 	}
-
+/*
+	@Override
+	public vacasenproduccionleche findvacaDeProduccionLecheByCUIA(int cuia) {
+          return oVacaEnProduccionLecheDaoImpl.findvacaDeProduccionLecheByCUIA(cuia);
+	}
+*/
 }

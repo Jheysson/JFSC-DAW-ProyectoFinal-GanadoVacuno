@@ -8,6 +8,8 @@ public interface VacaEnProduccionLecheDao {
 	public List<vacasenproduccionleche> getAllVacadeProduccionLeche();
 	 
 	 public vacasenproduccionleche findvacaDeProduccionLecheByid(int id);
+	// public vacasenproduccionleche findvacaDeProduccionLecheByCUIA(int cuia);
+
 	 
 	 public void addvacasenproduccionleche(vacasenproduccionleche pvacasenproduccionleche);
 	 

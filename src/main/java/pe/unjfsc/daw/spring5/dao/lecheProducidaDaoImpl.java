@@ -14,6 +14,7 @@ import pe.unjfsc.daw.spring5.model.CDConstanteSQLecheProducida;
 import pe.unjfsc.daw.spring5.model.lecheProducidaDia;
 import pe.unjfsc.daw.spring5.model.lecheProducidaRowMapper;
 import pe.unjfsc.daw.spring5.model.natalidad;
+import pe.unjfsc.daw.spring5.model.vacasenproduccionleche;
 
 @Transactional
 @Repository
@@ -38,7 +39,17 @@ public class lecheProducidaDaoImpl implements lecheProducidaDao {
 
 		return objLecheProducidaDia;
 	}
-//mod
+	
+	
+	@Override
+	public vacasenproduccionleche finCUIAProductoraByCUIA(int cuia) {
+		RowMapper<vacasenproduccionleche> rowMapperv = new BeanPropertyRowMapper<vacasenproduccionleche>(vacasenproduccionleche.class);
+		vacasenproduccionleche objLecheProducidaDia = jdbcTemplate
+				.queryForObject(CDConstanteSQLecheProducida.SQL_SELECT_BY_CUIA_LECHERA, rowMapperv, cuia);
+		return objLecheProducidaDia;
+	}
+	
+
 	@Override
 	public void addLecheProducida(lecheProducidaDia pLecheProducida) {
 		jdbcTemplate.update(CDConstanteSQLecheProducida.SQL_INSERT, 

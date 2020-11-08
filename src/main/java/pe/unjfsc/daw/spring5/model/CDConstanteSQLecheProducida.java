@@ -12,6 +12,7 @@ public class CDConstanteSQLecheProducida {
 	//mod
 	public static final String SQL_SELECT_ALL = "SELECT * FROM vlecheProducida";
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM lecheproducidadia WHERE idLechProd = ?";
+	public static final String SQL_SELECT_BY_CUIA_LECHERA = "SELECT * FROM vacasenproduccionleche WHERE cuiaGana = ?";
 }
 
 

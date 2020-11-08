@@ -7,6 +7,8 @@ public class lecheProducidaDia {
 	private String fechLechProd;
 	private int cuiaGana;
 	private String aliaGana;
+	
+	
 	public int getIdLechProd() {
 		return idLechProd;
 	}
