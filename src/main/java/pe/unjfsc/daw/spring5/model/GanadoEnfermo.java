@@ -4,9 +4,45 @@ public class GanadoEnfermo {
 	
 	private int cuiaGana;
 	private String idEnfe;
+	private String nombEnfe;
+	private String aliaGana;
+	private String idGeno;
+	private String fechNaciGana;
+	private int edadGana;
 	private String fechIngr;
 	private String obse;
 	private int esta;
+	public String getIdGeno() {
+		return idGeno;
+	}
+	public void setIdGeno(String idGeno) {
+		this.idGeno = idGeno;
+	}
+	public String getFechNaciGana() {
+		return fechNaciGana;
+	}
+	public void setFechNaciGana(String fechNaciGana) {
+		this.fechNaciGana = fechNaciGana;
+	}
+	public int getEdadGana() {
+		return edadGana;
+	}
+	public void setEdadGana(int edadGana) {
+		this.edadGana = edadGana;
+	}
+	public String getNombEnfe() {
+		return nombEnfe;
+	}
+	public void setNombEnfe(String nombEnfe) {
+		this.nombEnfe = nombEnfe;
+	}
+	public String getAliaGana() {
+		return aliaGana;
+	}
+	public void setAliaGana(String aliaGana) {
+		this.aliaGana = aliaGana;
+	}
+	
 	
 	public int getCuiaGana() {
 		return cuiaGana;

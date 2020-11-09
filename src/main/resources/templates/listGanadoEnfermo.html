@@ -40,6 +40,10 @@
 									<thead>
 										<tr>
 											<th>CUIA</th>
+											<th>Alias</th>
+											<th>Genotipo</th>
+											<th>Fecha de nacimiento</th>
+											<th>Edad (Meses)</th>
 											<th>Enfermedad</th>
 											<th>Fecha de ingreso del enfermo</th>
 											<th>Observaciones</th>
@@ -47,7 +51,11 @@
 											<th>Dar de alta</th>
 										<tr th:each="model : ${listGanadoEnfermo}">
 											<td th:text="${model.cuiaGana}"></td>
-											<td th:text="${model.idEnfe}"></td>
+											<td th:text="${model.aliaGana}"></td>
+											<td th:text="${model.idGeno}"></td>
+											<td th:text="${model.fechNaciGana}"></td>
+											<td th:text="${model.edadGana}"></td>
+											<td th:text="${model.nombEnfe}"></td>
 											<td th:text="${model.fechIngr}"></td>
 											<td th:text="${model.obse}"></td>
 											<td><a class="btn btn-primary"
@@ -71,7 +79,7 @@
 		console.log(cuiaGana);
 		swal({
 			  title: "Esta seguro de brindar la alta",
-			  text: "Desea brindar la alta al ganado " + cuiaGana,
+			  text: "Desea brindar la alta al ganado con CUIA " + cuiaGana,
 			  icon: "warning",
 			  buttons: true,
 			  dangerMode: true,

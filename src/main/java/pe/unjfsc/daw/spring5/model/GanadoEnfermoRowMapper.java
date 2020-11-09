@@ -12,9 +12,13 @@ public class GanadoEnfermoRowMapper implements RowMapper<GanadoEnfermo> {
 		GanadoEnfermo oGanadoEnfermo = new GanadoEnfermo();
 		oGanadoEnfermo.setCuiaGana(rs.getInt("cuiaGana"));
 		oGanadoEnfermo.setIdEnfe(rs.getString("idEnfe"));
+		oGanadoEnfermo.setNombEnfe(rs.getString("nombEnfe"));
+		oGanadoEnfermo.setAliaGana(rs.getString("aliaGana"));
+		oGanadoEnfermo.setIdGeno(rs.getString("idGeno"));
+		oGanadoEnfermo.setFechNaciGana(rs.getString("fechNaciGana"));
+		oGanadoEnfermo.setEdadGana(rs.getInt("edadGana"));
 		oGanadoEnfermo.setFechIngr(rs.getString("fechIngr"));
 		oGanadoEnfermo.setObse(rs.getString("obse"));
-		oGanadoEnfermo.setEsta(rs.getInt("esta"));
 		
 		return oGanadoEnfermo;
 	}
