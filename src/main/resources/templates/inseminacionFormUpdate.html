@@ -27,14 +27,22 @@
 								<form th:action="@{/inseminacion/update}" method="post"
 									th:object="${inseminacionFormUpdate}">
 									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="Cogido">Codigo de pajilla</label> <input type="text"
-												class="form-control" th:field="*{codiPropInse}" />
+										<div class="col-md-6">
+											<div class="card border-dark mb-3" >
+												<div class="card-header">
+												Informacion del Ganado Vacuno</div>
+									<div class="card-body text-secondary">
+										<div class="form-group row">
+										<label class="col-form-label col-md-5">Codigo de pajilla</label>
+										<div class="col-7">
+															<input type="number"
+															class="form-control" th:field="*{codiPropInse}" />
+														</div>
 										</div>
-										<div class="form-group col-md-6">
-											<label for="genotipo">Genotipo</label> <select
-												class="form-control col-12" th:field="*{idGeno}">
-												<option>Seleccione</option>
+										<div class="form-group row">
+											<label class="col-form-label col-md-5">Genotipo</label>
+											<div class="col-7">
+												<select class="form-control" th:field="*{idGeno}">
 												<option value="1">Hereford</option>
 												<option value="2">Charolais</option>
 												<option value="3">Limousin</option>
@@ -44,50 +52,62 @@
 												<option value="7">Criollo</option>
 											</select>
 										</div>
+									</div>
+									<div class="form-group row">
+											<label class="col-form-label col-md-5">Peso(Kg)</label> 
+											<div class="col-7">
+											<input type="text" class="form-control" th:field="*{pesoPropInse}" />
 										</div>
-										
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="pesoPropInse">Peso</label> <input type="text"
-											 class="form-control" th:field="*{pesoPropInse}" />
-										</div>
-										<div class="form-group col-md-6">
-											<label for="tallPropInse">Talla</label> <input type="text"
-												class="form-control" th:field="*{tallPropInse}" />
-										</div>
-										</div>
-										<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="lugaPropInse">Lugar de Procedencia</label> <input type="text"
-												class="form-control" th:field="*{lugaPropInse}" />
-										</div>
-
-										<div class="form-group col-md-6">
-											<label for="precPropInse">Precio</label> <input type="text"
-												class="form-control" th:field="*{precPropInse}" />
+							</div>
+										<div class="form-group row">
+											<label class="col-form-label col-md-5">Talla(m)</label> 
+											<div class="col-7">
+											<input type="text" class="form-control" th:field="*{tallPropInse}" />
 										</div>
 										</div>
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="fechCompPropInse">Fecha de compra</label> <input
-												type="date" class="form-control" th:field="*{fechCompPropInse}" />
+								</div>
+							</div>
+							</div>
+								<div class="col-md-6">
+								<div class="card border-dark mb-3" >
+												<div class="card-header">Informacion de Compra</div>								
+									<div class="card-body text-secondary">
+													<div class="form-group row">
+														<label class="col-form-label col-md-5">Lugar de Procedencia</label> 
+														<div class="col-7">
+														<input type="text" class="form-control" th:field="*{lugaPropInse}" />
 										</div>
-										<div class="form-group col-md-6">
-											<label for="observacion">Observacion</label> <input
-												type="text" class="form-control" th:field="*{obse}" />
+										</div>
+										<div class="form-group row">
+														<label class="col-form-label col-md-5">Precio s/.</label> 
+														<div class="col-7">
+														<input type="text" class="form-control" th:field="*{precPropInse}" />
 										</div>
 									</div>
-
+										<div class="form-group row">
+														<label class="col-form-label col-md-5">Fecha de compra</label> 
+														<div class="col-7">
+														<input type="date" class="form-control"	th:field="*{fechCompPropInse}" />
+										</div>
+									</div>
+										<div class="form-group row">
+														<label class="col-form-label col-md-5">Observacion</label>
+											<textarea class="form-control" rows="5" th:field="*{obse}"></textarea>
+										</div>
+									</div>
+								</div>
+</div>
 									<button type="submit" class="btn btn-danger"
 										style="align-content: center; width: 300px; height: 45px">Guardar</button>
+								</div>
 								</form>
-							</div>
+						</div>
+						</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	<section th:replace="layout/plantillaUpdate :: query"></section>
 </body>
 </html>
