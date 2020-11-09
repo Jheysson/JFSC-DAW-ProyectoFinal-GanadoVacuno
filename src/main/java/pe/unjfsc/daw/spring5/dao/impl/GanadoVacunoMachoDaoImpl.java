@@ -87,13 +87,13 @@ public class GanadoVacunoMachoDaoImpl implements GanadoVacunoMachoDao{
 	protected String calcularEtapa(int edad) {
 		String etapa="";
 		if(edad <= 4) {
-			etapa = "Ternero(a)";
+			etapa = "Ternero";
 		}else if(edad > 4 && edad <=12) {
 			etapa = "Destete";
 		}else if(edad > 12 && edad <=24) {
-			etapa = "Becerro(a)";
+			etapa = "Becerro";
 		}else if(edad >= 24) {
-			etapa = "Adulto";
+			etapa = "Toro Adulto";
 		}		
 		return etapa;
 	}
