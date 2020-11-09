@@ -13,6 +13,7 @@ public class comidaganadoRowMapper implements RowMapper<comidaganado>{
 		ocomi.setIdComiGana(rs.getInt("idComiGana"));
 		ocomi.setIdEtapa(rs.getString("idEtapa"));
 		ocomi.setIdTipoComi(rs.getString("idTipoComi"));
+		ocomi.setRaciTipo(rs.getDouble("raciTipo"));
 		ocomi.setIdSuple(rs.getString("idSuple"));
 		ocomi.setRaciComi(rs.getDouble("raciComi"));
 		ocomi.setFreComi(rs.getString("freComi"));

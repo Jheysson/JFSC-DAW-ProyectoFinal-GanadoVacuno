@@ -5,6 +5,7 @@ public class comidaganado {
 	private int idComiGana;
 	private String idEtapa;
 	private String idTipoComi;
+	private double raciTipo;
 	private String idSuple ;
 	private double raciComi;
 	private String freComi;
@@ -26,6 +27,12 @@ public class comidaganado {
 	}
 	public void setIdTipoComi(String idTipoComi) {
 		this.idTipoComi = idTipoComi;
+	}
+	public double getRaciTipo() {
+		return raciTipo;
+	}
+	public void setRaciTipo(double raciTipo) {
+		this.raciTipo = raciTipo;
 	}
 	public String getIdSuple() {
 		return idSuple;
@@ -51,6 +58,7 @@ public class comidaganado {
 	public void setEsta(int esta) {
 		this.esta = esta;
 	}
+	
 	
 	
 

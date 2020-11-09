@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.unjfsc.daw.spring5.dao.comidaganadoDaoImpl;
-import pe.unjfsc.daw.spring5.dao.inseminacionDaoImpl;
 import pe.unjfsc.daw.spring5.model.comidaganado;
-import pe.unjfsc.daw.spring5.model.inseminacion;
 
 @Service
 public class comidaganadoServiceImpl implements comidaganadoService{
