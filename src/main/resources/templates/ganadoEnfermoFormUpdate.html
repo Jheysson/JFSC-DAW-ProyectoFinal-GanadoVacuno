@@ -1,6 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <head th:replace="layout/plantillaUpdate :: head"></head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body class="fix-header card-no-border fix-sidebar">
 	<div id="main-wrapper">
@@ -26,17 +27,30 @@
 							<div class="card-body">
 								<form th:action="@{/ganadoEnfermo/update}" method="post"
 									th:object="${ganadoEnfermoFormUpdate}">
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="cuiaGana">CUIA</label> <input type="text"
-												class="form-control" th:field="*{cuiaGana}" />
+									<div class="row">
+									<div class="col-md-6">
+										<div class="card border-dark mb-3">
+										<div class="card-header">Información del ganado</div>
+										<div class="card-body text-secondary">
+										<div class="form-group row">
+											<label class="col-form-label col-md-5"  for="cuiaGana">CUIA</label> 
+											<div class="col-md-7">
+															<input type="text" class="form-control"
+																th:field="*{cuiaGana}" />
+														</div>
+												</div>
 										</div>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
+										</div>
+										</div>
+										<div class="col-md-6">
+											<div class="card border-dark mb-3">
+												<div class="card-header">Información médica</div>
+												<br>
+												<div class="form-group row">
+										<div class="col-6">
 											<label for="idEnfe">Enfermedad</label> <select
 												class="form-control col-12" th:field="*{idEnfe}">
+												<option value="0">--Seleccionar--</option>
 												<option value="1">Mastitis</option>
 												<option value="2">Hemolactea</option>
 												<option value="3">Babesiosis</option>
@@ -45,23 +59,30 @@
 												<option value="6">Tuberculosis</option>
 												<option value="7">Clostridiosis</option>
 												<option value="8">Leptospirosis</option>
-												<option value="9">Problemas en las pezu�as</option>
+												<option value="9">Problemas en las patas</option>
 												<option value="10">Dermatitis necrotica</option>
 												<option value="11">Otro</option>
 											</select>
 										</div>
-										<div class="form-group col-md-6">
-											<label for="fechIngr">Fecha de ingreso</label> <input
-												type="date" class="form-control" th:field="*{fechIngr}" />
 										</div>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="obse">Observacion</label> <input
-												type="text" class="form-control" th:field="*{obse}" />
+										
+										<div class="form-group row">
+										<div class="col-10">
+													<label for="fechIngr">Fecha de ingreso enfermo</label> 
+													<input type="date" class="form-control" th:field="*{fechIngr}" />
+										</div>	
 										</div>
-									</div>
+										<div class="form-group row">
+										<div class="col-10">
+													<label for="obse">Observación</label>
+													 <textarea class="form-control" rows="5"
+																th:field="*{obse}"></textarea>
+										</div>
+										</div>
+													
+											</div>
+										</div>
+										</div>
 
 									<button type="submit" class="btn btn-danger"
 										style="align-content: center; width: 300px; height: 45px">Guardar</button>

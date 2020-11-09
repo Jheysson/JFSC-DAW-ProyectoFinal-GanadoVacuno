@@ -1,6 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <head th:replace="layout/plantillaRecursos :: head"></head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body class="fix-header card-no-border fix-sidebar">
 	<div id="main-wrapper">
@@ -40,10 +41,10 @@
 										<tr>
 											<th>CUIA</th>
 											<th>Enfermedad</th>
-											<th>Fecha de ingreso</th>
+											<th>Fecha de ingreso del enfermo</th>
 											<th>Observaciones</th>
 											<th>Editar</th>
-											<th>Eliminar</th>
+											<th>Dar de alta</th>
 										<tr th:each="model : ${listGanadoEnfermo}">
 											<td th:text="${model.cuiaGana}"></td>
 											<td th:text="${model.idEnfe}"></td>
@@ -51,8 +52,9 @@
 											<td th:text="${model.obse}"></td>
 											<td><a class="btn btn-primary"
 														th:href="@{/ganadoEnfermo/updateGanadoEnfermo/} + ${model.cuiaGana}" role="button">Editar</a></td>
-											<td><a class="btn btn-danger"
-														th:href="@{/ganadoEnfermo/eliminarGanadoEnfermo/} + ${model.cuiaGana}" role="button">Eliminar</a></td>
+														<td><a class="btn btn-danger"
+												th:onclick="eliminar([[${model.cuiaGana}]])" role="button">Brindar alta</a>
+											</td>
 										</tr>
 									</thead>
 								</table>
@@ -64,5 +66,34 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<script>
+	function eliminar(cuiaGana) {
+		console.log(cuiaGana);
+		swal({
+			  title: "Esta seguro de brindar la alta",
+			  text: "Desea brindar la alta al ganado " + cuiaGana,
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((OK) => {
+			  if (OK) {
+				  $.ajax({
+					 url:"/ganadoEnfermo/eliminarGanadoEnfermo/"+cuiaGana,
+					 success: function(res) {
+						console.log(res);
+					},			
+				  });
+			    swal("¡Registro brindado de alta!", {
+			      icon: "success",
+			    }).then((ok)=>{
+			    	if(ok){
+			    		location.href="/ganadoEnfermo/ListadoGanadoEnfermo";
+			    	}
+			    });
+			  } 
+			});
+	}
+	</script>
 </body>
 </html>

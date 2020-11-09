@@ -11,7 +11,7 @@ public class GanadoEnfermoRowMapper implements RowMapper<GanadoEnfermo> {
 	public GanadoEnfermo mapRow(ResultSet rs, int rowNum) throws SQLException {
 		GanadoEnfermo oGanadoEnfermo = new GanadoEnfermo();
 		oGanadoEnfermo.setCuiaGana(rs.getInt("cuiaGana"));
-		oGanadoEnfermo.setIdEnfe(rs.getInt("idEnfe"));
+		oGanadoEnfermo.setIdEnfe(rs.getString("idEnfe"));
 		oGanadoEnfermo.setFechIngr(rs.getString("fechIngr"));
 		oGanadoEnfermo.setObse(rs.getString("obse"));
 		oGanadoEnfermo.setEsta(rs.getInt("esta"));

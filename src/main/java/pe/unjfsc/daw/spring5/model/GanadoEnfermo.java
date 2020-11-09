@@ -3,7 +3,7 @@ package pe.unjfsc.daw.spring5.model;
 public class GanadoEnfermo {
 	
 	private int cuiaGana;
-	private int idEnfe;
+	private String idEnfe;
 	private String fechIngr;
 	private String obse;
 	private int esta;
@@ -14,10 +14,11 @@ public class GanadoEnfermo {
 	public void setCuiaGana(int cuiaGana) {
 		this.cuiaGana = cuiaGana;
 	}
-	public int getIdEnfe() {
+	
+	public String getIdEnfe() {
 		return idEnfe;
 	}
-	public void setIdEnfe(int idEnfe) {
+	public void setIdEnfe(String idEnfe) {
 		this.idEnfe = idEnfe;
 	}
 	public String getFechIngr() {
