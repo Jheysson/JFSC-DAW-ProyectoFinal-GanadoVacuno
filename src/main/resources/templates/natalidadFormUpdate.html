@@ -28,137 +28,123 @@
 									th:object="${natalidadFormUpdate}">
 									<div class="row">
 										<div class="col-md-6">
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="CUIA">CUIA</label>
-												<div class="col-md-7">
-													<input type="text" class="form-control" th:field="*{cuiaNata}" />
-												</div>												
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="sexo">Sexo</label>
-												<div class="col-md-7">
-													<select class="form-control col-12" th:field="*{idSexo}">
-														<option value="1">Hembra</option>
-														<option value="2">Macho</option>
-													</select>
+											<div class="card border-dark mb-3">
+												<div class="card-header">Informacion principal</div>
+												<div class="card-body text-secondary">
+													<div class="form-group row">
+														<label class="col-form-label col-md-5" for="CUIA">CUIA</label>
+														<div class="col-md-7">
+															<input type="text" class="form-control"
+																th:field="*{cuiaNata}" />
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5" for="sexo">Sexo</label>
+														<div class="col-md-7">
+															<select class="form-control col-12" th:field="*{idSexo}">
+																<option value="1">Hembra</option>
+																<option value="2">Macho</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5" for="genotipo">Genotipo</label>
+														<div class="col-md-7">
+															<select class="form-control col-12" th:field="*{idGeno}">
+																<option value="1">Hereford</option>
+																<option value="2">Charolais</option>
+																<option value="3">Limousin</option>
+																<option value="4">Brahman</option>
+																<option value="5">Gyrolando</option>
+																<option value="6">Brown Swiss</option>
+																<option value="7">Criollo</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-form-label col-md-5"
+															for="fechNacimiento">Fecha de Nacimiento</label>
+														<div class="col-md-7">
+															<input type="date" class="form-control"
+																th:field="*{fechNaciNata}" />
+														</div>
+													</div>
 												</div>
 											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="genotipo">Genotipo</label>
-												<div class="col-md-7">
-													<select class="form-control col-12" th:field="*{idGeno}">
-														<option value="1">Hereford</option>
-														<option value="2">Charolais</option>
-														<option value="3">Limousin</option>
-														<option value="4">Brahman</option>
-														<option value="5">Gyrolando</option>
-														<option value="6">Brown Swiss</option>
-														<option value="7">Criollo</option>
-													</select>
-												</div>												
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="fechNacimiento">Fecha de Nacimiento</label>
-												<div class="col-md-7">
-													<input type="date" class="form-control" th:field="*{fechNaciNata}" />
-												</div>																						
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="peso">Peso</label>
-												<div class="col-md-7">
-													<input type="text" class="form-control" th:field="*{pesoNata}" />
-												</div>												
+											<div class="card border-dark mb-3">
+												<div class="card-header">Pesaje</div>
+												<div class="card-body text-secondary">
+													<div class="form-group row">
+														<label class="col-form-label col-md-5" for="peso">Peso</label>
+														<div class="col-md-7">
+															<input type="text" class="form-control"
+																th:field="*{pesoNata}" />
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 										<div class="col-md-6">
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="CUIAmadre">CUIA Madre</label>
-												<div class="col-md-7">
-													<input type="text" class="form-control" th:field="*{cuiaMadr}" />
-												</div>												
+											<div class="card border-dark mb-3">
+												<div class="card-header">Origen</div>
+												<br>
+												<div class="form-group row">
+													<div class="col-6">
+														<div class="form-check">
+															<input class="form-check-input" type="radio"
+																name="exampleRadios" id="idInseminacion" checked>
+															<label class="form-check-label" for="idInseminacion">
+																Inseminacion </label>
+														</div>
+													</div>
+													<div class="col-6">
+														<div class="form-check" id="groupOrigen">
+															<input class="form-check-input" type="radio"
+																name="exampleRadios" id="idMonte"> <label
+																class="form-check-label" for="idMonte"> Monte </label>
+														</div>
+													</div>
+												</div>
+												<div class="form-group row">
+													<label class="col-form-label col-md-5" for="CUIAmadre">CUIA
+														Madre</label>
+													<div class="col-md-7">
+														<input type="text" class="form-control"
+															th:field="*{cuiaMadr}" />
+													</div>
+												</div>
+												<div class="form-group row">
+													<label class="col-form-label col-md-5" for="CUIApadre">CUIA
+														Padre</label>
+													<div class="col-md-7">
+														<input type="text" class="form-control"
+															th:field="*{cuiaPadr}" />
+													</div>
+												</div>
+												<div class="form-group row">
+													<label class="col-form-label col-md-5" for="observacion">Codigo
+														Inseminacion</label>
+													<div class="col-md-7">
+														<input type="text" class="form-control"
+															th:field="*{codiProp}" />
+													</div>
+												</div>
 											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="CUIApadre">CUIA Padre</label>
-												<div class="col-md-7">
-													<input type="text" class="form-control" th:field="*{cuiaPadr}" />	
-												</div>												
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="observacion">Codigo Inseminacion</label>
-												<div class="col-md-7">
-													<input type="text" class="form-control" th:field="*{codiProp}" />
-												</div>												
-											</div>
-											<div class="form-group row">
-												<label class="col-form-label col-md-5" for="observacion">Observacion</label>
-												<div class="col-md-7">
-													<textarea class="form-control" rows="5" th:field="*{obse}"></textarea>
-												</div>												
+											<br>
+											<div class="card border-dark mb-3">
+												<div class="card-header">Informacion Adicional</div>
+												<div class="card-body text-secondary">
+													<div class="form-group row">
+														<label class="col-form-label col-md-5" for="observacion">Observacion</label>
+														<div class="col-md-7">
+															<textarea class="form-control" rows="5"
+																th:field="*{obse}"></textarea>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-<!-- 									<div class="form-row">-->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="CUIA">CUIA</label> <input type="text" -->
-<!-- 												class="form-control" th:field="*{cuiaNata}" /> -->
-<!-- 										</div> -->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="sexo">Sexo</label> <select -->
-<!-- 												class="form-control col-12" th:field="*{idSexo}"> -->
-<!-- 												<option value="1">Hembra</option> -->
-<!-- 												<option value="2">Macho</option> -->
-<!-- 											</select> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-
-<!-- 									<div class="form-row"> -->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="genotipo">Genotipo</label> <select -->
-<!-- 												class="form-control col-12" th:field="*{idGeno}"> -->
-<!-- 												<option value="1">Hereford</option> -->
-<!-- 												<option value="2">Charolais</option> -->
-<!-- 												<option value="3">Limousin</option> -->
-<!-- 												<option value="4">Brahman</option> -->
-<!-- 												<option value="5">Gyrolando</option> -->
-<!-- 												<option value="6">Brown Swiss</option> -->
-<!-- 												<option value="7">Criollo</option> -->
-<!-- 											</select> -->
-<!-- 										</div> -->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="fechNacimiento">Fecha de Nacimiento</label> <input -->
-<!-- 												type="date" class="form-control" th:field="*{fechNaciNata}" /> -->
-<!-- 										</div> -->
-<!-- 									</div> -->				
-
-<!-- 									<div class="form-row"> -->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="peso">Peso</label> <input type="text" -->
-<!-- 												class="form-control" th:field="*{pesoNata}" /> -->
-<!-- 										</div> -->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="CUIAmadre">CUIA Madre</label> <input type="text" -->
-<!-- 												class="form-control" th:field="*{cuiaMadr}" /> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-
-<!-- 									<div class="form-row"> -->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="CUIApadre">CUIA Padre</label> <input type="text" -->
-<!-- 												class="form-control" th:field="*{cuiaPadr}" /> -->
-<!-- 										</div> -->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="observacion">Codigo Inseminacion</label> <input -->
-<!-- 												type="text" class="form-control" th:field="*{codiProp}" /> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-
-<!-- 									<div class="form-row"> -->
-<!-- 										<div class="form-group col-md-6"> -->
-<!-- 											<label for="observacion">Observacion</label> -->
-<!-- 											<textarea class="form-control" rows="5" th:field="*{obse}"></textarea> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-
 									<button type="submit" class="btn btn-danger"
 										style="align-content: center; width: 300px; height: 45px">Guardar</button>
 								</form>
