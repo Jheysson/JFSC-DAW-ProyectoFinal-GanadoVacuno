@@ -37,7 +37,8 @@ public class vacadedescarteDaoImpl implements vacadedescarteDao{
 	@Override
 	public void addvacadedescarte(vacadedescarte pvacadedescarte) {
 		jdbcTemplate.update(CDConstanteSQLVacadeDescarte.SQL_INSERT,
-				pvacadedescarte.getCuiaGana()
+				pvacadedescarte.getCuiaGana(),
+				pvacadedescarte.getObse()
 				);
 		
 	}

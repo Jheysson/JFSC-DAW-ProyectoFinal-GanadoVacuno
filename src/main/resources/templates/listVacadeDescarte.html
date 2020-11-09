@@ -25,19 +25,30 @@
 						<div class="card">
 							<div class="card-body">
 								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#addModal" style="margin-bottom: 20px">Agregar
-									registro vaca de descarte</button>
+									data-toggle="modal" data-target="#addModal"
+									style="margin-bottom: 20px">Agregar registro vaca de
+									descarte</button>
 								<table id="myTable"
 									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
 									style="width: 100%">
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>CUIA GANADO</th>
+											<th>CUIA</th>
+											<th>ALIAS</th>
+											<th>FECHA DE NACIMIENTO</th>
+											<th>EDAD</th>
+											<th>ETAPA</th>
+											<th>OBSERVACION</th>
 											<th>Eliminar</th>
 										<tr th:each="model : ${listVacadedescarte}">
 											<td th:text="${model.idVacaDesc}"></td>
 											<td th:text="${model.cuiaGana}"></td>
+											<td th:text="${model.aliaGana}"></td>
+											<td th:text="${model.fechNaciGana}"></td>
+											<td th:text="${model.edadGana}"></td>
+											<td th:text="${model.etapaGana}"></td>
+											<td th:text="${model.obse}"></td>
 											<td><a class="btn btn-danger"
 												th:onclick="eliminar([[${model.idVacaDesc}]])" role="button">Eliminar</a>
 											</td>
@@ -53,7 +64,8 @@
 	</div>
 	<div class="modal fade" id="addModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<form th:action="@{/vacadedescarte/addVacadeDescarte}" method="post">
+		<form th:action="@{/vacadedescarte/addVacadeDescarte}" method="post"
+			name="myForm">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -65,11 +77,49 @@
 					</div>
 					<div class="modal-body">
 
+						<div class="form-group row">
+							<div class="col-md-7">
+								<label for="recipient-name" class="col-form-label">Cuia
+									del ganado:</label> <input type="text" class="form-control"
+									name="cuiaGana">
+							</div>
+							<div class="col-md-3" style="margin-top: 35px">
+								<div>
+									<input type="button" id="Buscar" onclick="buscar()"
+										value="Validar" class="btn btn-warning" />
+								</div>
+							</div>
+						</div>
 						<div class="form-group">
-							<label for="recipient-name" class="col-form-label">Cuia del ganado:</label>
-							<input type="text" class="form-control" id="recipient-name" name="cuiaGana">
+							<table class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+									style="width: 100%">
+								<thead>
+									<tr> 
+										<th>Cuia</th>
+										<th>Edad</th>
+										<th>Etap</th>
+										<th>Alias</th>
+										<th>Fecha de Nacimiento</th>
+									</tr>
+								</thead>
+								<tbody>
+								<tr> 
+									<td id="ValiCuia"></td>
+									<td id="ValiEdad"></td>
+									<td id="ValiEtap"></td>
+									<td id="ValiAlias"></td>
+									<td id="ValiFechaNacimiento"></td>
+								</tr>
+								</tbody>
+							</table>
+							<span id="cont1"></span>
 						</div>
 						
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">Observacion:</label>
+							<input type="text" class="form-control" name="obse">
+						</div>
+
 
 					</div>
 					<div class="modal-footer">
@@ -82,6 +132,30 @@
 		</form>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<script type="text/javascript">
+			document.getElementById("Buscar").onclick = function buscar() {
+				var x = document.forms["myForm"]["cuiaGana"].value;
+				var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
+						+ x;
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', Url, true);
+				xhr.send();
+				xhr.onreadystatechange = processRequest;
+				function processRequest(e) {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var response1 = JSON.parse(xhr.responseText);
+						document.getElementById('ValiCuia').innerHTML = response1.cuiaGana;
+						document.getElementById('ValiEdad').innerHTML = response1.edadGana;
+						document.getElementById('ValiEtap').innerHTML = response1.etapaGana;
+						document.getElementById('ValiAlias').innerHTML = response1.aliaGana;
+						document.getElementById('ValiFechaNacimiento').innerHTML = response1.fechNaciGana;
+						document.getElementById('cont1').innerHTML = 'El cuia ingresado Valido';
+					}else {
+						document.getElementById('cont1').innerHTML = 'El cuia ingresado es Incorrecto';
+					}
+				}
+		}
+	</script>
 	<script>
 	function eliminar(idVacaDesc) {
 		console.log(idVacaDesc);

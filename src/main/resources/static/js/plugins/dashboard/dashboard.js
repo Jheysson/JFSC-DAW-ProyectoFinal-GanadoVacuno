@@ -43,7 +43,7 @@ var ctx = document.getElementById('myChart1');
 								'Junio' ],
 						datasets : [ {
 							label : 'Produccion de leche',
-							data : [ 12, 19, 3, 5, 2, 3 ],
+							data : [ 200, 190, 300, 270, 265, 350 ],
 							backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
 									'rgba(54, 162, 235, 0.2)',
 									'rgba(255, 206, 86, 0.2)',

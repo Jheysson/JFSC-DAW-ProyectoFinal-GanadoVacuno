@@ -12,6 +12,11 @@ public class vacadedescarteRowMapper implements RowMapper<vacadedescarte>{
 		vacadedescarte ovacadedescarte = new vacadedescarte();
 		ovacadedescarte.setIdVacaDesc(rs.getInt("idVacaDesc"));
 		ovacadedescarte.setCuiaGana(rs.getInt("cuiaGana"));
+		ovacadedescarte.setAliaGana(rs.getString("aliaGana"));
+		ovacadedescarte.setFechNaciGana(rs.getString("fechNaciGana"));
+		ovacadedescarte.setEdadGana(rs.getInt("edadGana"));
+		ovacadedescarte.setEtapaGana(rs.getString("etapaGana"));
+		ovacadedescarte.setObse(rs.getString("obse"));
 		ovacadedescarte.setEsta(rs.getInt("esta"));
 		return ovacadedescarte;
 	}
