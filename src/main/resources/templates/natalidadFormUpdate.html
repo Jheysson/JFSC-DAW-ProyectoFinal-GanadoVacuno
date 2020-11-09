@@ -1,6 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <head th:replace="layout/plantillaUpdate :: head"></head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body class="fix-header card-no-border fix-sidebar">
 	<div id="main-wrapper">
@@ -29,7 +30,7 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="card border-dark mb-3">
-												<div class="card-header">Informacion principal</div>
+												<div class="card-header">Información principal</div>
 												<div class="card-body text-secondary">
 													<div class="form-group row">
 														<label class="col-form-label col-md-5" for="CUIA">CUIA</label>
@@ -94,7 +95,7 @@
 															<input class="form-check-input" type="radio"
 																name="exampleRadios" id="idInseminacion" checked>
 															<label class="form-check-label" for="idInseminacion">
-																Inseminacion </label>
+																Inseminación </label>
 														</div>
 													</div>
 													<div class="col-6">
@@ -122,7 +123,7 @@
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-form-label col-md-5" for="observacion">Codigo
+													<label class="col-form-label col-md-5" for="observacion">Código
 														Inseminacion</label>
 													<div class="col-md-7">
 														<input id="codiInseminInput" type="number" class="form-control"
@@ -132,10 +133,10 @@
 											</div>
 											<br>
 											<div class="card border-dark mb-3">
-												<div class="card-header">Informacion Adicional</div>
+												<div class="card-header">Información Adicional</div>
 												<div class="card-body text-secondary">
 													<div class="form-group row">
-														<label class="col-form-label col-md-5" for="observacion">Observacion</label>
+														<label class="col-form-label col-md-5" for="observacion">Observación</label>
 														<div class="col-md-7">
 															<textarea class="form-control" rows="5"
 																th:field="*{obse}"></textarea>
