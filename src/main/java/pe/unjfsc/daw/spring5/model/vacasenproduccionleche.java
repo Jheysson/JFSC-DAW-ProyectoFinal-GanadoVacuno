@@ -3,8 +3,9 @@ package pe.unjfsc.daw.spring5.model;
 public class vacasenproduccionleche {
 	private int idVacaProd;
 	private int cuiaGana;
+	private String aliaGana;
+	private String nombSuple;
 	private int idSuple;
-	private int esta;
 	
 	public int getIdVacaProd() {
 		return idVacaProd;
@@ -18,18 +19,26 @@ public class vacasenproduccionleche {
 	public void setCuiaGana(int cuiaGana) {
 		this.cuiaGana = cuiaGana;
 	}
+	public String getAliaGana() {
+		return aliaGana;
+	}
+	public void setAliaGana(String aliaGana) {
+		this.aliaGana = aliaGana;
+	}
+	public String getNombSuple() {
+		return nombSuple;
+	}
+	public void setNombSuple(String nombSuple) {
+		this.nombSuple = nombSuple;
+	}
 	public int getIdSuple() {
 		return idSuple;
 	}
 	public void setIdSuple(int idSuple) {
 		this.idSuple = idSuple;
 	}
-	public int getEsta() {
-		return esta;
-	}
-	public void setEsta(int esta) {
-		this.esta = esta;
-	}
+	
+
 	
 	
 }

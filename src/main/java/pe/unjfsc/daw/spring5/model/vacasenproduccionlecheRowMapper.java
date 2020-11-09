@@ -12,8 +12,9 @@ public class vacasenproduccionlecheRowMapper implements RowMapper<vacasenproducc
 		vacasenproduccionleche ovacasenproduccionleche = new vacasenproduccionleche();
 		ovacasenproduccionleche.setIdVacaProd(rs.getInt("idVacaProd"));
 		ovacasenproduccionleche.setCuiaGana(rs.getInt("cuiaGana"));
+		ovacasenproduccionleche.setAliaGana(rs.getString("aliaGana"));
+		ovacasenproduccionleche.setNombSuple(rs.getString("nombSuple"));
 		ovacasenproduccionleche.setIdSuple(rs.getInt("idSuple"));
-		ovacasenproduccionleche.setEsta(rs.getInt("esta"));
 		return ovacasenproduccionleche;
 	}
 

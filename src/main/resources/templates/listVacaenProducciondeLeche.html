@@ -36,14 +36,16 @@
 										<tr>
 											<th>ID</th>
 											<th>CUIA GANADO</th>
-											<th>Suplemento</th>
+											<th>ALIAS GANADO</th>
+											<th>SUPLEMENTOS</th>
 											<th>Editar</th>
 											<th>Eliminar</th>
 										<tr th:each="model : ${listVacaProduccionLeche}">
 											<td th:text="${model.idVacaProd}"></td>
 											<td th:text="${model.cuiaGana}"></td>
-											<td th:text="${model.idSuple}"></td>
-											<td><a class="btn btn-danger"
+											<td th:text="${model.aliaGana}"></td>
+											<td th:text="${model.nombSuple}"></td>
+											<td><a class="btn btn-primary"
 												th:href="@{/vacasenproduccionleche/updatevacasenproduccionleche/} + ${model.idVacaProd}"
 												role="button">Editar</a></td>
 											<td><a class="btn btn-danger"
@@ -63,7 +65,7 @@
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<form
 			th:action="@{/vacasenproduccionleche/addVacadeProducciondeLeche}"
-			method="post">
+			method="post" name="myForm">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -80,6 +82,14 @@
 								Ganado: </label> <input type="text" class="form-control"
 								id="recipient-name" name="cuiaGana">
 						</div>
+						
+						<div class="form-group" style="overflow: hidden">
+							<div style="float: left;">
+								<input type="button" id="buscarcuia" onclick="fungan()" value="Validar CUIA" class="btn btn-warning" />
+							</div>
+							<div style="float: left; margin: 8px;" id="cont1"></div>
+						</div>
+						
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label">Suplemento:</label>
 							<select class="form-control" id="recipient-name" name="idSuple">
@@ -95,12 +105,45 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-danger">Save</button>
+						<button type="submit" class="btn btn-danger" name="guardar">Save</button>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			document.myForm.guardar.disabled = true;
+			document.getElementById("buscarcuia").onclick = function fungan() {
+				var x = document.forms["myForm"]["cuiaGana"].value;
+				var Url = "http://localhost:8080/buscar/verificarGanadoVacunoHembra/"
+						+ x;
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', Url, true);
+				xhr.send();
+				xhr.onreadystatechange = processRequest;
+				function processRequest(e) {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var response1 = JSON.parse(xhr.responseText);
+						var result = "cuia: ";
+						result += response1.cuiaGana + "\n";
+						result += "alias: ";
+						result += response1.aliaGana + "\n";
+						result += "fecha Nacimiento: ";
+						result += response1.fechNaciGana + "\n";
+						//alert(result);
+						document.getElementById('cont1').innerHTML = 'El CUIA '+response1.cuiaGana+' con Alias "'+response1.aliaGana+'" es valido';
+						document.myForm.guardar.disabled = false;
+					} else {
+						document.getElementById('cont1').innerHTML = 'El CUIA ingresado es Incorrecto';
+					}
+				}
+			}
+		}
+	</script>
+
+
 </body>
 </html>

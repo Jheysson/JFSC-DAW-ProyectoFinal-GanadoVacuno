@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import pe.unjfsc.daw.spring5.model.GanadoVacuno;
+import pe.unjfsc.daw.spring5.model.GanadoVacunoHembra;
 import pe.unjfsc.daw.spring5.model.lecheProducidaDia;
 import pe.unjfsc.daw.spring5.model.natalidad;
 import pe.unjfsc.daw.spring5.model.vacasenproduccionleche;
 import pe.unjfsc.daw.spring5.service.GanadoVacunoService;
+import pe.unjfsc.daw.spring5.service.VacaEnProducciondeLecheService;
 import pe.unjfsc.daw.spring5.service.lecheProducidaService;
 import pe.unjfsc.daw.spring5.service.natalidadService;
 
@@ -23,6 +25,9 @@ public class ControllerRest {
 	
 	@Autowired
 	private lecheProducidaService lecheProducidaService;
+	
+	@Autowired
+	private VacaEnProducciondeLecheService vacasenproduccionlecheService;
 	
 	
 	
@@ -39,5 +44,10 @@ public class ControllerRest {
 	@RequestMapping(value="/buscar/verificarVacaLechera/{cuiaGana}", method=RequestMethod.GET)
     public vacasenproduccionleche getLecheProducida(@PathVariable("cuiaGana") int cuia) {
 		return lecheProducidaService.findLecheProducidaByCUIA(cuia);
+    }
+	
+	@RequestMapping(value="/buscar/verificarGanadoVacunoHembra/{cuiaGana}", method=RequestMethod.GET)
+    public GanadoVacunoHembra getgGanadoVacunoHembra(@PathVariable("cuiaGana") int cuia) {
+		return vacasenproduccionlecheService.findvacaDeProduccionLecheByCUIA(cuia);
     }
 }

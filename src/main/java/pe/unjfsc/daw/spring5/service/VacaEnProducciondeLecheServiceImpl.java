@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.unjfsc.daw.spring5.dao.VacaEnProduccionLecheDaoImpl;
+import pe.unjfsc.daw.spring5.model.GanadoVacunoHembra;
 import pe.unjfsc.daw.spring5.model.vacasenproduccionleche;
 @Service
 public class VacaEnProducciondeLecheServiceImpl implements VacaEnProducciondeLecheService{
@@ -39,10 +40,10 @@ public class VacaEnProducciondeLecheServiceImpl implements VacaEnProducciondeLec
 		oVacaEnProduccionLecheDaoImpl.updatevacasenproduccionleche(pvacasenproduccionleche);
 		
 	}
-/*
+
 	@Override
-	public vacasenproduccionleche findvacaDeProduccionLecheByCUIA(int cuia) {
+	public GanadoVacunoHembra findvacaDeProduccionLecheByCUIA(int cuia) {
           return oVacaEnProduccionLecheDaoImpl.findvacaDeProduccionLecheByCUIA(cuia);
 	}
-*/
+
 }
