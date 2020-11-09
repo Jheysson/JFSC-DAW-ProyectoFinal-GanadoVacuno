@@ -109,7 +109,7 @@
 													<label class="col-form-label col-md-5" for="CUIAmadre">CUIA
 														Madre</label>
 													<div class="col-md-7">
-														<input type="text" class="form-control"
+														<input type="number" class="form-control"
 															th:field="*{cuiaMadr}" />
 													</div>
 												</div>
@@ -117,7 +117,7 @@
 													<label class="col-form-label col-md-5" for="CUIApadre">CUIA
 														Padre</label>
 													<div class="col-md-7">
-														<input type="text" class="form-control"
+														<input id="cuiaPadreInput" type="number" disabled class="form-control"
 															th:field="*{cuiaPadr}" />
 													</div>
 												</div>
@@ -125,7 +125,7 @@
 													<label class="col-form-label col-md-5" for="observacion">Codigo
 														Inseminacion</label>
 													<div class="col-md-7">
-														<input type="text" class="form-control"
+														<input id="codiInseminInput" type="number" class="form-control"
 															th:field="*{codiProp}" />
 													</div>
 												</div>
@@ -156,5 +156,27 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaUpdate :: query"></section>
+	<script type="text/javascript">
+		var insemi = document.getElementById('idInseminacion');
+		var monte = document.getElementById('idMonte');
+
+		var cuiaPadre = document.getElementById('cuiaPadreInput');
+		var codiInse = document.getElementById('codiInseminInput');
+
+		function habilitarInputs() {
+			if (insemi.checked) {
+				codiInse.disabled = false;
+				cuiaPadre.disabled = true;
+				cuiaPadre.value = 0;
+
+			} else {
+				codiInse.disabled = true;
+				cuiaPadre.disabled = false;
+				codiInse.value = 0;
+			}
+		}
+		insemi.addEventListener('change', habilitarInputs)
+		monte.addEventListener('change', habilitarInputs)
+	</script>
 </body>
 </html>
