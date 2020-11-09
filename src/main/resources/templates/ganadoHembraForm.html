@@ -59,8 +59,12 @@
 														<label class="col-form-label col-md-5">Función</label>
 														<div class="col-7">
 															<select class="form-control" th:field="*{idTipoGana}">
+																<option value="0">Seleccione</option>
 																<option value="1">Leche</option>
 																<option value="2">Carne</option>
+																<option value="3">Tracción</option>
+																<option value="4">Doble proósito</option>
+																<option value="5">Triple proósito</option>
 															</select>
 														</div>
 													</div>
@@ -68,6 +72,7 @@
 														<label class="col-form-label col-md-5">Genotipo</label>
 														<div class="col-7">
 															<select class="form-control" th:field="*{idGeno}">
+																<option value="0">Seleccione</option>
 																<option value="1">Hereford</option>
 																<option value="2">Charolais</option>
 																<option value="3">Limousin</option>
@@ -82,6 +87,7 @@
 													<label class="col-form-label col-md-5">Estado Activo</label>
 													<div class="col-7">
 														<select class="form-control" th:field="*{idEstaActi}">
+															<option value="0">Seleccione</option>
 															<option value="1">Seca</option>
 															<option value="2">Preñada</option>
 															<option value="3">Produccion</option>
@@ -182,7 +188,8 @@
 															class="form-control" th:field="*{cuiaPadr}" />
 														</div>
 														<div class="col-3">
-															<button type="button" class="btn btn-info" data-toggle="modal" data-target="#buscarPadre">Buscar</button>													
+															<input type="button" class="btn btn-rounded btn-success" id="BuscarPadre" onclick="funp()"
+															value="Buscar" />													
 														</div>
 													</div>
 													<div class="form-group row">
@@ -296,6 +303,27 @@
 		window.onload = function() {
 			document.getElementById("Buscar").onclick = function fun() {
 				var x = document.forms["myForm"]["cuiaMadr"].value;
+				var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
+						+ x;
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', Url, true);
+				xhr.send();
+				xhr.onreadystatechange = processRequest;
+				function processRequest(e) {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var response1 = JSON.parse(xhr.responseText);
+						var result = "Cuia Ganado: ";
+						result += response1.cuiaGana + "\n";
+						result += "Alias: ";
+						result += response1.aliaGana + "\n";
+						alert(result);
+					}
+				}
+			}
+		}
+		window.onload = function() {
+			document.getElementById("BuscarPadre").onclick = function funp() {
+				var x = document.forms["myForm"]["cuiaPadr"].value;
 				var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
 						+ x;
 				var xhr = new XMLHttpRequest();

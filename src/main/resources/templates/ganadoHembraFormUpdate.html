@@ -59,8 +59,12 @@
 														<label class="col-form-label col-md-5">Tipo</label>
 														<div class="col-7">
 															<select class="form-control" th:field="*{idTipoGana}">
+																<option value="0">Seleccione</option>
 																<option value="1">Leche</option>
 																<option value="2">Carne</option>
+																<option value="3">Tracción</option>
+																<option value="4">Doble proósito</option>
+																<option value="5">Triple proósito</option>
 															</select>
 														</div>
 													</div>
@@ -68,6 +72,7 @@
 														<label class="col-form-label col-md-5">Genotipo</label>
 														<div class="col-7">
 															<select class="form-control" th:field="*{idGeno}">
+																<option value="0">Seleccione</option>
 																<option value="1">Hereford</option>
 																<option value="2">Charolais</option>
 																<option value="3">Limousin</option>
@@ -82,6 +87,7 @@
 														<label class="col-form-label col-md-5">Estado Activo</label>
 														<div class="col-7">
 															<select class="form-control" th:field="*{idEstaActi}">
+																<option value="0">Seleccione</option>
 																<option value="1">Seca</option>
 																<option value="2">Preñada</option>
 																<option value="3">Produccion</option>
