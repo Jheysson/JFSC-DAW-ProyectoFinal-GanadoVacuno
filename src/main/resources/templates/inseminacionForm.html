@@ -26,7 +26,8 @@
 						<div class="card container">
 							<div class="card-body">
 								<form th:action="@{/inseminacion/save}" method="post"
-									th:object="${inseminacionForm}">
+									th:object="${inseminacionForm}" enctype="multipart/form-data"
+									name="myForm">
 									<div class="form-row">
 										<div class="col-md-6">
 											<div class="card border-dark mb-3" >
@@ -34,12 +35,30 @@
 												Informacion del Ganado Vacuno</div>
 									<div class="card-body text-secondary">
 										<div class="form-group row">
-										<label class="col-form-label col-md-5">Codigo de pajilla</label>
-										<div class="col-7">
-															<input type="number"
+														<label for="codiInseminInput" class="col-form-label col-md-3">Código Insemin.</label>
+														<div class="col-5">
+															<input id="codiInseminInput" type="number"
 															class="form-control" th:field="*{codiPropInse}" />
 														</div>
-										</div>
+														<div class="col-3">
+															<input type="button" class="btn btn-rounded btn-success" id="BuscarCodigoInsem" onclick="func()"
+															value="Verificar" />													
+														</div>
+														<div class="col-1" style=" padding-top: 5px;">																										
+															<a th:href="@{/inseminacion/agregarInseminacion}" target="_blank">
+																<span class="material-icons" >
+																	add_circle
+																</span>
+															</a>																 
+														</div>
+													</div>
+													<div class="row">														
+														<div class="col-md-5">																						
+														</div>								
+														<div class="col-md-7" style=" padding-bottom: 30px;">
+															<span id="cont3"></span>															
+														</div>																				
+													</div>	
 										<div class="form-group row">
 											<label class="col-form-label col-md-5">Genotipo</label>
 											<div class="col-7">
@@ -110,5 +129,37 @@
 			</div>
 		</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<script type="text/javascript">
+	document.getElementById("BuscarCodigoInsem").onclick = function func() {
+		var x = document.forms["myForm"]["codiPropInse"].value;
+		var Url = "http://localhost:8080/buscar/verificarCodigoInseminacion/"
+				+ x;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', Url, true);
+		xhr.send();
+		xhr.onreadystatechange = processRequest;
+		function processRequest(e) {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var response1 = JSON.parse(xhr.responseText);
+				var result = "Codigo: ";
+				result += response1.codiPropInse + "\n";
+				result += "Genotipo: ";
+				result += response1.idGeno + "\n";
+				alert(result);
+				
+				document.getElementById('cont3').style.color="#ff0000";
+				document.getElementById('cont3').innerHTML = 'Código existente, elija otro';
+				
+			}else {
+				
+				document.getElementById('cont3').style.color="#00b300";
+				document.getElementById('cont3').innerHTML = 'Código válido';
+				
+			}
+		}
+	}
+
+</script>
+	
 </body>
 </html>

@@ -1,6 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <head th:replace="layout/plantillaRecursos :: head"></head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body class="fix-header card-no-border fix-sidebar">
 	<div id="main-wrapper">
@@ -17,35 +19,44 @@
 							<li class="breadcrumb-item"><a href="/">Home</a>
 							</li>
 							<li class="breadcrumb-item">Inseminacion</li>
-							<li class="breadcrumb-item active">listado inseminacion</li>
+							<li class="breadcrumb-item active">Listado inseminacion</li>
 						</ol>
 					</div>
 				</div>
+				
 				<div class="row">
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body">
 							<div class="d-flex">
 										<div class="mr-auto">
-											<div class="form-group">												
-												<a class="btn btn-primary" th:href="@{/inseminacion/agregarInseminacion}">agregar
-													Registro de Inseminacion</a>
+											<div class="row">
+												<div class="col-md-6">
+													<div>												
+														<a class="btn btn-info" th:href="@{/inseminacion/agregarInseminacion}">
+															<span class="material-icons">
+																library_add
+															</span>
+														</a> 
+													</div>
+												</div>
+												
+																					
 											</div>
 										</div>
 									</div>
 								<table id="example" class="display nowrap">
 									<thead>
 										<tr>
-											<th>Codigo de pajilla</th>
+											<th>Código de pajilla</th>
 											<th>Genotipo de Toro procedencia</th>
 											<th>Peso de Toro de procedencia</th>
 											<th>Talla de Toro de procedencia</th>
 											<th>Lugar de Procedencia de pajilla</th>
 											<th>Precio de pajilla</th>
 											<th>Fecha de Compra de pajilla</th>
-											<th>Observacion</th>
-											<th>Editar</th>
-											<th>Eliminar</th>
+											<th>Observación</th>
+											<th>Acciones</th>
 											</thead>
 											<tbody>
 										<tr th:each="model : ${listInseminacion}">
@@ -57,10 +68,20 @@
 											<td th:text="${model.precPropInse}"></td>
 											<td th:text="${model.fechCompPropInse}"></td>
 											<td th:text="${model.obse}"></td>
-											<td><a class="btn btn-primary"
-														th:href="@{/inseminacion/updateInseminacion/} + ${model.codiPropInse}" role="button">Editar</a></td>
-											<td><a class="btn btn-danger"
-														th:onclick="eliminar([[${model.codiPropInse}]])"  role="button">Eliminar</a></td>
+											<td>
+											<a class="btn btn-primary"
+														th:href="@{/inseminacion/updateInseminacion/} + ${model.codiPropInse}" role="button">
+														<span class="material-icons">
+															edit
+														</span>
+														</a>
+											<a class="btn btn-danger"
+														th:onclick="eliminar([[${model.codiPropInse}]])"  role="button">
+														<span class="material-icons">
+														delete
+													</span>
+														</a>
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -88,8 +109,8 @@
 	function eliminar(codiPropInse) {
 		console.log(codiPropInse);
 		swal({
-			  title: "Esta seguro de Eliminar",
-			  text: "Desea eliminar el registro con c�digo " + codiPropInse,
+			  title: "Estás a punto de eliminiar el registro con código " + codiPropInse,
+			  text: "¿Deseas continuar? ",
 			  icon: "warning",
 			  buttons: true,
 			  dangerMode: true,
