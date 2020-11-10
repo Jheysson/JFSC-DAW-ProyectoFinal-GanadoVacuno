@@ -178,15 +178,15 @@
 															<!-- <a href="listarHembras" id="botonVerificarMadre" class="btn btn-info" data-toggle="modal" onClick="test()"
 															 data-target="#buscarMadre" role="button">Buscar</a> -->
 															 <input type="button" class="btn btn-rounded btn-success" id="Buscar" onclick="fun()"
-															value="Buscar" />
-																													 															 												
+															value="Buscar" />																													 															 												
 														</div>
 													</div>
-													<div class="row">
-														<div class="col-md-12" >
-															<span id="cont1" style="align-text: center"></span>
-														</div>
-														
+													<div class="row">														
+														<div class="col-md-5">																						
+														</div>								
+														<div class="col-md-7" style=" padding-bottom: 30px;">
+															<span id="cont1"></span>															
+														</div>																				
 													</div>
 													<div class="form-group row">
 														<label for="cuiaPadreInput" class="col-form-label col-md-5">CUIA Padre</label>
@@ -198,6 +198,13 @@
 															<input type="button" class="btn btn-rounded btn-success" id="BuscarPadre" onclick="funp()"
 															value="Buscar" />													
 														</div>
+													</div>
+													<div class="row">														
+														<div class="col-md-5">																						
+														</div>								
+														<div class="col-md-7" style=" padding-bottom: 30px;">
+															<span id="cont2"></span>															
+														</div>																				
 													</div>
 													<div class="form-group row">
 														<label for="codiInseminInput" class="col-form-label col-md-5">Codigo Insemin.</label>
@@ -324,9 +331,11 @@
 						result += "Alias: ";
 						result += response1.aliaGana + "\n";
 						alert(result);
+						document.getElementById('cont1').style.color="#00b300";
 						document.getElementById('cont1').innerHTML = 'El cuia ingresado Valido';
 					}
 					else {
+						document.getElementById('cont1').style.color="#ff0000";
 						document.getElementById('cont1').innerHTML = 'El cuia ingresado es Incorrecto';
 					}
 				}
@@ -349,9 +358,15 @@
 						result += "Alias: ";
 						result += response1.aliaGana + "\n";
 						alert(result);
-						document.getElementById('cont1').innerHTML = 'El cuia ingresado Valido';
+						
+						document.getElementById('cont2').style.color="#00b300";
+						document.getElementById('cont2').innerHTML = 'El cuia ingresado Valido';
+						
 					}else {
-						document.getElementById('cont1').innerHTML = 'El cuia ingresado es Incorrecto';
+						
+						document.getElementById('cont2').style.color="#ff0000";
+						document.getElementById('cont2').innerHTML = 'El cuia ingresado es Incorrecto';
+						
 					}
 				}
 			}
