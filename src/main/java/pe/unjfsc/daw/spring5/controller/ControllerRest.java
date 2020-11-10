@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import pe.unjfsc.daw.spring5.model.GanadoVacuno;
 import pe.unjfsc.daw.spring5.model.GanadoVacunoHembra;
+import pe.unjfsc.daw.spring5.model.inseminacion;
 import pe.unjfsc.daw.spring5.model.lecheProducidaDia;
 import pe.unjfsc.daw.spring5.model.natalidad;
 import pe.unjfsc.daw.spring5.model.vacasenproduccionleche;
 import pe.unjfsc.daw.spring5.service.GanadoVacunoService;
 import pe.unjfsc.daw.spring5.service.VacaEnProducciondeLecheService;
+import pe.unjfsc.daw.spring5.service.inseminacionService;
 import pe.unjfsc.daw.spring5.service.lecheProducidaService;
 import pe.unjfsc.daw.spring5.service.natalidadService;
 
@@ -29,7 +31,7 @@ public class ControllerRest {
 	@Autowired
 	private VacaEnProducciondeLecheService vacasenproduccionlecheService;
 	
-	
+	@Autowired inseminacionService inseminacionService;
 	
 	@RequestMapping(value="/buscar/verificarMadre/{cuia}", method=RequestMethod.GET)
     public natalidad getNatalidad(@PathVariable("cuia") int cuia) {
@@ -49,5 +51,10 @@ public class ControllerRest {
 	@RequestMapping(value="/buscar/verificarGanadoVacunoHembra/{cuiaGana}", method=RequestMethod.GET)
     public GanadoVacunoHembra getgGanadoVacunoHembra(@PathVariable("cuiaGana") int cuia) {
 		return vacasenproduccionlecheService.findvacaDeProduccionLecheByCUIA(cuia);
+    }
+	
+	@RequestMapping(value="/buscar/verificarCodigoInseminacion/{codigo}", method=RequestMethod.GET)
+    public inseminacion getCodigoInseminacion(@PathVariable("codigo") int codigo) {
+		return inseminacionService.findinseminacionByCodigo(codigo);
     }
 }
