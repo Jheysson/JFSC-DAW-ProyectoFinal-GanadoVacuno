@@ -34,8 +34,8 @@
 										</div>
 									</div>
 								</div>
-								<table id="myTable"
-									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+								<table id="example"
+									class="display nowrap"
 									style="width: 100%">
 									<thead>
 										<tr>
@@ -50,6 +50,9 @@
 											<th>Observacion</th>
 											<th>Imagen</th>
 											<th>Acciones</th>
+										
+									</thead>
+									<tbody>
 										<tr th:each="model : ${listNatalidad}">
 											<td th:text="${model.cuiaNata}" id="CuiaNata"></td>
 											<td th:text="${model.idSexo}"></td>
@@ -63,20 +66,18 @@
 											<td><img th:src="@{'/uploads/'+${model.foto}}"
 												width="40" class="img-circle" th:alt="${model.foto}">
 											</td>
-											<td>
-												<div class="form-group row justify-content-center">
-													<a class="btn btn-primary"
-														th:href="@{/natalidad/updateNatalidad/} + ${model.cuiaNata}"
-														role="button"> <span class="material-icons">
-															edit </span>
-													</a> <a class="btn btn-danger"
-														th:onclick="eliminar([[${model.cuiaNata}]])" role="button">
-														<span class="material-icons"> delete </span>
-													</a>
-												</div>
+											<td>												
+												<a class="btn btn-primary"
+													th:href="@{/natalidad/updateNatalidad/} + ${model.cuiaNata}"
+													role="button"> <span class="material-icons">
+														edit </span>
+												</a> <a class="btn btn-danger"
+													th:onclick="eliminar([[${model.cuiaNata}]])" role="button">
+													<span class="material-icons"> delete </span>
+												</a>												
 											</td>
 										</tr>
-									</thead>
+									</tbody>
 								</table>
 							</div>
 						</div>
@@ -86,6 +87,17 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	<script>
+	$(document).ready(function() {
+	    $('#example').DataTable( {
+	        "scrollX": true,
+	        "scrollY": 580,
+	        "language": {
+                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            }
+	    });
+	} );
+	</script>
 	<script>
 	function eliminar(cuiaNata) {
 		console.log(cuiaNata);
