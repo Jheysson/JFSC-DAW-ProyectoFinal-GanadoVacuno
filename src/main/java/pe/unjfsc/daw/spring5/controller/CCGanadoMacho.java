@@ -61,5 +61,11 @@ public class CCGanadoMacho {
 		ganadoVacunoMachoService.deleteGanadoVacunoMacho(cuia);
 		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");
 	}
+	///ganadoVacuno/UpdateAllMachos
+	@RequestMapping(value = "/ganadoVacuno/UpdateAllMachos", method = RequestMethod.GET)
+	public ModelAndView updateAllMachos() {
+		ganadoVacunoMachoService.updateAllMachos();
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");
+	}
 
 }

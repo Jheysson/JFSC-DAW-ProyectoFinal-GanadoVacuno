@@ -79,6 +79,12 @@ public class CCGanadoHembra {
 		ganadoVacunoHembraService.deleteGanadoVacunoHembra(cuia);
 		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");
 	}
+	@RequestMapping(value = "/ganadoVacuno/UpdateAllHembras", method = RequestMethod.GET)
+	public ModelAndView updateAllHembras() {
+		ganadoVacunoHembraService.updateAllHembras();
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");
+	}
+	
 	//public ResponseEntity<Boolean> validadHembraApta(@PathVariable("cuia") int cuia) {
 	/*@RequestMapping(value ="/consultar", method = RequestMethod.POST)
 	

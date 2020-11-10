@@ -2,8 +2,12 @@ package pe.unjfsc.daw.spring5.dao.impl;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,6 +25,9 @@ import pe.unjfsc.daw.spring5.model.consta.CDConstanteSQLGanadoVacuno;
 public class GanadoVacunoHembraDaoImpl implements GanadoVacunoHembraDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
+	
+	private static final Logger log = LoggerFactory.getLogger("DAO IMPL HEMBRA");
 	
 	@Override
 	public List<GanadoVacunoHembra> getGanadoVacunoHembra() {
@@ -72,11 +79,30 @@ public class GanadoVacunoHembraDaoImpl implements GanadoVacunoHembraDao{
 				pGanadoVacunoHembra.getObse(),
 				pGanadoVacunoHembra.getCuiaGana());
 		
+		
 	}
 
 	@Override
 	public void deleteGanadoVacunoHembra(int cuia) {
 		jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_DELETE,cuia);
+		
+	}
+	@Override
+	public void updateAllHembras() {
+		List<GanadoVacunoHembra> listaHembra = new ArrayList<GanadoVacunoHembra>();
+		listaHembra = getGanadoVacunoHembra();
+		
+		GanadoVacunoHembra oGanadoHembra = new GanadoVacunoHembra();
+		
+		Iterator<GanadoVacunoHembra> it = listaHembra.iterator();
+		while(it.hasNext()) {
+			oGanadoHembra = it.next();
+			jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_UPDATE_ALL_HEMBRAS,
+					calcularEdad(oGanadoHembra.getFechNaciGana()),
+					calcularEtapa(calcularEdad(oGanadoHembra.getFechNaciGana())),				
+					oGanadoHembra.getCuiaGana());
+			log.info(":{}",oGanadoHembra);
+		}
 		
 	}
 
@@ -98,4 +124,6 @@ public class GanadoVacunoHembraDaoImpl implements GanadoVacunoHembraDao{
 		}		
 		return etapa;
 	}
+
+	
 }

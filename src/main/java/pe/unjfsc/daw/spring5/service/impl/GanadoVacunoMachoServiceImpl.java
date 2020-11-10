@@ -43,4 +43,10 @@ public class GanadoVacunoMachoServiceImpl implements GanadoVacunoMachoService{
 		
 	}
 
+	@Override
+	public void updateAllMachos() {
+		pGanadoMacho.updateAllMachos();
+		
+	}
+
 }

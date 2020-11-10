@@ -43,4 +43,10 @@ public class GanadoVacunoHembraServiceImpl implements GanadoVacunoHembraService{
 		
 	}
 
+	@Override
+	public void updateAllHembras() {
+		pGanadoHembra.updateAllHembras();
+		
+	}
+
 }

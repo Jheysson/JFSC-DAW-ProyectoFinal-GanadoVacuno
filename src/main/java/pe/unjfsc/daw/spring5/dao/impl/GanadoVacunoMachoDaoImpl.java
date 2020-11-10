@@ -2,6 +2,8 @@ package pe.unjfsc.daw.spring5.dao.impl;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.unjfsc.daw.spring5.dao.GanadoVacunoMachoDao;
+import pe.unjfsc.daw.spring5.model.GanadoVacunoHembra;
 import pe.unjfsc.daw.spring5.model.GanadoVacunoMacho;
 import pe.unjfsc.daw.spring5.model.GanadoVacunoMachoRowMapper;
 import pe.unjfsc.daw.spring5.model.consta.CDConstanteSQLGanadoVacuno;
@@ -79,6 +82,24 @@ public class GanadoVacunoMachoDaoImpl implements GanadoVacunoMachoDao{
 		jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_DELETE,cuia);
 		
 	}
+	@Override
+	public void updateAllMachos() {
+		List<GanadoVacunoMacho> listaMacho = new ArrayList<GanadoVacunoMacho>();
+		listaMacho = getGanadoVacunoMacho();
+		
+		GanadoVacunoMacho oGanadoMacho = new GanadoVacunoMacho();
+		
+		Iterator<GanadoVacunoMacho> it = listaMacho.iterator();
+		while(it.hasNext()) {
+			oGanadoMacho = it.next();
+			jdbcTemplate.update(CDConstanteSQLGanadoVacuno.SQL_UPDATE_ALL_MACHOS,
+					calcularEdad(oGanadoMacho.getFechNaciGana()),
+					calcularEtapa(calcularEdad(oGanadoMacho.getFechNaciGana())),				
+					oGanadoMacho.getCuiaGana());			
+		}
+		
+	}
+	
 	protected int calcularEdad(String fechNaci) {
 		int edad = (int) ChronoUnit.MONTHS.between(LocalDate.parse(fechNaci), LocalDate.now());
 		return edad;
@@ -97,5 +118,7 @@ public class GanadoVacunoMachoDaoImpl implements GanadoVacunoMachoDao{
 		}		
 		return etapa;
 	}
+
+	
 
 }

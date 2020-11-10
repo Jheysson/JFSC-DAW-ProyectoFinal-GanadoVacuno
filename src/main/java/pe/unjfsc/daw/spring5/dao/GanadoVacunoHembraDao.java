@@ -15,4 +15,6 @@ public interface GanadoVacunoHembraDao {
 	public void updateGanadoVacunoHembra(GanadoVacunoHembra pGanadoVacunoHembra);
 	
 	public void deleteGanadoVacunoHembra(int cuia);
+	
+	public void updateAllHembras();
 }

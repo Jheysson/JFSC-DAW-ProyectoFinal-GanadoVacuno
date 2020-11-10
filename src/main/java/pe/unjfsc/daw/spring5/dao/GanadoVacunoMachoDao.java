@@ -14,4 +14,6 @@ public interface GanadoVacunoMachoDao {
 	public void updateGanadoVacunoMacho(GanadoVacunoMacho pGanadoVacunoMacho);
 	
 	public void deleteGanadoVacunoMacho(int cuia);
+	
+	public void updateAllMachos();
 }
