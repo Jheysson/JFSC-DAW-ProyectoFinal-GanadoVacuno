@@ -1,5 +1,6 @@
 package pe.unjfsc.daw.spring5.model;
 
+
 public class vacadedescarte {
 	private int idVacaDesc;
 	private int cuiaGana;
