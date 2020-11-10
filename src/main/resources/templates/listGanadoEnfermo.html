@@ -29,8 +29,7 @@
 							<div class="d-flex">
 										<div class="mr-auto">
 											<div class="form-group">												
-												<a class="btn btn-primary" th:href="@{/ganadoEnfermo/agregarGanadoEnfermo}">Agregar
-													registro de ganado enfermo</a>
+												<a class="btn btn-primary" th:href="@{/ganadoEnfermo/agregarGanadoEnfermo}">Agregar</a>
 											</div>
 										</div>
 									</div>
@@ -78,8 +77,8 @@
 	function eliminar(cuiaGana) {
 		console.log(cuiaGana);
 		swal({
-			  title: "Esta seguro de brindar la alta",
-			  text: "Desea brindar la alta al ganado con CUIA " + cuiaGana,
+			  title: "Esta apunto de dar de alta el registro con el CUIA "+ cuiaGana,
+			  text: "¿Desea continuar?",
 			  icon: "warning",
 			  buttons: true,
 			  dangerMode: true,
