@@ -38,11 +38,11 @@
 														<label for="codiInseminInput" class="col-form-label col-md-3">Código Pajilla.</label>
 														<div class="col-5">
 															<input id="codiInseminInput" type="number"
-															class="form-control" th:field="*{codiPropInse}" />
+															class="form-control" th:field="*{codiPropInse}" required/>
 														</div>
 														<div class="col-3">
 															<input type="button" class="btn btn-rounded btn-success" id="BuscarCodigoInsem" onclick="func()"
-															value="Verificar" />													
+															value="Verificar" required/>													
 														</div>
 														<div class="col-1" style=" padding-top: 5px;">																										
 															<a th:href="@{/inseminacion/agregarInseminacion}" target="_blank">
@@ -95,13 +95,13 @@
 													<div class="form-group row">
 														<label class="col-form-label col-md-5">Lugar de Procedencia</label> 
 														<div class="col-7">
-														<input type="text" class="form-control" th:field="*{lugaPropInse}" />
+														<input type="text" class="form-control" th:field="*{lugaPropInse}" required>
 										</div>
 										</div>
 										<div class="form-group row">
 														<label class="col-form-label col-md-5">Precio s/.</label> 
 														<div class="col-7">
-														<input type="text" class="form-control" th:field="*{precPropInse}" />
+														<input type="text" class="form-control" th:field="*{precPropInse}" required>
 										</div>
 									</div>
 										<div class="form-group row">
