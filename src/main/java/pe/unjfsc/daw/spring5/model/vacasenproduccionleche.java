@@ -5,8 +5,15 @@ public class vacasenproduccionleche {
 	private int cuiaGana;
 	private String aliaGana;
 	private String nombSuple;
+	private String observacion;
 	private int idSuple;
 	
+	public String getObservacion() {
+		return observacion;
+	}
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
+	}
 	public int getIdVacaProd() {
 		return idVacaProd;
 	}

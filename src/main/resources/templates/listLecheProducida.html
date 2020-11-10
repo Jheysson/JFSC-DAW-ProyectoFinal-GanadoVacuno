@@ -29,8 +29,7 @@
 									<div class="mr-auto">
 										<div class="form-group">
 											<a class="btn btn-primary"
-												th:href="@{/lecheProducida/agregarLecheProducida}">Agregar
-												Registro de Leche</a>
+												th:href="@{/lecheProducida/agregarLecheProducida}">Agregar</a>
 										</div>
 									</div>
 								</div>
@@ -40,10 +39,10 @@
 									<thead>
 										<tr>
 											<th>Numero</th>
-											<th>Cantidad lts.</th>
+											<th>Cantidad(lts.)</th>
 											<th>fecha Produccion</th>
-											<th>CUIA Vaca Productora</th>
-											<th>ALIAS</th>
+											<th>cuia Vaca Productora</th>
+											<th>Alias</th>
 											<th>Editar</th>
 											<th>Eliminar</th>
 										</tr>
@@ -55,10 +54,14 @@
 											<td th:text="${model.fechLechProd}"></td>
 											<td th:text="${model.cuiaGana}"></td>
 											<td th:text="${model.aliaGana}"></td>
+											
 										<td><a class="btn btn-primary"
 														th:href="@{/lecheProducida/updateLecheProducida/} + ${model.idLechProd}" role="button">Editar</a></td>
-											<td><a class="btn btn-danger"
-														th:href="@{/lecheProducida/eliminarLecheProducida/} + ${model.idLechProd}" role="button">Eliminar</a></td>
+											
+										
+										<td><a class="btn btn-danger"
+														th:onclick="eliminar([[${model.idLechProd}]])" role="button">Eliminar</a></td>
+										
 										</tr>
 										</tbody>
 								</table>
@@ -70,5 +73,36 @@
 		</div>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	
+	<script>
+	function eliminar(idLechProd) {
+		console.log(idLechProd);
+		swal({
+			  title: "Estas a punto de eliminar el registro con el ID 0"+idLechProd,
+			  text: "Deseas continuar?",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((OK) => {
+			  if (OK) {
+				  $.ajax({
+					 url:"/lecheProducida/eliminarLecheProducida/"+idLechProd,
+					 success: function(res) {
+						console.log(res);
+					},			
+				  });
+			    swal("Registro eliminado!", {
+			      icon: "success",
+			    }).then((ok)=>{
+			    	if(ok){
+			    		location.href="/lecheProducida/ListProducionLeche";
+			    	}
+			    });
+			  } 
+			});
+	}
+	</script>
+	
 </body>
 </html>

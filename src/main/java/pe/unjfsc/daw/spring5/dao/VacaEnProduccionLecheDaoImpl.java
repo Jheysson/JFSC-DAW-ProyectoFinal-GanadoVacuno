@@ -47,7 +47,8 @@ public class VacaEnProduccionLecheDaoImpl implements VacaEnProduccionLecheDao{
 	public void addvacasenproduccionleche(vacasenproduccionleche pvacasenproduccionleche) {
 		jdbcTemplate.update(CDConstanteSQLVacaEnProduccionLeche.SQL_INSERT,
 				pvacasenproduccionleche.getCuiaGana(),
-				pvacasenproduccionleche.getIdSuple()
+				pvacasenproduccionleche.getIdSuple(),
+				pvacasenproduccionleche.getObservacion()
 				);
 		
 	}
@@ -61,8 +62,8 @@ public class VacaEnProduccionLecheDaoImpl implements VacaEnProduccionLecheDao{
 	@Override
 	public void updatevacasenproduccionleche(vacasenproduccionleche pvacasenproduccionleche) {
 		jdbcTemplate.update(CDConstanteSQLVacaEnProduccionLeche.SQL_UPDATE,
-				pvacasenproduccionleche.getCuiaGana(),
 				pvacasenproduccionleche.getIdSuple(),
+				pvacasenproduccionleche.getObservacion(),
 				pvacasenproduccionleche.getIdVacaProd()
 				);
 		

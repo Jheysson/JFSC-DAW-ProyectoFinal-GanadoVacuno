@@ -31,7 +31,7 @@
 									<div class="form-row">
 										<div class="form-group col-md-6">
 											<label for="cuiaGana">Cuia Ganado:</label> <input type="text"
-												class="form-control" th:field="*{cuiaGana}" />
+												class="form-control" readonly="readonly"  th:field="*{cuiaGana}" />
 										</div>
 										<div class="form-group col-md-6">
 											<label for="sexo">Suplemento:</label> <select
@@ -42,6 +42,11 @@
 												<option value="4">Ms Calf Luck</option>
 												<option value="5">Ms Keto Protect Plus</option>
 											</select>
+										</div>
+										
+										<div class="form-group col-md-6">
+											<label for="cuiaGana">Observacion:</label> 
+												<textarea class="form-control" rows="3" th:field="*{observacion}"></textarea>
 										</div>
 									</div>
 									<button type="submit" class="btn btn-danger"

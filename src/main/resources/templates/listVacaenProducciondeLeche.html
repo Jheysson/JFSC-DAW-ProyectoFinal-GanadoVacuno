@@ -27,17 +27,17 @@
 							<div class="card-body">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#addModal"
-									style="margin-bottom: 20px">Agregar registro Vaca En
-									produccion de Leche</button>
+									style="margin-bottom: 20px">Agregar</button>
 								<table id="myTable"
 									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
 									style="width: 100%">
 									<thead>
 										<tr>
-											<th>ID</th>
-											<th>CUIA GANADO</th>
-											<th>ALIAS GANADO</th>
-											<th>SUPLEMENTOS</th>
+											<th>Numero</th>
+											<th>cuia Ganado</th>
+											<th>Alias Ganado</th>
+											<th>Suplementos</th>
+											<th>Observacion</th>
 											<th>Editar</th>
 											<th>Eliminar</th>
 										<tr th:each="model : ${listVacaProduccionLeche}">
@@ -45,12 +45,13 @@
 											<td th:text="${model.cuiaGana}"></td>
 											<td th:text="${model.aliaGana}"></td>
 											<td th:text="${model.nombSuple}"></td>
+											<td th:text="${model.observacion}"></td>
 											<td><a class="btn btn-primary"
 												th:href="@{/vacasenproduccionleche/updatevacasenproduccionleche/} + ${model.idVacaProd}"
 												role="button">Editar</a></td>
+												
 											<td><a class="btn btn-danger"
-												th:href="@{/vacasenproduccionleche/eliminarvacasenproduccionleche/} + ${model.idVacaProd}"
-												role="button">Eliminar</a></td>
+												th:onclick ="eliminar([[${model.idVacaProd}]])" role="button">Eliminar</a></td>
 										</tr>
 									</thead>
 								</table>
@@ -79,20 +80,23 @@
 
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label">Cuia
-								Ganado: </label> <input type="text" class="form-control"
+								Ganado: </label> <input type="number" class="form-control"
 								id="recipient-name" name="cuiaGana">
 						</div>
-						
+
 						<div class="form-group" style="overflow: hidden">
 							<div style="float: left;">
-								<input type="button" id="buscarcuia" onclick="fungan()" value="Validar CUIA" class="btn btn-warning" />
+								<input type="button" id="buscarcuia" onclick="fungan()"
+									value="Validar CUIA" class="btn btn-warning" />
 							</div>
 							<div style="float: left; margin: 8px;" id="cont1"></div>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="recipient-name" class="col-form-label">Suplemento:</label>
-							<select class="form-control" id="recipient-name" name="idSuple">
+							<label for="recipient-name" class="col-form-label">Suplemento
+								:</label> <select class="form-control" id="recipient-name"
+								name="idSuple" required onclick="validar2()">
+								<option value="valorpordefecto" disabled selected>Selecione</option>
 								<option value="1">Mastersob premium</option>
 								<option value="2">MS cow start plus</option>
 								<option value="3">Vz Pulver</option>
@@ -101,17 +105,68 @@
 							</select>
 						</div>
 
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">Observacion(Max
+								100 Caracteres) :</label>
+							<textarea class="form-control" rows="3" name="observacion"></textarea>
+						</div>
+
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-danger" name="guardar">Save</button>
+						<button type="submit" class="btn btn-danger" name="guardar"
+							onclick="validar()">Save</button>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+	
+	<script>
+	function eliminar(idVacaProd) {
+		console.log(idVacaProd);
+		swal({
+			  title: "Estas a punto de eliminar el registro con el ID 0"+idVacaProd,
+			  text: "Deseas continuar?",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((OK) => {
+			  if (OK) {
+				  $.ajax({
+					 url:"/vacasenproduccionleche/eliminarvacasenproduccionleche/"+idVacaProd,
+					 success: function(res) {
+						console.log(res);
+					},			
+				  });
+			    swal("Registro eliminado!", {
+			      icon: "success",
+			    }).then((ok)=>{
+			    	if(ok){
+			    		location.href="/vacasenproduccionleche/ListadoVacadeProducciondeLeche";
+			    	}
+			    });
+			  } 
+			});
+	}
+	</script>
+	
+	<script type="text/javascript">
+		function validar() {
+			if (document.myForm.idSuple.value == "valorpordefecto") {
+				alert("Selecione una Opcion");
+				document.myForm.guardar.disabled = true;
+			}
+			;
+		}
+		function validar2() {
+			document.myForm.guardar.disabled = false;
+		}
+	</script>
+
 
 	<script type="text/javascript">
 		window.onload = function() {
@@ -134,7 +189,9 @@
 						result += "fecha Nacimiento: ";
 						result += response1.fechNaciGana + "\n";
 						//alert(result);
-						document.getElementById('cont1').innerHTML = 'El CUIA '+response1.cuiaGana+' con Alias "'+response1.aliaGana+'" es valido';
+						document.getElementById('cont1').innerHTML = 'El CUIA '
+								+ response1.cuiaGana + ' con Alias "'
+								+ response1.aliaGana + '" es valido';
 						document.myForm.guardar.disabled = false;
 					} else {
 						document.getElementById('cont1').innerHTML = 'El CUIA ingresado es Incorrecto';
