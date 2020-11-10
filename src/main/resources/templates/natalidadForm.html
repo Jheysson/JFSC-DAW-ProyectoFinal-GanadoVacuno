@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <head th:replace="layout/plantillaRecursos :: head"></head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body class="fix-header card-no-border fix-sidebar">
 	<div id="main-wrapper">
@@ -121,35 +121,78 @@
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-form-label col-md-5" for="CUIAmadre">CUIA
+													<label class="col-form-label col-md-3" for="CUIAmadre">CUIA
 														Madre</label>
 													<div class="col-md-4">
 														<input type="text" class="form-control"
 															th:field="*{cuiaMadr}" name="cuiaMadr" />
 													</div>
 													<div class="col-md-3">
-														<input type="button" class="btn btn-rounded btn-success" id="Buscar" onclick="fun()"
-															value="Buscar" />
+														<input type="button" class="btn btn-rounded btn-success"
+															id="Buscar" onclick="fun()" value="Verificar" />
+													</div>
+													<div class="col-1" style="padding-top: 5px;">
+														<a th:href="@{/ganadoVacuno/agregarGanadoHembra}"
+															target="_blank"> <span class="material-icons">
+																add_circle </span>
+														</a>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-5"></div>
+													<div class="col-md-7" style="padding-bottom: 30px;">
+														<span id="cont1"></span>
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-form-label col-md-5" for="cuiaPadreInput">CUIA
+													<label class="col-form-label col-md-3" for="cuiaPadreInput">CUIA
 														Padre</label>
-													<div class="col-md-7">
+													<div class="col-md-4">
 														<input id="cuiaPadreInput" type="number" disabled
 															class="form-control" th:field="*{cuiaPadr}" />
 													</div>
+													<div class="col-md-3">
+														<input type="button" class="btn btn-rounded btn-success"
+															id="BuscarPadre" onclick="funp()" value="Verificar" />
+													</div>
+													<div class="col-1" style="padding-top: 5px;">
+														<a th:href="@{/ganadoVacuno/agregarGanadoHembra}"
+															target="_blank"> <span class="material-icons">
+																add_circle </span>
+														</a>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-5"></div>
+													<div class="col-md-7" style="padding-bottom: 30px;">
+														<span id="cont2"></span>
+													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-form-label col-md-5"
-														for="codiInseminInput">Codigo Inseminación</label>
-													<div class="col-md-7">
+													<label class="col-form-label col-md-3"
+														for="codiInseminInput">Código Insemin.</label>
+													<div class="col-md-4">
 														<input id="codiInseminInput" type="number"
 															class="form-control" th:field="*{codiProp}" />
 													</div>
+													<div class="col-md-3">
+														<input type="button" class="btn btn-rounded btn-success"
+															id="BuscarInse" onclick="funi()" value="Verificar" />
+													</div>
+													<div class="col-1" style="padding-top: 5px;">
+														<a th:href="@{/ganadoVacuno/agregarGanadoHembra}"
+															target="_blank"> <span class="material-icons">
+																add_circle </span>
+														</a>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-5"></div>
+													<div class="col-md-7" style="padding-bottom: 30px;">
+														<span id="cont3"></span>
+													</div>
 												</div>
 											</div>
-											<br>
 											<div class="card border-dark mb-3">
 												<div class="card-header">Información Adicional</div>
 												<div class="card-body text-secondary">
@@ -198,40 +241,86 @@
 		monte.addEventListener('change', habilitarInputs)
 	</script>
 	<script type="text/javascript">
-		window.onload = function() {
-			document.getElementById("Buscar").onclick = function fun() {
-				var x = document.forms["myForm"]["cuiaMadr"].value;
-				var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
-						+ x;
-				var xhr = new XMLHttpRequest();
-				xhr.open('GET', Url, true);
-				xhr.send();
-				xhr.onreadystatechange = processRequest;
-				function processRequest(e) {
-					if (xhr.readyState == 4 && xhr.status == 200) {
-						var response1 = JSON.parse(xhr.responseText);
-						var result = "Cuia Ganado: ";
-						result += response1.cuiaGana + "\n";
-						result += "Sexo: ";
-						result += response1.idSexo + "\n";
-						result += "Edad: ";
-						result += response1.edadGana + "\n";
-						result += "Etapa: ";
-						result += response1.etapaGana + "\n";
-						result += "Alias: ";
-						result += response1.aliaGana + "\n";
-						result += "Fecha de nacimiento: ";
-						result += response1.fechNaciGana + "\n";
-						result += "Peso: ";
-						result += response1.pesoGana + "\n";
-						result += "Talla: ";
-						result += response1.tallGana + "\n";
-						alert(result);
-					}
+		document.getElementById("Buscar").onclick = function fun() {
+			var x = document.forms["myForm"]["cuiaMadr"].value;
+			var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
+					+ x;
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', Url, true);
+			xhr.send();
+			xhr.onreadystatechange = processRequest;
+			function processRequest(e) {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var response1 = JSON.parse(xhr.responseText);
+					var result = "Cuia Ganado: ";
+					result += response1.cuiaGana + "\n";
+					result += "Alias: ";
+					result += response1.aliaGana + "\n";
+					alert(result);
+					document.getElementById('cont1').style.color = "#00b300";
+					document.getElementById('cont1').innerHTML = 'CUIA encontrado';
+				} else {
+					document.getElementById('cont1').style.color = "#ff0000";
+					document.getElementById('cont1').innerHTML = 'CUIA no encontrado';
 				}
 			}
 		}
 	</script>
-	<!-- comentario -->
+	<script type="text/javascript">
+		document.getElementById("BuscarPadre").onclick = function funp() {
+			var x = document.forms["myForm"]["cuiaPadr"].value;
+			var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
+					+ x;
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', Url, true);
+			xhr.send();
+			xhr.onreadystatechange = processRequest;
+			function processRequest(e) {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var response1 = JSON.parse(xhr.responseText);
+					var result = "Cuia Ganado: ";
+					result += response1.cuiaGana + "\n";
+					result += "Alias: ";
+					result += response1.aliaGana + "\n";
+					alert(result);
+					document.getElementById('cont2').style.color = "#00b300";
+					document.getElementById('cont2').innerHTML = 'CUIA encontrado';
+				} else {
+					document.getElementById('cont2').style.color = "#ff0000";
+					document.getElementById('cont2').innerHTML = 'CUIA no encontrado';
+				}
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		document.getElementById("BuscarInse").onclick = function funi() {
+			var x = document.forms["myForm"]["codiProp"].value;
+			var Url = "http://localhost:8080/buscar/verificarCodigoInseminacion/"
+					+ x;
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', Url, true);
+			xhr.send();
+			xhr.onreadystatechange = processRequest;
+			function processRequest(e) {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var response1 = JSON.parse(xhr.responseText);
+					var result = "Codigo: ";
+					result += response1.codiPropInse + "\n";
+					result += "Genotipo: ";
+					result += response1.idGeno + "\n";
+					alert(result);
+
+					document.getElementById('cont3').style.color = "#00b300";
+					document.getElementById('cont3').innerHTML = 'Código valido';
+
+				} else {
+
+					document.getElementById('cont3').style.color = "#ff0000";
+					document.getElementById('cont3').innerHTML = 'Código invalido';
+
+				}
+			}
+		}
+	</script>
 </body>
 </html>

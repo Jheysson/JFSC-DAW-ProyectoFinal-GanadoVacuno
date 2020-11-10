@@ -24,22 +24,22 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body">
-								<button type="button" class="btn btn-primary"
-									data-toggle="modal" data-target="#addModal"
-									style="margin-bottom: 20px">Agregar registro vaca de
-									descarte</button>
+								<button type="button" class="btn btn-info" data-toggle="modal"
+									data-target="#addModal" style="margin-bottom: 20px">
+									<span class="material-icons"> library_add </span>
+								</button>
 								<table id="myTable"
 									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
 									style="width: 100%">
 									<thead>
 										<tr>
-											<th>ID</th>
-											<th>CUIA</th>
-											<th>ALIAS</th>
-											<th>FECHA DE NACIMIENTO</th>
-											<th>EDAD</th>
-											<th>ETAPA</th>
-											<th>OBSERVACION</th>
+											<th>Id</th>
+											<th>Cuia</th>
+											<th>Alias</th>
+											<th>Fecha de Nacimiento</th>
+											<th>Edad</th>
+											<th>Etapa</th>
+											<th>Observacion</th>
 											<th>Eliminar</th>
 										<tr th:each="model : ${listVacadedescarte}">
 											<td th:text="${model.idVacaDesc}"></td>
@@ -50,8 +50,8 @@
 											<td th:text="${model.etapaGana}"></td>
 											<td th:text="${model.obse}"></td>
 											<td><a class="btn btn-danger"
-												th:onclick="eliminar([[${model.idVacaDesc}]])" role="button">Eliminar</a>
-											</td>
+												th:onclick="eliminar([[${model.idVacaDesc}]])" role="button"><span
+													class="material-icons"> delete </span></a></td>
 										</tr>
 									</thead>
 								</table>
@@ -91,10 +91,11 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<table class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
-									style="width: 100%">
+							<table
+								class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+								style="width: 100%">
 								<thead>
-									<tr> 
+									<tr>
 										<th>Cuia</th>
 										<th>Edad</th>
 										<th>Etap</th>
@@ -103,21 +104,21 @@
 									</tr>
 								</thead>
 								<tbody>
-								<tr> 
-									<td id="ValiCuia"></td>
-									<td id="ValiEdad"></td>
-									<td id="ValiEtap"></td>
-									<td id="ValiAlias"></td>
-									<td id="ValiFechaNacimiento"></td>
-								</tr>
+									<tr>
+										<td id="ValiCuia"></td>
+										<td id="ValiEdad"></td>
+										<td id="ValiEtap"></td>
+										<td id="ValiAlias"></td>
+										<td id="ValiFechaNacimiento"></td>
+									</tr>
 								</tbody>
 							</table>
 							<span id="cont1"></span>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="recipient-name" class="col-form-label">Observacion:</label>
-							<input type="text" class="form-control" name="obse">
+							<label for="recipient-name" class="col-form-label">Observacion (100 caracteres maximo)</label>
+							<textarea class="form-control" name="obse" rows="5"></textarea>
 						</div>
 
 
