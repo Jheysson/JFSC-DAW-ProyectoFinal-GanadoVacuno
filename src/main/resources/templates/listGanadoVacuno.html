@@ -27,10 +27,6 @@
 							<div class="card-body">
 								<div class="d-flex">
 										<div class="mr-auto">
-											<div class="form-group">												
-												<!-- <a class="btn btn-primary" th:href="@{/natalidad/agregarNatalidad}">agregar
-													Registro de Natalidad</a> -->
-											</div>
 										</div>
 									</div>
 								<table id="example" class="display nowrap">
@@ -48,7 +44,7 @@
 											<th>Estado Animal</th>
 											<th>Partos</th>
 											<th>Genotipo</th>
-											<th>Tipo</th>
+											<th>Funcion</th>
 											<th>Origen</th>
 											<th>Cuia Madre</th>
 											<th>Cuia Padre</th>
@@ -89,8 +85,7 @@
 	<script>
 	$(document).ready(function() {
 	    $('#example').DataTable( {
-	        "scrollX": true,
-	        responsive: true,
+	        "scrollX": true,	     
 	        "scrollY": 580,
 	        "language": {
                 "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"

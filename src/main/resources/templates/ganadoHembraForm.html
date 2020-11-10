@@ -169,16 +169,22 @@
 														</div>																												
 													</div>
 													<div class="form-group row">
-														<label for="cuiaMadreInput" class="col-form-label col-md-5">CUIA Madre</label>
-														<div class="col-4">
-															<input id="cuiaMadreInput" type="number"
-															class="form-control" th:field="*{cuiaMadr}" name="cuiaMadr" />
+														<label for="cuiaMadreInput" class="col-form-label col-md-3">CUIA Madre</label>
+														<div class="col-5">
+															<input id="cuiaMadreInput" type="number" class="form-control" th:field="*{cuiaMadr}" name="cuiaMadr" />
 														</div>
 														<div class="col-3">
 															<!-- <a href="listarHembras" id="botonVerificarMadre" class="btn btn-info" data-toggle="modal" onClick="test()"
 															 data-target="#buscarMadre" role="button">Buscar</a> -->
 															 <input type="button" class="btn btn-rounded btn-success" id="Buscar" onclick="fun()"
-															value="Buscar" />																													 															 												
+															value="Verificar" />																													 															 												
+														</div>
+														<div class="col-1" style=" padding-top: 5px;">																										
+																<a th:href="@{/ganadoVacuno/agregarGanadoHembra}" target="_blank">
+																	<span class="material-icons" >
+																		add_circle
+																	</span>
+																</a>																 
 														</div>
 													</div>
 													<div class="row">														
@@ -189,14 +195,21 @@
 														</div>																				
 													</div>
 													<div class="form-group row">
-														<label for="cuiaPadreInput" class="col-form-label col-md-5">CUIA Padre</label>
-														<div class="col-4">
+														<label for="cuiaPadreInput" class="col-form-label col-md-3">CUIA Padre</label>
+														<div class="col-5">
 															<input id="cuiaPadreInput" type="number" disabled
 															class="form-control" th:field="*{cuiaPadr}" />
 														</div>
 														<div class="col-3">
 															<input type="button" class="btn btn-rounded btn-success" id="BuscarPadre" onclick="funp()"
-															value="Buscar" />													
+															value="Verificar" />													
+														</div>
+														<div class="col-1" style=" padding-top: 5px;">																										
+															<a th:href="@{/ganadoVacuno/agregarGanadoMacho}" target="_blank">
+																<span class="material-icons" >
+																	add_circle
+																</span>
+															</a>																 
 														</div>
 													</div>
 													<div class="row">														
@@ -207,11 +220,29 @@
 														</div>																				
 													</div>
 													<div class="form-group row">
-														<label for="codiInseminInput" class="col-form-label col-md-5">Codigo Insemin.</label>
-														<div class="col-7">
+														<label for="codiInseminInput" class="col-form-label col-md-3">Código Insemin.</label>
+														<div class="col-5">
 															<input id="codiInseminInput" type="number"
 															class="form-control" th:field="*{codiPropInse}" />
 														</div>
+														<div class="col-3">
+															<input type="button" class="btn btn-rounded btn-success" id="BuscarCodigoInsem" onclick="func()"
+															value="Verificar" />													
+														</div>
+														<div class="col-1" style=" padding-top: 5px;">																										
+															<a th:href="@{/inseminacion/agregarInseminacion}" target="_blank">
+																<span class="material-icons" >
+																	add_circle
+																</span>
+															</a>																 
+														</div>
+													</div>
+													<div class="row">														
+														<div class="col-md-5">																						
+														</div>								
+														<div class="col-md-7" style=" padding-bottom: 30px;">
+															<span id="cont3"></span>															
+														</div>																				
 													</div>
 													<br><br><br><br>													
 												</div>
@@ -222,7 +253,7 @@
 												</div>
 												<div class="card-body text-secondary">
 													<div class="form-group row">
-														<label class="col-form-label col-md-5">Observación</label>
+														<label class="col-form-label col-md-5">Observación (100 caracteres máx.)</label>
 														<div class="col-7">
 															<textarea class="form-control" rows="5" th:field="*{obse}"></textarea>
 														</div>
@@ -256,6 +287,10 @@
 		var monte = document.getElementById('idMonte');
 		
 		var groupOrigen = document.getElementById('groupOrigen');
+		
+		var spanPadre = document.getElementById('cont2');
+		var spanMadre = document.getElementById('cont1');
+		var spanCodigoInse = document.getElementById('cont3');
 	
 		function habilitarInputs(){
 			if (autoctono.checked) {
@@ -266,6 +301,9 @@
 				monte.disabled = false;
 				insemi.checked = true;
 				cuiaPadre.value=0;
+				spanPadre.innerHTML="";
+				
+				
 			}else{
 				cuiaMadre.disabled=true;
 				codiInse.disabled = true;
@@ -276,6 +314,9 @@
 				cuiaPadre.value=0;
 				codiInse.value=0;
 				cuiaMadre.value= 0;
+				
+				spanMadre.innerHTML="";
+				spanCodigoInse.innerHTML="";
 			}
 		}
 			autoctono.addEventListener('change', habilitarInputs)
@@ -299,7 +340,7 @@
 				codiInse.disabled=false;
 				cuiaPadre.disabled=true;
 				cuiaPadre.value=0;
-				
+				spanPadre.innerHTML="";
 			}else{
 				cuiaMadre.disabled=false;
 				codiInse.disabled = true;
@@ -332,11 +373,11 @@
 						result += response1.aliaGana + "\n";
 						alert(result);
 						document.getElementById('cont1').style.color="#00b300";
-						document.getElementById('cont1').innerHTML = 'El cuia ingresado Valido';
+						document.getElementById('cont1').innerHTML = 'CUIA encontrado';
 					}
 					else {
 						document.getElementById('cont1').style.color="#ff0000";
-						document.getElementById('cont1').innerHTML = 'El cuia ingresado es Incorrecto';
+						document.getElementById('cont1').innerHTML = 'CUIA no encontrado';
 					}
 				}
 			}
@@ -360,12 +401,40 @@
 						alert(result);
 						
 						document.getElementById('cont2').style.color="#00b300";
-						document.getElementById('cont2').innerHTML = 'El cuia ingresado Valido';
+						document.getElementById('cont2').innerHTML = 'CUIA encontrado';
 						
 					}else {
 						
 						document.getElementById('cont2').style.color="#ff0000";
-						document.getElementById('cont2').innerHTML = 'El cuia ingresado es Incorrecto';
+						document.getElementById('cont2').innerHTML = 'CUIA no encontrado';
+						
+					}
+				}
+			}
+			document.getElementById("BuscarCodigoInsem").onclick = function func() {
+				var x = document.forms["myForm"]["codiPropInse"].value;
+				var Url = "http://localhost:8080/buscar/verificarCodigoInseminacion/"
+						+ x;
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', Url, true);
+				xhr.send();
+				xhr.onreadystatechange = processRequest;
+				function processRequest(e) {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var response1 = JSON.parse(xhr.responseText);
+						var result = "Codigo: ";
+						result += response1.codiPropInse + "\n";
+						result += "Genotipo: ";
+						result += response1.idGeno + "\n";
+						alert(result);
+						
+						document.getElementById('cont3').style.color="#00b300";
+						document.getElementById('cont3').innerHTML = 'Código valido';
+						
+					}else {
+						
+						document.getElementById('cont3').style.color="#ff0000";
+						document.getElementById('cont3').innerHTML = 'Código invalido';
 						
 					}
 				}

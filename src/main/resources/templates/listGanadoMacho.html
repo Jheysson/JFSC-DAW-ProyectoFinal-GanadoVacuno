@@ -44,14 +44,13 @@
 											<th>Talla</th>
 											<th>Estado Animal</th>
 											<th>Genotipo</th>
-											<th>Tipo</th>
+											<th>Funcion</th>
 											<th>Origen</th>
 											<th>Cuia Madre</th>
 											<th>Cuia Padre</th>
 											<th>Codigo Prop Inse</th>
 											<th>Observacion</th>
-											<th>Editar</th>
-											<th>Eliminar</th>
+											<th>Acciones</th>
 									</thead>
 									<tbody>
 									<tr th:each="model : ${listGanadoMacho}">
@@ -72,15 +71,18 @@
 											<td th:text="${model.obse}"></td>
 											<td>
 												<a class="btn btn-primary"
-														th:href="@{/ganadoVacuno/updateGanadoMacho/} + ${model.cuiaGana}" role="button">Editar
+														th:href="@{/ganadoVacuno/updateGanadoMacho/} + ${model.cuiaGana}" role="button">
+														<span class="material-icons">
+															edit
+														</span>
 												</a>
-											</td>
-											<td>
 												<a class="btn btn-danger"
-														th:onclick="eliminar([[${model.cuiaGana}]])"  role="button">Eliminar
-														<!-- th:href="@{/ganadoVacuno/eliminarGanadoMacho/} + ${model.cuiaGana}" role="button">Eliminar-->
+														th:onclick="eliminar([[${model.cuiaGana}]])"  role="button">
+														<span class="material-icons">
+															delete
+														</span>
 												</a>
-											</td>											
+											</td>										
 										</tr>
 									</tbody>
 								</table>
