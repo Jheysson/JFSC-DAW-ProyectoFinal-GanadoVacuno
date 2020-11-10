@@ -178,8 +178,15 @@
 															<!-- <a href="listarHembras" id="botonVerificarMadre" class="btn btn-info" data-toggle="modal" onClick="test()"
 															 data-target="#buscarMadre" role="button">Buscar</a> -->
 															 <input type="button" class="btn btn-rounded btn-success" id="Buscar" onclick="fun()"
-															value="Buscar" />															 															 												
+															value="Buscar" />
+																													 															 												
 														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12" >
+															<span id="cont1" style="align-text: center"></span>
+														</div>
+														
 													</div>
 													<div class="form-group row">
 														<label for="cuiaPadreInput" class="col-form-label col-md-5">CUIA Padre</label>
@@ -300,7 +307,7 @@
 	<!-- END SCRIPT DE RADIO BUTTON INSEINACION-MONTE-->
 	
 	<script type="text/javascript">
-		window.onload = function() {
+		
 			document.getElementById("Buscar").onclick = function fun() {
 				var x = document.forms["myForm"]["cuiaMadr"].value;
 				var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
@@ -317,11 +324,15 @@
 						result += "Alias: ";
 						result += response1.aliaGana + "\n";
 						alert(result);
+						document.getElementById('cont1').innerHTML = 'El cuia ingresado Valido';
+					}
+					else {
+						document.getElementById('cont1').innerHTML = 'El cuia ingresado es Incorrecto';
 					}
 				}
 			}
-		}
-		window.onload = function() {
+		
+		
 			document.getElementById("BuscarPadre").onclick = function funp() {
 				var x = document.forms["myForm"]["cuiaPadr"].value;
 				var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
@@ -338,10 +349,13 @@
 						result += "Alias: ";
 						result += response1.aliaGana + "\n";
 						alert(result);
+						document.getElementById('cont1').innerHTML = 'El cuia ingresado Valido';
+					}else {
+						document.getElementById('cont1').innerHTML = 'El cuia ingresado es Incorrecto';
 					}
 				}
 			}
-		}
+		
 	</script>
 	
 	
