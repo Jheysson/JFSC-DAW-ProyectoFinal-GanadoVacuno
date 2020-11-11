@@ -1,5 +1,8 @@
 package pe.unjfsc.daw.spring5.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import pe.unjfsc.daw.spring5.model.GanadoVacunoMacho;
 import pe.unjfsc.daw.spring5.service.GanadoVacunoMachoService;
@@ -38,8 +43,22 @@ public class CCGanadoMacho {
 		return model;
 	}
 	@RequestMapping(value="ganadoMacho/save", method = RequestMethod.POST)
-	public ModelAndView saveGanadoMacho(@ModelAttribute("ganadoMachoForm") GanadoVacunoMacho pGanadoVacunoMacho) {
-		ganadoVacunoMachoService.addGanadoVacunoMacho(pGanadoVacunoMacho);
+	public ModelAndView saveGanadoMacho(@RequestParam(name="file", required=false) MultipartFile imagen, GanadoVacunoMacho pGanadoVacunoMacho) {
+		if (!imagen.isEmpty()) {
+			String ruta = "C://temp//uploads";
+			try {
+				byte[] bytes = imagen.getBytes();
+				Path rutaAbsoluta = Paths.get(ruta+"//"+imagen.getOriginalFilename());
+				Files.write(rutaAbsoluta, bytes);
+				pGanadoVacunoMacho.setImagen(imagen.getOriginalFilename());
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			ganadoVacunoMachoService.addGanadoVacunoMacho(pGanadoVacunoMacho);
+		}else {
+			ganadoVacunoMachoService.addGanadoVacunoMacho(pGanadoVacunoMacho);
+		}
+		
 		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");		
 	}
 	@RequestMapping(value = "ganadoVacuno/updateGanadoMacho/{cuia}", method = RequestMethod.GET)

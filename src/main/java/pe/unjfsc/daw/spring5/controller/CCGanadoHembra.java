@@ -1,5 +1,8 @@
 package pe.unjfsc.daw.spring5.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /*import org.slf4j.Logger;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import pe.unjfsc.daw.spring5.model.GanadoVacunoHembra;
 import pe.unjfsc.daw.spring5.service.GanadoVacunoHembraService;
@@ -52,11 +57,26 @@ public class CCGanadoHembra {
 		return model;
 	}
 	@RequestMapping(value="ganadoHembra/save", method = RequestMethod.POST)
-	public ModelAndView saveGanadoHembra(@ModelAttribute("ganadoHembraForm") GanadoVacunoHembra pGanadoVacunoHembra) {
-		ganadoVacunoHembraService.addGanadoVacunoHembra(pGanadoVacunoHembra);
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");		
+	public ModelAndView saveGanadoHembra(@RequestParam(name="file", required=false) MultipartFile imagen, GanadoVacunoHembra pGanadoVacunoHembra) {
+		if (!imagen.isEmpty()) {
+			String ruta = "C://temp//uploads";
+			try {
+				byte[] bytes = imagen.getBytes();
+				Path rutaAbsoluta = Paths.get(ruta+"//"+imagen.getOriginalFilename());
+				Files.write(rutaAbsoluta, bytes);
+				pGanadoVacunoHembra.setImagen(imagen.getOriginalFilename());
+			} catch (Exception e) {
+				
+			}
+			ganadoVacunoHembraService.addGanadoVacunoHembra(pGanadoVacunoHembra);
+			
+		}else {
+			ganadoVacunoHembraService.addGanadoVacunoHembra(pGanadoVacunoHembra);
+		}
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");	
+		
+			
 	}
-	
 	
 	
 	@RequestMapping(value = "ganadoVacuno/updateGanadoHembra/{cuia}", method = RequestMethod.GET)
