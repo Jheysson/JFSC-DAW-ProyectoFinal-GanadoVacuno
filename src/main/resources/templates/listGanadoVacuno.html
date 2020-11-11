@@ -50,6 +50,7 @@
 											<th>Cuia Padre</th>
 											<th>Codigo Prop Inse</th>
 											<th>Observacion</th>
+											<th>Imagen</th>
 									</thead>
 									<tbody>
 									<tr th:each="model : ${listGanadoVacuno}">
@@ -70,7 +71,10 @@
 											<td th:text="${model.cuiaMadr}"></td>
 											<td th:text="${model.cuiaPadr}"></td>
 											<td th:text="${model.codiPropInse}"></td>
-											<td th:text="${model.obse}"></td>											
+											<td th:text="${model.obse}"></td>	
+											<td><img th:src="@{'/uploads/'+${model.imagen}}"
+												width="40" class="img-circle" th:alt="${model.imagen}">
+											</td>										
 										</tr>
 									</tbody>
 								</table>
