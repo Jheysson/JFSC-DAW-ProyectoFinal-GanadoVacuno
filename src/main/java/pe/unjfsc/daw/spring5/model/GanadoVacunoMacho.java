@@ -16,6 +16,7 @@ public class GanadoVacunoMacho {
 	private int cuiaPadr;
 	private int codiPropInse;
 	private String obse;
+	private String imagen;
 	public int getCuiaGana() {
 		return cuiaGana;
 	}
@@ -106,14 +107,21 @@ public class GanadoVacunoMacho {
 	public void setObse(String obse) {
 		this.obse = obse;
 	}
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
 	@Override
 	public String toString() {
 		return "GanadoVacunoMacho [cuiaGana=" + cuiaGana + ", edadGana=" + edadGana + ", etapaGana=" + etapaGana
 				+ ", aliaGana=" + aliaGana + ", fechNaciGana=" + fechNaciGana + ", pesoGana=" + pesoGana + ", tallGana="
 				+ tallGana + ", idEstaAnim=" + idEstaAnim + ", idGeno=" + idGeno + ", idTipoGana=" + idTipoGana
 				+ ", idOrig=" + idOrig + ", cuiaMadr=" + cuiaMadr + ", cuiaPadr=" + cuiaPadr + ", codiPropInse="
-				+ codiPropInse + ", obse=" + obse + "]";
+				+ codiPropInse + ", obse=" + obse + ", imagen=" + imagen + "]";
 	}
+	
 	
 	
 }

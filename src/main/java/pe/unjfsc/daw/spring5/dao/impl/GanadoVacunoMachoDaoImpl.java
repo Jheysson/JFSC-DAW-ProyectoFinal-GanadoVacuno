@@ -49,7 +49,8 @@ public class GanadoVacunoMachoDaoImpl implements GanadoVacunoMachoDao{
 				4, 1, 0, 
 				pGanadoVacunoMacho.getIdGeno(), 2, pGanadoVacunoMacho.getIdOrig(),
 				pGanadoVacunoMacho.getCuiaMadr(), pGanadoVacunoMacho.getCuiaPadr(), pGanadoVacunoMacho.getCodiPropInse(), 
-				pGanadoVacunoMacho.getObse(), 1);		
+				pGanadoVacunoMacho.getObse(), 1,
+				pGanadoVacunoMacho.getImagen());		
 		
 	}
 

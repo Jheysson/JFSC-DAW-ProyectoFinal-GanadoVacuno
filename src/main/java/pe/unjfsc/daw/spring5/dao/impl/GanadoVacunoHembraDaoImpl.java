@@ -53,7 +53,8 @@ public class GanadoVacunoHembraDaoImpl implements GanadoVacunoHembraDao{
 				pGanadoVacunoHembra.getIdEstaActi(), 1, pGanadoVacunoHembra.getCantPartGana(), 
 				pGanadoVacunoHembra.getIdGeno(), pGanadoVacunoHembra.getIdTipoGana(), pGanadoVacunoHembra.getIdOrig(),
 				pGanadoVacunoHembra.getCuiaMadr(), pGanadoVacunoHembra.getCuiaPadr(), pGanadoVacunoHembra.getCodiPropInse(), 
-				pGanadoVacunoHembra.getObse(), 1);
+				pGanadoVacunoHembra.getObse(), 1,
+				pGanadoVacunoHembra.getImagen());
 		
 	}
 
