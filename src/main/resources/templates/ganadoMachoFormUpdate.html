@@ -38,21 +38,21 @@
 														<label class="col-form-label col-md-5">CUIA</label>												
 														<div class="col-7">
 															<input type="number" disabled
-															class="form-control" th:field="*{cuiaGana}" />
+															class="form-control" th:field="*{cuiaGana}" required/>
 														</div>
 													</div>
 													<div class="form-group row">
 														<label class="col-form-label col-md-5">Alias</label>
 														<div class="col-7">
 															<input type="text"
-															class="form-control" th:field="*{aliaGana}" />
+															class="form-control" th:field="*{aliaGana}" required/>
 														</div>
 													</div>
 													<div class="form-group row">
 														<label class="col-form-label col-md-5">Fech. Nacimiento</label>
 														<div class="col-7">
 															<input type="date"
-															class="form-control" th:field="*{fechNaciGana}" />
+															class="form-control" th:field="*{fechNaciGana}" required/>
 														</div>
 													</div>
 													<div class="form-group row">
@@ -71,7 +71,7 @@
 														</div>
 													</div>
 												</div>
-												<br><br><br>
+												
 											</div>
 											<div class="card border-dark mb-3" >
 												<div class="card-header">
@@ -188,7 +188,7 @@
 														</div>																				
 													</div>
 													<div class="form-group row">
-														<label for="codiInseminInput" class="col-form-label col-md-3">Codigo Insemin.</label>
+														<label for="codiInseminInput" class="col-form-label col-md-3">Pajilla</label>
 														<div class="col-5">
 															<input id="codiInseminInput" type="number"
 															class="form-control" th:field="*{codiPropInse}" />
@@ -222,7 +222,7 @@
 												</div>
 												<div class="card-body text-secondary">
 													<div class="form-group row">
-														<label class="col-form-label col-md-5">Observación</label>
+														<label class="col-form-label col-md-5">Observación (100 caracteres máx.)</label>
 														<div class="col-7">
 															<input type="text"
 															class="form-control" th:field="*{obse}" />
