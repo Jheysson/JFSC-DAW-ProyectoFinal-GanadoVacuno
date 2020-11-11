@@ -48,4 +48,13 @@ public class vacadedescarteDaoImpl implements vacadedescarteDao{
 		jdbcTemplate.update(CDConstanteSQLVacadeDescarte.SQL_DELETE, id);
 		
 	}
+
+	@Override
+	public void updatevacadedescarte(vacadedescarte pvacadedescarte) {
+		jdbcTemplate.update(CDConstanteSQLVacadeDescarte.SQL_UPDATE,
+				pvacadedescarte.getObse(),
+				pvacadedescarte.getIdVacaDesc()
+				);
+		
+	}
 }

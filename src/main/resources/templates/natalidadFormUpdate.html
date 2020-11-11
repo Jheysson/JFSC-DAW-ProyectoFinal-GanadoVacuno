@@ -156,8 +156,7 @@
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-form-label col-md-3" for="observacion">Código
-														Inseminacion</label>
+													<label class="col-form-label col-md-3" for="observacion">Pajilla</label>
 													<div class="col-md-4">
 														<input id="codiInseminInput" type="number"
 															class="form-control" th:field="*{codiProp}"
@@ -187,10 +186,10 @@
 												<div class="card-header">Información Adicional</div>
 												<div class="card-body text-secondary">
 													<div class="form-group row">
-														<label class="col-form-label col-md-5" for="observacion">Observación</label>
+														<label class="col-form-label col-md-5" for="observacion">Observación (100 caracteres máx.)</label>
 														<div class="col-md-7">
 															<textarea class="form-control" rows="5"
-																th:field="*{obse}"></textarea>
+																th:field="*{obse}" maxlength="100"></textarea>
 														</div>
 													</div>
 												</div>

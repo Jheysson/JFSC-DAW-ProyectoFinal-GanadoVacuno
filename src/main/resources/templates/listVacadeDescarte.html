@@ -38,7 +38,7 @@
 											<th>Edad</th>
 											<th>Etapa</th>
 											<th>Observacion</th>
-											<th>Eliminar</th>
+											<th>Acciones</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -50,10 +50,17 @@
 											<td th:text="${model.edadGana}"></td>
 											<td th:text="${model.etapaGana}"></td>
 											<td th:text="${model.obse}"></td>
-											<td><a class="btn btn-danger"
+											<td>
+											<a class="btn btn-primary"
+												th:href="@{/vacadedescarte/updatevacadedescarte/} + ${model.idVacaDesc}" role="button"><span
+													class="material-icons" style="color: white"> edit
+												</span></a>
+											<a class="btn btn-danger"
 												th:onclick="eliminar([[${model.idVacaDesc}]])" role="button"><span
 													class="material-icons" style="color: white"> delete
-												</span></a></td>
+												</span></a>
+												
+											</td>
 										</tr>
 									</tbody>
 								</table>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +35,22 @@ public class CCVacaDeDescarte {
 		 pvacadedescarteService.addvacadedescarte(pvacadedescarte);
 		 return "redirect:/vacadedescarte/ListadoVacadeDescarte";
 	 }
+	 
+	 @RequestMapping(value="/updatevacadedescarte/{id}", method=RequestMethod.GET)
+	    public ModelAndView updateproduccionleche(@PathVariable int id) {
+	    	ModelAndView model = new ModelAndView();
+	    	vacadedescarte pvacadedescarte = pvacadedescarteService.findvacaDescarteByid(id);
+	    	  model.addObject("vacadedescarteUpdate", pvacadedescarte);
+	    	  model.setViewName("vacadedescarteUpdate");
+	    	  return model;
+	    	
+	    }
+	 
+	 @RequestMapping(value="/Actualizarvacadedescarte", method=RequestMethod.POST)
+		public ModelAndView editarVacadeDescarte(@ModelAttribute("vacadedescarteUpdate") vacadedescarte pvacadedescarte) {
+		 pvacadedescarteService.updatevacadedescarte(pvacadedescarte);
+			return new ModelAndView("redirect:/vacadedescarte/ListadoVacadeDescarte");    
+	    }
 	 
 	 @RequestMapping(value="/eliminarvacadedescarte/{cuia}", method=RequestMethod.GET)
 	    public String deleteVacadeDescarte(@PathVariable("cuia") int cuia) {

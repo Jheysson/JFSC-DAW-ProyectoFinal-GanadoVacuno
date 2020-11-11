@@ -36,4 +36,10 @@ public class vacadedescarteServiceImpl implements vacadedescarteService{
 		
 	}
 
+	@Override
+	public void updatevacadedescarte(vacadedescarte pvacadedescarte) {
+		ovacadedescarteDaoImpl.updatevacadedescarte(pvacadedescarte);
+		
+	}
+
 }

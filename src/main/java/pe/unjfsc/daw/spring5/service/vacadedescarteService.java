@@ -11,5 +11,7 @@ public interface vacadedescarteService {
 	 
 	 public void addvacadedescarte(vacadedescarte pvacadedescarte);
 	 
+	 public void updatevacadedescarte(vacadedescarte pvacadedescarte);
+	 
 	 public void deletevacadedescarte(int id);
 }

@@ -121,7 +121,7 @@
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-form-label col-md-3" for="CUIAmadre">CUIA
+													<label class="col-form-label col-md-3" for="CUIAmadre">Cuia
 														Madre</label>
 													<div class="col-md-4">
 														<input type="text" class="form-control"
@@ -145,7 +145,7 @@
 													</div>
 												</div>
 												<div class="form-group row">
-													<label class="col-form-label col-md-3" for="cuiaPadreInput">CUIA
+													<label class="col-form-label col-md-3" for="cuiaPadreInput">Cuia
 														Padre</label>
 													<div class="col-md-4">
 														<input id="cuiaPadreInput" type="number" disabled
@@ -156,7 +156,7 @@
 															id="BuscarPadre" onclick="funp()" value="Verificar" />
 													</div>
 													<div class="col-1" style="padding-top: 5px;">
-														<a th:href="@{/ganadoVacuno/agregarGanadoHembra}"
+														<a th:href="@{/ganadoVacuno/agregarGanadoMacho}"
 															target="_blank"> <span class="material-icons">
 																add_circle </span>
 														</a>
@@ -170,7 +170,7 @@
 												</div>
 												<div class="form-group row">
 													<label class="col-form-label col-md-3"
-														for="codiInseminInput">Código Insemin.</label>
+														for="codiInseminInput">Pajilla</label>
 													<div class="col-md-4">
 														<input id="codiInseminInput" type="number"
 															class="form-control" th:field="*{codiProp}" />
@@ -180,7 +180,7 @@
 															id="BuscarInse" onclick="funi()" value="Verificar" />
 													</div>
 													<div class="col-1" style="padding-top: 5px;">
-														<a th:href="@{/ganadoVacuno/agregarGanadoHembra}"
+														<a th:href="@{/inseminacion/agregarInseminacion}"
 															target="_blank"> <span class="material-icons">
 																add_circle </span>
 														</a>
@@ -197,10 +197,10 @@
 												<div class="card-header">Información Adicional</div>
 												<div class="card-body text-secondary">
 													<div class="form-group row">
-														<label class="col-form-label col-md-5" for="observacion">Observación</label>
+														<label class="col-form-label col-md-5" for="observacion">Observación (100 caracteres máx.)</label>
 														<div class="col-md-7">
 															<textarea class="form-control" rows="5"
-																th:field="*{obse}"></textarea>
+																th:field="*{obse}" maxlength="100"></textarea>
 														</div>
 													</div>
 												</div>
