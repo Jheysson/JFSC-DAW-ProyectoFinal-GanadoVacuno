@@ -27,6 +27,7 @@ public class GanadoVacunoHembraRowMapper implements RowMapper<GanadoVacunoHembra
 		oGanadoHembra.setCuiaPadr(rs.getInt("cuiaPadr"));
 		oGanadoHembra.setCodiPropInse(rs.getInt("codiPropInse"));
 		oGanadoHembra.setObse(rs.getString("obse"));
+		oGanadoHembra.setImagen(rs.getString("imagen"));
 		return oGanadoHembra;
 	}
 
