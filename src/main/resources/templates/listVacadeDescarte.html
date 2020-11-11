@@ -28,9 +28,7 @@
 									data-target="#addModal" style="margin-bottom: 20px">
 									<span class="material-icons"> library_add </span>
 								</button>
-								<table id="myTable"
-									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
-									style="width: 100%">
+								<table id="myTable" style="width: 100%">
 									<thead>
 										<tr>
 											<th>Id</th>
@@ -41,6 +39,9 @@
 											<th>Etapa</th>
 											<th>Observacion</th>
 											<th>Eliminar</th>
+										</tr>
+									</thead>
+									<tbody>
 										<tr th:each="model : ${listVacadedescarte}">
 											<td th:text="${model.idVacaDesc}"></td>
 											<td th:text="${model.cuiaGana}"></td>
@@ -51,9 +52,10 @@
 											<td th:text="${model.obse}"></td>
 											<td><a class="btn btn-danger"
 												th:onclick="eliminar([[${model.idVacaDesc}]])" role="button"><span
-													class="material-icons" style="color: white"> delete </span></a></td>
+													class="material-icons" style="color: white"> delete
+												</span></a></td>
 										</tr>
-									</thead>
+									</tbody>
 								</table>
 							</div>
 						</div>
@@ -81,7 +83,7 @@
 							<div class="col-md-7">
 								<label for="recipient-name" class="col-form-label">Cuia
 									del ganado:</label> <input type="text" class="form-control"
-									name="cuiaGana" required >
+									name="cuiaGana" required>
 							</div>
 							<div class="col-md-3" style="margin-top: 35px">
 								<div>
@@ -91,7 +93,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<table
+							<table id="myTable"
 								class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
 								style="width: 100%">
 								<thead>
@@ -117,7 +119,8 @@
 						</div>
 
 						<div class="form-group">
-							<label for="recipient-name" class="col-form-label">Observacion (100 caracteres maximo)</label>
+							<label for="recipient-name" class="col-form-label">Observacion
+								(100 caracteres maximo)</label>
 							<textarea class="form-control" name="obse" rows="5"></textarea>
 						</div>
 
@@ -133,6 +136,7 @@
 		</form>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
+
 	<script type="text/javascript">
 			document.getElementById("Buscar").onclick = function buscar() {
 				var x = document.forms["myForm"]["cuiaGana"].value;
@@ -186,5 +190,15 @@
 			});
 	}
 	</script>
+	<script>
+	  $(document).ready(function () {
+	        $('#myTable').DataTable({
+	        	"language": {
+	                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	            }
+	        });
+	    });
+	</script>
+
 </body>
 </html>

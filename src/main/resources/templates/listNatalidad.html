@@ -34,8 +34,7 @@
 										</div>
 									</div>
 								</div>
-								<table id="example"
-									class="display nowrap">
+								<table id="example" class="display nowrap">
 									<thead>
 										<tr>
 											<th>CUIA</th>
@@ -49,8 +48,7 @@
 											<th>Observacion</th>
 											<th>Imagen</th>
 											<th>Acciones</th>
-										
-									</thead>
+										</tr>
 									<tbody>
 										<tr th:each="model : ${listNatalidad}">
 											<td th:text="${model.cuiaNata}" id="CuiaNata"></td>
@@ -89,12 +87,11 @@
 	<script>
 	$(document).ready(function() {
 	    $('#example').DataTable( {
-	        "scrollX": true,
-	        "scrollY": 580,
-	        "language": {
+	    	"language": {
                 "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-            }
-	    });
+            },
+            scrollX: true
+	    } );
 	} );
 	</script>
 	<script>
