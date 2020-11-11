@@ -27,19 +27,19 @@
 							<div class="card-body">
 								<button type="button" class="btn btn-primary"
 									data-toggle="modal" data-target="#addModal"
-									style="margin-bottom: 20px">Agregar</button>
-								<table id="myTable"
-									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
-									style="width: 100%">
+									style="margin-bottom: 20px"><span
+												class="material-icons"> library_add </span></button>
+								<table id="myTable" >
 									<thead>
 										<tr>
 											<th>Numero</th>
-											<th>cuia Ganado</th>
-											<th>Alias Ganado</th>
+											<th>cuia ganado</th>
+											<th>Alias ganado</th>
 											<th>Suplementos</th>
 											<th>Observacion</th>
-											<th>Editar</th>
-											<th>Eliminar</th>
+											<th>Acciones</th>
+											</thead>
+											<tbody>
 										<tr th:each="model : ${listVacaProduccionLeche}">
 											<td th:text="${model.idVacaProd}"></td>
 											<td th:text="${model.cuiaGana}"></td>
@@ -48,12 +48,17 @@
 											<td th:text="${model.observacion}"></td>
 											<td><a class="btn btn-primary"
 												th:href="@{/vacasenproduccionleche/updatevacasenproduccionleche/} + ${model.idVacaProd}"
-												role="button">Editar</a></td>
-												
-											<td><a class="btn btn-danger"
-												th:onclick ="eliminar([[${model.idVacaProd}]])" role="button">Eliminar</a></td>
+												role="button">
+												<span class="material-icons">edit
+												</span>
+												</a>
+												<a class="btn btn-danger"
+												th:onclick ="eliminar([[${model.idVacaProd}]])" role="button">
+												<span class="material-icons" style="color: white">
+														delete </span>
+												</a></td>
 										</tr>
-									</thead>
+									</tbody>
 								</table>
 							</div>
 						</div>
@@ -123,7 +128,11 @@
 		</form>
 	</div>
 	<section th:replace="layout/plantillaRecursos :: query"></section>
-	
+	<script>
+	  $(document).ready(function () {
+	        $('#myTable').DataTable();
+	    });
+	</script>
 	<script>
 	function eliminar(idVacaProd) {
 		console.log(idVacaProd);
@@ -189,11 +198,13 @@
 						result += "fecha Nacimiento: ";
 						result += response1.fechNaciGana + "\n";
 						//alert(result);
+						document.getElementById('cont1').style.color = "#00b300";
 						document.getElementById('cont1').innerHTML = 'El CUIA '
 								+ response1.cuiaGana + ' con Alias "'
 								+ response1.aliaGana + '" es valido';
 						document.myForm.guardar.disabled = false;
 					} else {
+						document.getElementById('cont1').style.color = "#ff0000";
 						document.getElementById('cont1').innerHTML = 'El CUIA ingresado es Incorrecto';
 					}
 				}
