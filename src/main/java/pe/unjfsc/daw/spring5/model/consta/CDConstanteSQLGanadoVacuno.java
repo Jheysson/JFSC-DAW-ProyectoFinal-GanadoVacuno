@@ -7,8 +7,8 @@ public class CDConstanteSQLGanadoVacuno {
 	public static final String SQL_SELECT_ALL_MACHOS = "SELECT * FROM vGanadoMacho";
 	public static final String SQL_INSERT = "INSERT INTO registroGanado (cuiaGana, idSexo, edadGana, etapaGana, aliaGana,"
 			+ " fechNaciGana, pesoGana, tallGana, idEstaActi, idEstaAnim, cantPartGana, "
-			+ "idGeno, idTipoGana, idOrig, cuiaMadr, cuiaPadr, codiPropInse, obse, esta) "
-			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			+ "idGeno, idTipoGana, idOrig, cuiaMadr, cuiaPadr, codiPropInse, obse, esta, imagen) "
+			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM registroganado WHERE cuiaGana = ?";
 	public static final String SQL_UPDATE = "UPDATE " + SQL_TABLE + " SET idSexo = ?, idGeno = ?, edadGana = ?, etapaGana = ?, aliaGana = ?, fechNaciGana = ?, pesoGana= ?, tallGana= ?"
 			+ ",idEstaActi = ?,cantPartGana = ?, idGeno = ?, idTipoGana = ?, idOrig = ?"
