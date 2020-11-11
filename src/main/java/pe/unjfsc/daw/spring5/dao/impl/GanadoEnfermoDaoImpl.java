@@ -1,4 +1,4 @@
-package pe.unjfsc.daw.spring5.dao;
+package pe.unjfsc.daw.spring5.dao.impl;
 
 import java.util.List;
 
@@ -9,8 +9,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import pe.unjfsc.daw.spring5.dao.GanadoEnfermoDao;
 import pe.unjfsc.daw.spring5.model.GanadoEnfermo;
-import pe.unjfsc.daw.spring5.model.CDConstanteSQLGanadoEnfermo;
+import pe.unjfsc.daw.spring5.model.consta.CDConstanteSQLGanadoEnfermo;
 import pe.unjfsc.daw.spring5.model.GanadoEnfermoRowMapper;
 
 @Transactional

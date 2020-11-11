@@ -35,7 +35,7 @@
 										<div class="form-group row">
 											<label class="col-form-label col-md-5"  for="cuiaGana">CUIA</label> 
 											<div class="col-md-7">
-															<input type="text" class="form-control"
+															<input type="text" readonly="readonly" class="form-control"
 																th:field="*{cuiaGana}" />
 														</div>
 												</div>
@@ -50,7 +50,6 @@
 										<div class="col-6">
 											<label for="idEnfe">Enfermedad</label> <select
 												class="form-control col-12" th:field="*{idEnfe}">
-												<option value="0">--Seleccionar--</option>
 												<option value="1">Mastitis</option>
 												<option value="2">Hemolactea</option>
 												<option value="3">Babesiosis</option>

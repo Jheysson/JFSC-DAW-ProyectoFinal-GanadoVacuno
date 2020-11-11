@@ -1,4 +1,4 @@
-package pe.unjfsc.daw.spring5.model;
+package pe.unjfsc.daw.spring5.model.consta;
 
 public class CDConstanteSQLGanadoEnfermo {
 	

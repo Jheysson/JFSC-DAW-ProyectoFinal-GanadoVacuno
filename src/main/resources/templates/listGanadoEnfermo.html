@@ -29,7 +29,11 @@
 							<div class="d-flex">
 										<div class="mr-auto">
 											<div class="form-group">												
-												<a class="btn btn-primary" th:href="@{/ganadoEnfermo/agregarGanadoEnfermo}">Agregar</a>
+												<a class="btn btn-primary"
+												 th:href="@{/ganadoEnfermo/agregarGanadoEnfermo}">
+												 <span
+												class="material-icons"> library_add </span>
+												 </a>
 											</div>
 										</div>
 									</div>
@@ -46,8 +50,8 @@
 											<th>Enfermedad</th>
 											<th>Fecha de ingreso del enfermo</th>
 											<th>Observaciones</th>
-											<th>Editar</th>
-											<th>Dar de alta</th>
+											<th>Acciones</th>
+											<tbody>
 										<tr th:each="model : ${listGanadoEnfermo}">
 											<td th:text="${model.cuiaGana}"></td>
 											<td th:text="${model.aliaGana}"></td>
@@ -58,12 +62,16 @@
 											<td th:text="${model.fechIngr}"></td>
 											<td th:text="${model.obse}"></td>
 											<td><a class="btn btn-primary"
-														th:href="@{/ganadoEnfermo/updateGanadoEnfermo/} + ${model.cuiaGana}" role="button">Editar</a></td>
-														<td><a class="btn btn-danger"
-												th:onclick="eliminar([[${model.cuiaGana}]])" role="button">Brindar alta</a>
+												th:href="@{/ganadoEnfermo/updateGanadoEnfermo/} + ${model.cuiaGana}"
+												role="button"> <span class="material-icons">edit
+												</span></a>
+														<a class="btn btn-danger"
+												th:onclick="eliminar([[${model.cuiaGana}]])" style="color: white" role="button">Brindar alta</a>
 											</td>
 										</tr>
+										
 									</thead>
+									</tbody>
 								</table>
 							</div>
 						</div>
