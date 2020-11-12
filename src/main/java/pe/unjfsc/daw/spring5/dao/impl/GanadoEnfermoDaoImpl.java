@@ -43,6 +43,8 @@ public class GanadoEnfermoDaoImpl implements GanadoEnfermoDao {
 				pGanadoEnfermo.getFechIngr(),
 				pGanadoEnfermo.getObse()
 				);
+		jdbcTemplate.update(CDConstanteSQLGanadoEnfermo.SQL_CHANGE_STATUS_TO_ENFERMO,
+				pGanadoEnfermo.getCuiaGana());
 		
 	}
 

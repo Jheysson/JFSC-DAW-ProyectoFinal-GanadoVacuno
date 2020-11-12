@@ -9,5 +9,7 @@ public class CDConstanteSQLGanadoEnfermo {
 	public static final String SQL_DELETE = "UPDATE " + SQL_TABLE + " SET esta = 0 WHERE cuiaGana = ?";
 	public static final String SQL_SELECT_ALL = "SELECT * FROM vistaganadoenfermo";
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM ganadoenfermo WHERE cuiaGana = ?";
+	
+	public static final String SQL_CHANGE_STATUS_TO_ENFERMO = "UPDATE registroganado SET idEstaAnim = 2 WHERE cuiaGana = ?";
 
 }
