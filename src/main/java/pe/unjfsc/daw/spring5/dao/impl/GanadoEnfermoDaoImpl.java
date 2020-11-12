@@ -62,7 +62,13 @@ public class GanadoEnfermoDaoImpl implements GanadoEnfermoDao {
 	@Override
 	public void deleteGanadoEnfermo(int cuia) {
 		jdbcTemplate.update(CDConstanteSQLGanadoEnfermo.SQL_DELETE, cuia);
-		
+		jdbcTemplate.update(CDConstanteSQLGanadoEnfermo.SQL_ALTA, cuia);
 	}
 
+
 }
+	
+		
+	
+
+
