@@ -37,8 +37,8 @@
 										<div class="form-group row">
 														<label for="codiInseminInput" class="col-form-label col-md-3">Código Pajilla.</label>
 														<div class="col-5">
-															<input id="codiInseminInput" type="number"
-															class="form-control" th:field="*{codiPropInse}" required/>
+															<input id="codiInseminInput" type="number"maxlength="5" oninput="if(this.value.length > this.maxLength)
+								 this.value = this.value.slice(0, this.maxLength);" class="form-control" name="codiPropInse"   required/>
 														</div>
 														<div class="col-3">
 															<input type="button" class="btn btn-rounded btn-success" id="BuscarCodigoInsem" onclick="func()"
