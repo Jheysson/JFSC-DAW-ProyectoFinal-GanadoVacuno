@@ -42,6 +42,16 @@ public class vacadedescarteDaoImpl implements vacadedescarteDao{
 				);
 		
 	}
+	
+	@Override
+	public void updatevacadedescarte(vacadedescarte pvacadedescarte) {
+		jdbcTemplate.update(CDConstanteSQLVacadeDescarte.SQL_UPDATE,
+				pvacadedescarte.getCuiaGana(),
+				pvacadedescarte.getObse(),
+				pvacadedescarte.getIdVacaDesc()
+				);
+		
+	}
 
 	@Override
 	public void deletevacadedescarte(int id) {
@@ -49,12 +59,4 @@ public class vacadedescarteDaoImpl implements vacadedescarteDao{
 		
 	}
 
-	@Override
-	public void updatevacadedescarte(vacadedescarte pvacadedescarte) {
-		jdbcTemplate.update(CDConstanteSQLVacadeDescarte.SQL_UPDATE,
-				pvacadedescarte.getObse(),
-				pvacadedescarte.getIdVacaDesc()
-				);
-		
-	}
 }

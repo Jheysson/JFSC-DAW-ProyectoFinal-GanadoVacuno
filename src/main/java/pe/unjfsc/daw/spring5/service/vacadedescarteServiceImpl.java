@@ -31,14 +31,14 @@ public class vacadedescarteServiceImpl implements vacadedescarteService{
 	}
 
 	@Override
-	public void deletevacadedescarte(int id) {
-		ovacadedescarteDaoImpl.deletevacadedescarte(id);
-		
-	}
-
-	@Override
 	public void updatevacadedescarte(vacadedescarte pvacadedescarte) {
 		ovacadedescarteDaoImpl.updatevacadedescarte(pvacadedescarte);
+		
+	}
+	
+	@Override
+	public void deletevacadedescarte(int id) {
+		ovacadedescarteDaoImpl.deletevacadedescarte(id);
 		
 	}
 

@@ -83,7 +83,8 @@ public class CCNatalidad {
     @RequestMapping(value="natalidad/update", method=RequestMethod.POST)
 	public ModelAndView editarNatalidad(@ModelAttribute("natalidadFormUpdate") natalidad pnatalidad) {
     	natalidadService.updatenatalidad(pnatalidad);
-    	log.info("save" + pnatalidad);
+    	log.info("save" + pnatalidad.getCuiaMadr()
+    				);
 		return new ModelAndView("redirect:/natalidad/ListadoNatalidad");    
     }
     
