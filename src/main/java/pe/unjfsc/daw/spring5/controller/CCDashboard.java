@@ -7,16 +7,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import pe.unjfsc.daw.spring5.model.lecheProducidaDia;
-import pe.unjfsc.daw.spring5.service.lecheProducidaService;
+import pe.unjfsc.daw.spring5.model.cantidadMesProduccionLeche;
+import pe.unjfsc.daw.spring5.model.totalLecheProduccida;
+import pe.unjfsc.daw.spring5.service.cantidadMesProduccionLecheService;
+import pe.unjfsc.daw.spring5.service.totalLecheProduccidaService;
 
 @RestController
 public class CCDashboard {
 	@Autowired
-	private lecheProducidaService plecheProducidaService;
+	private totalLecheProduccidaService ptotalLecheProduccidaService;
 	
-	@RequestMapping(value="/dashboard/linechartdata", method=RequestMethod.GET)
-	public List<lecheProducidaDia> getDataFromDB() {
-		return plecheProducidaService.getAllLecheProducida();
+	@Autowired
+	private cantidadMesProduccionLecheService pcantidadMesProduccionLecheService;
+	
+	@RequestMapping(value="/leche/total", method=RequestMethod.GET)
+	public List<totalLecheProduccida> getDataFromDB() {
+		return ptotalLecheProduccidaService.getAllAño();
+	}
+	
+	@RequestMapping(value="/leche/mesAndCantidad", method=RequestMethod.GET)
+	public List<cantidadMesProduccionLeche> getDataMesCantidad() {
+		return pcantidadMesProduccionLecheService.getMesAndCantidad();
 	}
 }
