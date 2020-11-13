@@ -10,9 +10,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.unjfsc.daw.spring5.model.CDConstanteSQLInseminacion;
 import pe.unjfsc.daw.spring5.model.inseminacion;
 import pe.unjfsc.daw.spring5.model.inseminacionRowMapper;
+import pe.unjfsc.daw.spring5.model.consta.CDConstanteSQLInseminacion;
 
 @Transactional
 @Repository

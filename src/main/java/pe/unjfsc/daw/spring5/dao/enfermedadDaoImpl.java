@@ -10,9 +10,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.unjfsc.daw.spring5.model.CDConstanteSQLEnfermedad;
 import pe.unjfsc.daw.spring5.model.enfermedad;
 import pe.unjfsc.daw.spring5.model.enfermedadRowMapper;
+import pe.unjfsc.daw.spring5.model.consta.CDConstanteSQLEnfermedad;
 
 
 @Transactional

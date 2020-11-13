@@ -10,9 +10,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.unjfsc.daw.spring5.model.CDConstanteSQLComidaGanado;
 import pe.unjfsc.daw.spring5.model.comidaganado;
 import pe.unjfsc.daw.spring5.model.comidaganadoRowMapper;
+import pe.unjfsc.daw.spring5.model.consta.CDConstanteSQLComidaGanado;
 
 @Transactional
 @Repository

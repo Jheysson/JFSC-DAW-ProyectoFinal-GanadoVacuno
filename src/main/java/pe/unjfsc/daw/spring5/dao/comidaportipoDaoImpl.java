@@ -10,9 +10,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import pe.unjfsc.daw.spring5.model.CDConstanteSQLComidaPorTipo;
 import pe.unjfsc.daw.spring5.model.comidaportipo;
 import pe.unjfsc.daw.spring5.model.comidaportipoRowMapper;
+import pe.unjfsc.daw.spring5.model.consta.CDConstanteSQLComidaPorTipo;
 
 @Transactional
 @Repository
