@@ -77,6 +77,9 @@ public class natalidadDaoImpl implements natalidadDao{
 				pnatalidad.getObse(),
 				pnatalidad.getFoto()
 				);
+		jdbcTemplate.update(CDConstanteSQLNatalidad.SQL_CHANGE_SUM_PARTOS,
+				pnatalidad.getCuiaMadr()
+				);
 		
 	}
 

@@ -29,6 +29,11 @@
 									th:action="@{/vacasenproduccionleche/ActualizarVacadeProducciondeLeche}"
 									method="post" th:object="${VacaenProducciondeLecheFormUpdate}">
 									<div class="form-row">
+									<div class="form-group col-md-6">
+											<label for="recipient-name" class="col-form-label">Id:</label> <input type="text" class="form-control"
+												th:field="*{idVacaProd}">
+										</div>
+										
 										<div class="form-group col-md-6">
 											<label for="cuiaGana">Cuia Ganado:</label> <input type="text"
 												class="form-control" readonly="readonly"  th:field="*{cuiaGana}" />
