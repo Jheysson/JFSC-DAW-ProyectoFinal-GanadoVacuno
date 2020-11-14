@@ -27,12 +27,63 @@
 							<div class="card-body">
 								<div class="d-flex no-block">
 									<div class="m-r-20 align-self-center">
-										<span class="lstick m-r-20"></span><img src="img/favicon.ico"
-											alt="Income">
+										<span class="lstick m-r-20"></span><img
+											src="img/icon/expense.png" alt="Income">
 									</div>
 									<div class="align-self-center">
-										<h6 class="text-muted m-t-10 m-b-0">Total de Produccion</h6>
-										<h2 class="m-t-0" id="cont1"></h2>
+										<h6 class="text-muted m-t-10 m-b-0">Total de
+											Produccion(lts)</h6>
+										<h2 class="m-t-0" id="cont1" style="text-align: center;"></h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex no-block">
+									<div class="m-r-20 align-self-center">
+										<span class="lstick m-r-20"></span><img
+											src="img/icon/expense.png" alt="Income">
+									</div>
+									<div class="align-self-center">
+										<h6 class="text-muted m-t-10 m-b-0">Total de Registros</h6>
+										<h2 class="m-t-0" id="cont4" style="text-align: center;"></h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex no-block">
+									<div class="m-r-20 align-self-center">
+										<span class="lstick m-r-20"></span><img
+											src="img/icon/expense.png" alt="Income">
+									</div>
+									<div class="align-self-center">
+										<h6 class="text-muted m-t-10 m-b-0">Total Ganado Macho</h6>
+										<h2 class="m-t-0" id="idRegistroMacho"
+											style="text-align: center;"></h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex no-block">
+									<div class="m-r-20 align-self-center">
+										<span class="lstick m-r-20"></span><img
+											src="img/icon/expense.png" alt="Income">
+									</div>
+									<div class="align-self-center">
+										<h6 class="text-muted m-t-10 m-b-0">Total Ganado Hembra</h6>
+										<h2 class="m-t-0" id="idRegistroHembra"
+											style="text-align: center;"></h2>
 									</div>
 								</div>
 							</div>
@@ -40,79 +91,66 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-12">
+					<div class="col-lg-6">
 						<div class="card">
 							<div class="card-body">
-								<div class="form-row">
-									<div class="col-md-6">
-										<canvas id="myChart"></canvas>
+								<div class="d-flex no-block">
+									<div class="m-r-20 align-self-center">
+										<span class="lstick m-r-20"></span>
 									</div>
-									<div class="col-md-6">
-										<canvas id="myChart1"></canvas>
+									<div class="align-self-center">
+										<h4 class="text-muted m-t-10 m-b-0">Produccion de leche
+											por mes</h4>
+										<br>
 									</div>
-									<div id="cont2"></div>
-									<div id="cont3"></div>
 								</div>
+								<canvas id="myChart1"></canvas>
 							</div>
 						</div>
 					</div>
+					<!--  
+					<div class="col-lg-6">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex no-block">
+									<div class="m-r-20 align-self-center">
+										<span class="lstick m-r-20"></span>
+									</div>
+									<div class="align-self-center">
+										<h4 class="text-muted m-t-10 m-b-0">Produccion de leche
+											por mes</h4>
+										<br>
+									</div>
+								</div>
+								<canvas id="myChart"></canvas>
+							</div>
+						</div>
+					</div>
+					-->
 				</div>
 			</div>
 		</div>
 	</div>
 	<section th:replace="layout/plantilla :: query"></section>
-	<script>
-		var ctx = document.getElementById('myChart');
-		var cantidad = new Array();
-		var mes = new Array();
-		$.getJSON('http://localhost:8080/leche/mesAndCantidad', function(data) {
-			$.each(data, function(key, val) {
-				cantidad.push(val.cantidad);
-				mes.push(val.mes);
-			})
-		});
-		var myChart = new Chart(ctx, {
-			type : 'horizontalBar',
+	<script type="text/javascript" src="js/dashboard.js"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<script type="text/javascript">
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var chart = new Chart(ctx, {
+			type : 'line',
 			data : {
-				labels : mes,
+				labels : [ 'January', 'February', 'March', 'April', 'May',
+						'June', 'July' ],
 				datasets : [ {
-					label : 'Produccion de leche',
-					data : cantidad,
-					backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)' ],
-					borderColor : [ 'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)' ],
-					borderWidth : 1
+					label : 'My First dataset',
+					backgroundColor : 'rgb(255, 99, 132)',
+					borderColor : 'rgb(255, 99, 132)',
+					data : [ 0, 10, 5, 2, 20, 30, 45 ]
 				} ]
 			},
-			options : {
-				scales : {
-					yAxes : [ {
-						ticks : {
-							beginAtZero : true
-						}
-					} ]
-				}
-			}
+			options : {}
 		});
-	</script>
-	<script>
-		$(document).ready(function() {
-			var total = new Array();
-			$.getJSON('http://localhost:8080/leche/total', function(data) {
-				$.each(data, function(key, val) {
-					total.push(val.total);
-					document.getElementById('cont1').innerHTML = total;
-				})
-			});
-		});
-	</script>
+	</script>-->
 </body>
 </html>
 
