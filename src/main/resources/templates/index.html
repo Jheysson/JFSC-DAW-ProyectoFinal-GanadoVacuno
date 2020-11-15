@@ -90,67 +90,260 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-9 col-md-12">
+				<section class="col-lg-12 connectedSortable ui-sortable">
+					<div class="row">
 						<div class="card">
+							<div class="card-header ui-sortable-handle" style="cursor: move;">
+								<h3 class="card-title">
+									<i class="fas fa-chart-pie mr-1"></i> Produccion de leche
+								</h3>
+								<div class="card-tools">
+									<ul class="nav nav-pills ml-auto">
+										<li class="nav-item"><a class="nav-link active"
+											href="#line-chart" data-toggle="tab">Line</a></li>
+										<li class="nav-item"><a class="nav-link"
+											href="#radar-chart" data-toggle="tab">Radar</a></li>
+										<li class="nav-item"><a class="nav-link"
+											href="#doughnut-chart" data-toggle="tab">Doughnut</a></li>
+										<li class="nav-item"><a class="nav-link"
+											href="#bar-chart" data-toggle="tab">Bar</a></li>
+										<li class="nav-item"><a class="nav-link"
+											href="#polarArea-chart" data-toggle="tab">Polar Area</a></li>
+									</ul>
+								</div>
+							</div>
 							<div class="card-body">
-								<div class="d-flex no-block">
-									<div class="m-r-20 align-self-center">
-										<span class="lstick m-r-20"></span>
+								<div class="tab-content p-0">
+									<div class="chart tab-pane active" id="line-chart"
+										style="position: relative; height:400px; width:800px">
+										<div class="chartjs-size-monitor">
+											<div class="chartjs-size-monitor-expand">
+												<div class=""></div>
+											</div>
+											<div class="chartjs-size-monitor-shrink">
+												<div class=""></div>
+											</div>
+										</div>
+										<canvas id="myChart" class="chartjs" width="800" height="400" style="display: block; height: 400px; width: 800px;"></canvas>
 									</div>
-									<div class="align-self-center">
-										<h4 class="text-muted m-t-10 m-b-0">Produccion de leche
-											por mes</h4>
-										<br>
+									<div class="chart tab-pane" id="radar-chart"
+										style="position: relative; height:400px; width:800px">
+										<div class="chartjs-size-monitor">
+											<div class="chartjs-size-monitor-expand">
+												<div class=""></div>
+											</div>
+											<div class="chartjs-size-monitor-shrink">
+												<div class=""></div>
+											</div>
+										</div>
+										<canvas id="myChart1" class="chartjs" width="800" height="400" style="display: block; height: 400px; width: 800px;"></canvas>
+									</div>
+									<div class="chart tab-pane" id="doughnut-chart"
+										style="position: relative; height:400px; width:800px">
+										<div class="chartjs-size-monitor">
+											<div class="chartjs-size-monitor-expand">
+												<div class=""></div>
+											</div>
+											<div class="chartjs-size-monitor-shrink">
+												<div class=""></div>
+											</div>
+										</div>
+										<canvas id="myChart2" class="chartjs" width="800" height="400" style="display: block; height: 400px; width: 800px;"></canvas>
+									</div>
+									<div class="chart tab-pane" id="bar-chart"
+										style="position: relative; height:400px; width:800px">
+										<div class="chartjs-size-monitor">
+											<div class="chartjs-size-monitor-expand">
+												<div class=""></div>
+											</div>
+											<div class="chartjs-size-monitor-shrink">
+												<div class=""></div>
+											</div>
+										</div>
+										<canvas id="myChart3" class="chartjs" width="800" height="400" style="display: block; height: 400px; width: 800px;"></canvas>
+									</div>
+									<div class="chart tab-pane" id="polarArea-chart"
+										style="position: relative; height:400px; width:800px">
+										<div class="chartjs-size-monitor">
+											<div class="chartjs-size-monitor-expand">
+												<div class=""></div>
+											</div>
+											<div class="chartjs-size-monitor-shrink">
+												<div class=""></div>
+											</div>
+										</div>
+										<canvas id="myChart4" class="chartjs" width="800" height="400" style="display: block; height: 400px; width: 800px;"></canvas>
 									</div>
 								</div>
-								<canvas id="myChart1" class="p-relative"></canvas>
 							</div>
 						</div>
 					</div>
-					<!--  
-					<div class="col-lg-6">
-						<div class="card">
-							<div class="card-body">
-								<div class="d-flex no-block">
-									<div class="m-r-20 align-self-center">
-										<span class="lstick m-r-20"></span>
-									</div>
-									<div class="align-self-center">
-										<h4 class="text-muted m-t-10 m-b-0">Produccion de leche
-											por mes</h4>
-										<br>
-									</div>
-								</div>
-								<canvas id="myChart"></canvas>
-							</div>
-						</div>
-					</div>
-					-->
-				</div>
+				</section>
 			</div>
 		</div>
 	</div>
 	<section th:replace="layout/plantilla :: query"></section>
 	<script type="text/javascript" src="js/dashboard.js"></script>
-	<!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<script type="text/javascript">
-		var ctx = document.getElementById('myChart').getContext('2d');
-		var chart = new Chart(ctx, {
-			type : 'line',
-			data : {
-				labels : [ 'January', 'February', 'March', 'April', 'May',
-						'June', 'July' ],
-				datasets : [ {
-					label : 'My First dataset',
-					backgroundColor : 'rgb(255, 99, 132)',
-					borderColor : 'rgb(255, 99, 132)',
-					data : [ 0, 10, 5, 2, 20, 30, 45 ]
-				} ]
-			},
-			options : {}
+		var cantidad1 = new Array();
+		var mes1 = new Array();
+		var porcentaje = new Array();
+		var total = new Array();
+		window.onload = function CargarData() {
+			$.getJSON('http://localhost:8080/leche/total', function(data) {
+				$.each(data, function(key, val) {
+					total.push(val.total);
+				})
+			});
+			$.getJSON('http://localhost:8080/leche/mesAndCantidad', function(
+					data) {
+				$.each(data, function(key, val) {
+					cantidad1.push(val.cantidad);
+					mes1.push(val.mes);
+					porcentaje.push(String(Math.round(val.cantidad/total*100)) + "%");
+				})
+			});
+		}
+		console.log(porcentaje);
+		$(function() {
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type : 'line',
+				data : {
+					labels : mes1,
+					datasets : [ {
+						label : 'Produccion de leche (lts)',
+						data : cantidad1,
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)',
+								'rgba(139, 0, 0, 0.2)',
+								'rgba(128, 0, 255, 0.2)' ],
+						borderColor : [ 'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)', 'rgba(139, 0, 0, 1)',
+								'rgba(128, 0, 255, 1)' ],
+						borderWidth : 1
+					} ]
+				}
+			});
+			var ctx = document.getElementById('myChart1').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type : 'radar',
+				data : {
+					labels : mes1,
+					datasets : [ {
+						label : 'Produccion de leche (lts)',
+						data : cantidad1,
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)',
+								'rgba(139, 0, 0, 0.2)',
+								'rgba(128, 0, 255, 0.2)' ],
+						borderColor : [ 'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)', 'rgba(139, 0, 0, 1)',
+								'rgba(128, 0, 255, 1)' ],
+						borderWidth : 1
+					} ]
+				}
+			});
+			var ctx = document.getElementById('myChart2').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type : 'doughnut',
+				data : {
+					labels : mes1,
+					datasets : [ {
+						label : 'Produccion de leche (lts)',
+						data : cantidad1,
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)',
+								'rgba(139, 0, 0, 0.2)',
+								'rgba(128, 0, 255, 0.2)' ],
+						borderColor : [ 'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)', 'rgba(139, 0, 0, 1)',
+								'rgba(128, 0, 255, 1)' ],
+						borderWidth : 1
+					} ]
+				}
+			});
+			var ctx = document.getElementById('myChart3').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type : 'bar',
+				data : {
+					labels : mes1,
+					datasets : [ {
+						label : 'Produccion de leche (lts)',
+						data : cantidad1,
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)',
+								'rgba(139, 0, 0, 0.2)',
+								'rgba(128, 0, 255, 0.2)' ],
+						borderColor : [ 'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)', 'rgba(139, 0, 0, 1)',
+								'rgba(128, 0, 255, 1)' ],
+						borderWidth : 1
+					} ]
+				}
+			});
+			var ctx = document.getElementById('myChart4').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type : 'polarArea',
+				data : {
+					labels : mes1,
+					datasets : [ {
+						label : 'Produccion de leche (lts)',
+						data : cantidad1,
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)',
+								'rgba(139, 0, 0, 0.2)',
+								'rgba(128, 0, 255, 0.2)' ],
+						borderColor : [ 'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)', 'rgba(139, 0, 0, 1)',
+								'rgba(128, 0, 255, 1)' ],
+						borderWidth : 1
+					} ]
+				}
+			});
 		});
-	</script>-->
+	</script>
 </body>
 </html>
 
