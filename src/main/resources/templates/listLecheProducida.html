@@ -43,6 +43,7 @@
 											<th>fecha Produccion</th>
 											<th>cuia Vaca Productora</th>
 											<th>Alias</th>
+											<th>Observacion</th>
 											<th>Acciones</th>
 										</tr>
 									</thead>
@@ -54,6 +55,12 @@
 											<td th:text="${model.cuiaGana}"></td>
 											<td th:text="${model.aliaGana}"></td>
 
+											<td> <a class="btn btn-success"
+													th:onclick="observacion([[${model.observacion}]])" role="button">
+													<span class="material-icons" style="color: white"> remove_red_eye </span>
+												</a></td>
+											
+												
 											<td><a class="btn btn-primary"
 												th:href="@{/lecheProducida/updateLecheProducida/} + ${model.idLechProd}"
 												role="button"> <span class="material-icons">edit
@@ -106,9 +113,19 @@
 	</script>
 
 	<script>
-	  $(document).ready(function () {
-	        $('#myTable').DataTable();
+	 $(document).ready(function () {
+	        $('#myTable').DataTable({
+	        	"language": {
+	                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	            }
+	        });
 	    });
+	</script>
+	
+	<script>
+	function observacion(observacion) { 
+		swal(observacion);
+	}
 	</script>
 
 </body>

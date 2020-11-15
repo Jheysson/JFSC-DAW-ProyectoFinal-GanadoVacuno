@@ -7,8 +7,15 @@ public class lecheProducidaDia {
 	private String fechLechProd;
 	private int cuiaGana;
 	private String aliaGana;
+	private String observacion;
 	
 	
+	public String getObservacion() {
+		return observacion;
+	}
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
+	}
 	public int getIdLechProd() {
 		return idLechProd;
 	}

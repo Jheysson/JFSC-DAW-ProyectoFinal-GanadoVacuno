@@ -15,6 +15,7 @@ public class lecheProducidaRowMapper implements RowMapper<lecheProducidaDia> {
 	    objLecheProducida.setFechLechProd(rs.getString("fechLechProd"));
 		objLecheProducida.setCuiaGana(rs.getInt("cuiaGana"));
 		objLecheProducida.setAliaGana(rs.getString("aliaGana"));
+		objLecheProducida.setObservacion(rs.getString("observacion"));
 		return objLecheProducida;
 	}
 

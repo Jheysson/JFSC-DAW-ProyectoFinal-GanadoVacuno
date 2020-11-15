@@ -5,8 +5,8 @@ public class CDConstanteSQLecheProducida {
 	public static final String SQL_SCHEMA = "bd_ganadovacuno";
 	public static final String SQL_TABLE = "lecheproducidadia";
 	
-	public static final String SQL_INSERT = "INSERT INTO lecheproducidadia(cantiLitrLechProd,idVacaProd) values (?,?)";
-    public static final String SQL_UPDATE = "UPDATE lecheproducidadia SET cantiLitrLechProd =?, idVacaProd = ? WHERE idLechProd = ?";
+	public static final String SQL_INSERT = "INSERT INTO lecheproducidadia(cantiLitrLechProd,idVacaProd,observacion) values (?,?,?)";
+    public static final String SQL_UPDATE = "UPDATE lecheproducidadia SET cantiLitrLechProd =?, observacion=?  WHERE idLechProd = ?";
 	public static final String SQL_DELETE = "DELETE FROM lecheproducidadia WHERE idLechProd = ? ";
 	
 	//mod

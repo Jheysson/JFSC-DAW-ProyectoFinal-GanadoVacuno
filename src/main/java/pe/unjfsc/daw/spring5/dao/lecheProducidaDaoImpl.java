@@ -54,17 +54,16 @@ public class lecheProducidaDaoImpl implements lecheProducidaDao {
 	public void addLecheProducida(lecheProducidaDia pLecheProducida) {
 		jdbcTemplate.update(CDConstanteSQLecheProducida.SQL_INSERT, 
 				pLecheProducida.getCantiLitrLechProd(),
-				pLecheProducida.getCuiaGana());
+				pLecheProducida.getCuiaGana(),
+		        pLecheProducida.getObservacion());
 	}
 //mod
 	@Override
 	public void updateLecheProducida(lecheProducidaDia pLecheProducida) {
 		jdbcTemplate.update(CDConstanteSQLecheProducida.SQL_UPDATE,
 				pLecheProducida.getCantiLitrLechProd(), 
-				pLecheProducida.getCuiaGana(),
+				pLecheProducida.getObservacion(),
 	         	pLecheProducida.getIdLechProd());
-		
-
 	}
 
 	@Override
