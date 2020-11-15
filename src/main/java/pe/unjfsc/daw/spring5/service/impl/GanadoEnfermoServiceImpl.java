@@ -1,4 +1,4 @@
-package pe.unjfsc.daw.spring5.service;
+package pe.unjfsc.daw.spring5.service.impl;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import pe.unjfsc.daw.spring5.dao.impl.GanadoEnfermoDaoImpl;
 import pe.unjfsc.daw.spring5.model.GanadoEnfermo;
+import pe.unjfsc.daw.spring5.service.GanadoEnfermoService;
 
 @Service
 public class GanadoEnfermoServiceImpl implements GanadoEnfermoService {
