@@ -8,4 +8,6 @@ public class CDConstanteSQLVacadeDescarte {
 	public static final String SQL_UPDATE = "UPDATE " + SQL_TABLE + " SET cuiaGana = ?, obse = ? WHERE idVacaDesc = ?";
 	public static final String SQL_SELECT_ALL = "SELECT * FROM vvacadedescarte";
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM vacadedescarte WHERE idVacaDesc = ?";
+	
+	public static final String SQL_CHANGE_STATUS_TO_DESCARTE = "UPDATE registroganado SET idEstaAnim = 4 WHERE cuiaGana = ?";
 }

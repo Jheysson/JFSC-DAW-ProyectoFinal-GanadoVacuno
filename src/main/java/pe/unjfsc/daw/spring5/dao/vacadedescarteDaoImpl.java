@@ -40,6 +40,9 @@ public class vacadedescarteDaoImpl implements vacadedescarteDao{
 				pvacadedescarte.getCuiaGana(),
 				pvacadedescarte.getObse()
 				);
+		jdbcTemplate.update(CDConstanteSQLVacadeDescarte.SQL_CHANGE_STATUS_TO_DESCARTE,
+				pvacadedescarte.getCuiaGana()
+				);
 		
 	}
 	
