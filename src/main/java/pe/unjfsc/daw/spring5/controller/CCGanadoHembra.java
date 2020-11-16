@@ -22,14 +22,13 @@ import pe.unjfsc.daw.spring5.service.GanadoVacunoHembraService;
 
 @Controller
 public class CCGanadoHembra {
-	
-	//private static final Logger log = LoggerFactory.getLogger("CCNatalidad");
+
 	
 	@Autowired
 	private GanadoVacunoHembraService ganadoVacunoHembraService;
 	
 	
-	@RequestMapping(value = "ganadoVacuno/ListadoGanadoHembra.lhs")
+	@RequestMapping(value = "ganadoVacuno/ListadoGanadoHembra")
 	public ModelAndView listarGanado() {		
 		ModelAndView model = new ModelAndView();
 		List<GanadoVacunoHembra> list = ganadoVacunoHembraService.getGanadoVacunoHembra();
@@ -73,11 +72,9 @@ public class CCGanadoHembra {
 		}else {
 			ganadoVacunoHembraService.addGanadoVacunoHembra(pGanadoVacunoHembra);
 		}
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");	
-		
-			
-	}
-	
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra");	
+					
+	}	
 	
 	@RequestMapping(value = "ganadoVacuno/updateGanadoHembra/{cuia}", method = RequestMethod.GET)
 	public ModelAndView updateGanadoHembra(@PathVariable int cuia) {
@@ -91,44 +88,19 @@ public class CCGanadoHembra {
 	@RequestMapping(value = "ganadoVacuno/updateGHembra", method = RequestMethod.POST)
 	public ModelAndView editarGanadoHembra(@ModelAttribute("ganadoHembraFormUpdate") GanadoVacunoHembra pGanadoVacunoHembra) {
 		ganadoVacunoHembraService.updateGanadoVacunoHembra(pGanadoVacunoHembra);
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra");
 	}
 	
 	@RequestMapping(value = "/ganadoVacuno/eliminarGanadoHembra/{cuia}", method = RequestMethod.GET)
 	public ModelAndView deleteGanadoHembra(@PathVariable("cuia") int cuia) {
 		ganadoVacunoHembraService.deleteGanadoVacunoHembra(cuia);
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra");
 	}
 	@RequestMapping(value = "/ganadoVacuno/UpdateAllHembras", method = RequestMethod.GET)
 	public ModelAndView updateAllHembras() {
 		ganadoVacunoHembraService.updateAllHembras();
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra.lhs");
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoHembra");
 	}
-	
-	//public ResponseEntity<Boolean> validadHembraApta(@PathVariable("cuia") int cuia) {
-	/*@RequestMapping(value ="/consultar", method = RequestMethod.POST)
-	
-	
-	public ResponseEntity<Boolean> validadHembraApta(@RequestBody int cuia) {
-		boolean apta = false;
-		GanadoVacuno pGanadoVacuno = ganadoVacunoService.findHembrasAptas(cuia);
-		log.info("HEMBRA APTA ENCONTRADA: {}", pGanadoVacuno);
-		if (pGanadoVacuno == null) {
-			apta = false;
-		}else {
-			apta = true;
-		}
-		//return apta;
-	    return new ResponseEntity<Boolean>(apta, HttpStatus.OK);
 
-	}
-	/*
-	@RequestMapping(value="/natalidad/eliminarNatalidad/{cuia}", method=RequestMethod.GET)
-    public ModelAndView deleteNatalidad(@PathVariable("cuia") int cuia) {
-    	natalidadService.deletenatalidad(cuia);
-    	return new ModelAndView("redirect:/natalidad/ListadoNatalidad"); 
-    	
-    }
-	 * */
 
 }

@@ -92,7 +92,14 @@
 											<td th:text="${model.cuiaMadr}"></td>
 											<td th:text="${model.cuiaPadr}"></td>
 											<td th:text="${model.codiPropInse}"></td>
-											<td th:text="${model.obse}"></td>	
+											<td>
+												<a class="btn btn-success"
+													th:onclick="Observacion([[${model.obse}]])" role="button">
+													<span class="material-icons" style="color: white">
+														remove_red_eye
+													</span>
+												</a>
+											</td>	
 											<td><img th:src="@{'/uploads/'+${model.imagen}}"
 												width="40" class="img-circle" th:alt="${model.imagen}">
 											</td>
@@ -160,11 +167,16 @@
 			      icon: "success",
 			    }).then((ok)=>{
 			    	if(ok){
-			    		location.href="/ganadoVacuno/ListadoGanadoHembra.lhs";
+			    		location.href="/ganadoVacuno/ListadoGanadoHembra";
 			    	}
 			    });
 			  } 
 			});
+	}
+	</script>
+	<script>
+	function Observacion(obse) { 
+		swal(obse);
 	}
 	</script>
 </body>

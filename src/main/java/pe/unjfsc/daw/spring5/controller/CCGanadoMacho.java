@@ -20,13 +20,12 @@ import pe.unjfsc.daw.spring5.service.GanadoVacunoMachoService;
 
 @Controller
 public class CCGanadoMacho {
-//private static final Logger log = LoggerFactory.getLogger("CCNatalidad");
 	
 	@Autowired
 	private GanadoVacunoMachoService ganadoVacunoMachoService;
 	
 	
-	@RequestMapping(value = "ganadoVacuno/ListadoGanadoMacho.lhs")
+	@RequestMapping(value = "ganadoVacuno/ListadoGanadoMacho")
 	public ModelAndView listarGanado() {		
 		ModelAndView model = new ModelAndView();
 		List<GanadoVacunoMacho> list = ganadoVacunoMachoService.getGanadoVacunoMacho();
@@ -52,14 +51,13 @@ public class CCGanadoMacho {
 				Files.write(rutaAbsoluta, bytes);
 				pGanadoVacunoMacho.setImagen(imagen.getOriginalFilename());
 			} catch (Exception e) {
-				// TODO: handle exception
 			}
 			ganadoVacunoMachoService.addGanadoVacunoMacho(pGanadoVacunoMacho);
 		}else {
 			ganadoVacunoMachoService.addGanadoVacunoMacho(pGanadoVacunoMacho);
 		}
 		
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");		
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho");		
 	}
 	@RequestMapping(value = "ganadoVacuno/updateGanadoMacho/{cuia}", method = RequestMethod.GET)
 	public ModelAndView updateGanadoMacho(@PathVariable int cuia) {
@@ -72,19 +70,19 @@ public class CCGanadoMacho {
 	@RequestMapping(value = "ganadoVacuno/updateGMacho", method = RequestMethod.POST)
 	public ModelAndView editarGanadoMacho(@ModelAttribute("ganadoMachoFormUpdate") GanadoVacunoMacho pGanadoVacunoMacho) {
 		ganadoVacunoMachoService.addGanadoVacunoMacho(pGanadoVacunoMacho);
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho");
 	}
 	
 	@RequestMapping(value = "/ganadoVacuno/eliminarGanadoMacho/{cuia}", method = RequestMethod.GET)
 	public ModelAndView deleteGanadoMacho(@PathVariable("cuia") int cuia) {
 		ganadoVacunoMachoService.deleteGanadoVacunoMacho(cuia);
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho");
 	}
 	///ganadoVacuno/UpdateAllMachos
 	@RequestMapping(value = "/ganadoVacuno/UpdateAllMachos", method = RequestMethod.GET)
 	public ModelAndView updateAllMachos() {
 		ganadoVacunoMachoService.updateAllMachos();
-		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho.lhs");
+		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho");
 	}
 
 }

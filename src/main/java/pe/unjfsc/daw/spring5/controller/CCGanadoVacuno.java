@@ -17,13 +17,12 @@ import pe.unjfsc.daw.spring5.service.GanadoVacunoService;
 
 @Controller
 public class CCGanadoVacuno {
-	//private static final Logger log = LoggerFactory.getLogger("CCNatalidad");
 	
 	@Autowired
 	private GanadoVacunoService ganadoVacunoService;
 	
 	
-	@RequestMapping(value = "ganadoVacuno/ListadoGanadoVacuno.lhs")
+	@RequestMapping(value = "ganadoVacuno/ListadoGanadoVacuno")
 	public ModelAndView listarGanado() {		
 		ModelAndView model = new ModelAndView();
 		List<GanadoVacuno> list = ganadoVacunoService.getAllGanadoVacuno();
