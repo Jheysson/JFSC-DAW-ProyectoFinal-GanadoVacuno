@@ -10,7 +10,7 @@ public class CDConstanteSQLVacaEnProduccionLeche {
 	public static final String SQL_SELECT_BY_ID = "SELECT * FROM vvacaproduccionleche WHERE idVacaProd = ?";
 	
 
-	public static final String SQL_SELECT_BY_CUIA_GANADO = "SELECT * FROM registroganado WHERE cuiaGana = ?";
+	public static final String SQL_SELECT_BY_CUIA_GANADO = "SELECT * FROM vganadohembra WHERE cuiaGana = ?";
 	
 	public static final String SQL_CAMBIAR_ESTADO_GANADO="UPDATE registroganado SET idEstaActi = 1 WHERE cuiaGana = ?";
 
