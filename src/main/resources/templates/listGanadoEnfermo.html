@@ -52,6 +52,7 @@
 											<th>Observaciones</th>
 											<th>Editar</th>
 											<th>Brindar de alta</th>
+											<th>Dar de baja</th>
 											<tbody>
 										<tr th:each="model : ${listGanadoEnfermo}">
 											<td th:text="${model.cuiaGana}"></td>
@@ -74,6 +75,11 @@
 														<a 
 												th:onclick="eliminar([[${model.cuiaGana}]])" style="color: white" role="button"><input type=image src="/../../../img/icon/altaganado.png" width="50" height="42"></a>
 											</td>
+											<td>
+														<a 
+												th:onclick="eliminar([[${model.cuiaGana}]])" style="color: white" role="button"><input type=image src="/../../../img/icon/ganadoMuerto.png" width="50" height="42"></a>
+												
+											</td>
 										</tr>
 										
 									</thead>
@@ -91,7 +97,7 @@
 	function eliminar(cuiaGana) {
 		console.log(cuiaGana);
 		swal({
-			  title: "Esta apunto de dar de alta el registro con el CUIA "+ cuiaGana,
+			  title: "Esta apunto de dar de baja al registro con el CUIA "+ cuiaGana,
 			  text: "¿Desea continuar?",
 			  icon: "warning",
 			  buttons: true,
@@ -105,11 +111,11 @@
 						console.log(res);
 					},			
 				  });
-			    swal("¡Registro brindado de alta!", {
+			    swal("¡Registro dado de baja!", {
 			      icon: "success",
 			    }).then((ok)=>{
 			    	if(ok){
-			    		location.href="/ganadoEnfermo/ListadoGanadoEnfermo";
+			    		location.href="/ganadoMuerto/ListadoGanadoMuerto";
 			    	}
 			    });
 			  } 
