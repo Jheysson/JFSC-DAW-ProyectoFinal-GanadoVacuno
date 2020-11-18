@@ -69,7 +69,7 @@ public class CCGanadoMacho {
 	}
 	@RequestMapping(value = "ganadoVacuno/updateGMacho", method = RequestMethod.POST)
 	public ModelAndView editarGanadoMacho(@ModelAttribute("ganadoMachoFormUpdate") GanadoVacunoMacho pGanadoVacunoMacho) {
-		ganadoVacunoMachoService.addGanadoVacunoMacho(pGanadoVacunoMacho);
+		ganadoVacunoMachoService.updateGanadoVacunoMacho(pGanadoVacunoMacho);
 		return new ModelAndView("redirect:/ganadoVacuno/ListadoGanadoMacho");
 	}
 	
