@@ -185,11 +185,24 @@
 	<section th:replace="layout/plantilla :: query"></section>
 	<script type="text/javascript" src="js/dashboard.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<!--  
+	<script type="text/javascript">
+	const urlTotal = 'http://localhost:8080/leche/total';
+	fetch(urlTotal)
+			.then(resp => resp.json())
+			.then(data => {
+				var total = JSON.stringify(data.total);
+
+				console.log(total);
+			});
+	</script>
+	-->
 	<script type="text/javascript">
 		var cantidad1 = new Array();
 		var mes1 = new Array();
 		var porcentaje = new Array();
 		var total = new Array();
+				
 		window.onload = function CargarData() {
 			$.getJSON('http://localhost:8080/leche/total', function(data) {
 				$.each(data, function(key, val) {
@@ -205,6 +218,7 @@
 				})
 			});
 		}
+		console.log(total);
 		console.log(porcentaje);
 		$(function() {
 			var ctx = document.getElementById('myChart').getContext('2d');
