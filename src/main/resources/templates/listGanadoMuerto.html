@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <head th:replace="layout/plantillaRecursos :: head"></head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body class="fix-header card-no-border fix-sidebar">
 	<div id="main-wrapper">
@@ -26,42 +26,40 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body">
-							<div class="d-flex">
-										<div class="mr-auto">
-											<div class="form-group">												
-												<a class="btn btn-primary"
-												 th:href="@{/ganadoMuerto/agregarGanadoMuerto}">
-												 <span
-												class="material-icons"> library_add </span>
-												 </a>
-											</div>
+								<div class="d-flex">
+									<div class="mr-auto">
+										<div class="form-group">
+											<button type="button" class="btn btn-info"
+												data-toggle="modal" data-target="#addModal"
+												style="margin-bottom: 20px">
+												<span class="material-icons"> library_add </span>
+											</button>
 										</div>
 									</div>
+								</div>
 								<table id="myTable"
 									class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
 									style="width: 100%">
 									<thead>
 										<tr>
-											<th>CUIA </th>
+											<th>CUIA</th>
 											<th>Alias</th>
 											<th>Fecha de nacimiento</th>
 											<th>Edad (Meses)</th>
 											<th>Etapa</th>
 											<th>Causa de muerte</th>
-											<tbody>
+									<tbody>
 										<tr th:each="model : ${listGanadoMuerto}">
 											<td th:text="${model.cuiaGana}"></td>
 											<td th:text="${model.aliaGana}"></td>
 											<td th:text="${model.fechNaciGana}"></td>
 											<td th:text="${model.edadGana}"></td>
 											<td th:text="${model.nombEtapa}"></td>
-											<td> <a class="btn btn-success"
-													th:onclick="CausMuer([[${model.causMuer}]])" role="button">
-													<span class="material-icons" style="color: white"> remove_red_eye </span>
-												</a></td>
-										
-										
-									
+											<td><a class="btn btn-success"
+												th:onclick="CausMuer([[${model.causMuer}]])" role="button">
+													<span class="material-icons" style="color: white">
+														remove_red_eye </span>
+											</a></td>
 									</tbody>
 								</table>
 							</div>
@@ -71,11 +69,122 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal fade" id="addModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<form th:action="@{/ganadoMuerto/agregarGanadoMuerto}" method="post"
+			name="myForm">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Nuevo Registro</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<div class="form-group row">
+							<div class="col-md-7">
+								<label for="recipient-name" class="col-form-label">Cuia
+									del ganado:</label> <input type="text" class="form-control"
+									name="cuiaGana" required>
+							</div>
+							<div class="col-md-3" style="margin-top: 35px">
+								<div>
+									<input type="button" id="Buscar" onclick="buscar()"
+										value="Validar" class="btn btn-warning" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<table id="myTable"
+								class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint"
+								style="width: 100%">
+								<thead>
+									<tr>
+										<th>Cuia</th>
+										<th>Edad</th>
+										<th>Etap</th>
+										<th>Alias</th>
+										<th>Fecha de Nacimiento</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td id="ValiCuia"></td>
+										<td id="ValiEdad"></td>
+										<td id="ValiEtap"></td>
+										<td id="ValiAlias"></td>
+										<td id="ValiFechaNacimiento"></td>
+									</tr>
+								</tbody>
+							</table>
+							<span id="cont1"></span>
+						</div>
+
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">Causa de la Muerte
+								(300 caracteres maximo)</label>
+							<textarea class="form-control" name="causMuer" rows="5"></textarea>
+						</div>
+
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-danger">Guardar</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	
 	<section th:replace="layout/plantillaRecursos :: query"></section>
 	<script>
-	function CausMuer(causMuer) { 
-		swal(causMuer);
-	}
+		function CausMuer(causMuer) {
+			swal(causMuer);
+		}
+	</script>
+	<script type="text/javascript">
+			document.getElementById("Buscar").onclick = function buscar() {
+				var x = document.forms["myForm"]["cuiaGana"].value;
+				var Url = "http://localhost:8080/buscar/verificarMadreGanadoVacuno/"
+						+ x;
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', Url, true);
+				xhr.send();
+				xhr.onreadystatechange = processRequest;
+				function processRequest(e) {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var response1 = JSON.parse(xhr.responseText);
+						document.getElementById('ValiCuia').innerHTML = response1.cuiaGana;
+						document.getElementById('ValiEdad').innerHTML = response1.edadGana;
+						document.getElementById('ValiEtap').innerHTML = response1.etapaGana;
+						document.getElementById('ValiAlias').innerHTML = response1.aliaGana;
+						document.getElementById('ValiFechaNacimiento').innerHTML = response1.fechNaciGana;
+						document.getElementById('cont1').innerHTML = 'El cuia ingresado Valido';
+					}else {
+						document.getElementById('cont1').innerHTML = 'El cuia ingresado es Incorrecto';
+						document.getElementById('ValiCuia').innerHTML = "-";
+						document.getElementById('ValiEdad').innerHTML = "-";
+						document.getElementById('ValiEtap').innerHTML = "-";
+						document.getElementById('ValiAlias').innerHTML = "-";
+						document.getElementById('ValiFechaNacimiento').innerHTML = "-";
+					}
+				}
+		}
+			</script>
+			<script>
+	  $(document).ready(function () {
+	        $('#myTable').DataTable({
+	        	"language": {
+	                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+	            }
+	        });
+	    });
 	</script>
 </body>
 </html>

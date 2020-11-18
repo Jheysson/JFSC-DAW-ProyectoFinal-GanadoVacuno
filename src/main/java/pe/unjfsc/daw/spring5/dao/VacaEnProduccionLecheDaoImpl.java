@@ -50,6 +50,8 @@ public class VacaEnProduccionLecheDaoImpl implements VacaEnProduccionLecheDao{
 				pvacasenproduccionleche.getIdSuple(),
 				pvacasenproduccionleche.getObservacion()
 				);
+		jdbcTemplate.update(CDConstanteSQLVacaEnProduccionLeche.SQL_CAMBIAR_ESTADO_GANADO,
+				pvacasenproduccionleche.getCuiaGana());
 		
 	}
 

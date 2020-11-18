@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,6 +30,13 @@ public class CCGanadoMuerto {
 	    	model.setViewName("listGanadoMuerto");
 			return model;
 		}
+	 
+	 @PostMapping(value = "ganadoMuerto/agregarGanadoMuerto")
+	 public String addGanadoMuerto( GanadoMuerto pGanadoMuerto) {
+		 GanadoMuertoService.addGanadoMuerto(pGanadoMuerto);
+		 return "redirect:/ganadoMuerto/ListadoGanadoMuerto";
+	 }
+	 /*
 	 @RequestMapping(value = "ganadoMuerto/agregarGanadoMuerto", method=RequestMethod.GET)
 	 public ModelAndView addGanadoMuerto() {
 		 ModelAndView model = new ModelAndView();
@@ -45,5 +53,5 @@ public class CCGanadoMuerto {
 		 log.info("save" + pGanadoMuerto);
 		 return new ModelAndView("redirect:/ganadoMuerto/ListadoGanadoMuerto");
 	 }
-	 
+	*/ 
 }
